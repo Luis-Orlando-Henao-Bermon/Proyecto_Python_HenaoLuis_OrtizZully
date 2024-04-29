@@ -9,8 +9,6 @@ def menuCamper():
     /////////////////////////////////////////////////
 """)
 
-menuCamper()
-
 def menuCamperOpc1():
     print("""
     ---------------------REPORTES---------------------
@@ -21,7 +19,6 @@ def menuCamperOpc1():
           5). Modulo en el que se encuetra el camper.
     --------------------------------------------------
 """)
-menuCamperOpc1()
 
 def menuCamperOpc3():
     print("""
@@ -31,7 +28,6 @@ def menuCamperOpc3():
           3). Cambiar telefono fijo.
     --------------------------------------------------------
 """)
-menuCamperOpc3()
 
 def menuTrainer():
     print("""
@@ -43,7 +39,6 @@ def menuTrainer():
     ---------------------------------------------------
     ///////////////////////////////////////////////////
 """)
-menuTrainer()
 
 def munuTrainerOpc3():
     print("""
@@ -53,7 +48,6 @@ def munuTrainerOpc3():
           3). Cambiar telefono fijo 
     -----------------------------------------------------
 """)
-menuCamperOpc3()
 
 def menuCoordinador():
     print("""
@@ -68,7 +62,6 @@ def menuCoordinador():
     -----------------------------------------------------------------------
     ///////////////////////////////////////////////////////////////////////
 """)
-menuCoordinador()
 
 def menuCoordinadorOpc6():
     print("""
@@ -81,5 +74,4 @@ def menuCoordinadorOpc6():
           6). Mostrar cuantos campers perdieron y aprobaron cada modulo. 
     ----------------------------------------------------------------------------------------------------
 """)
-menuCoordinadorOpc6(0)
     

@@ -1,4 +1,76 @@
 import json 
+#a continuacion estaran las funciones de los menus que se van a necesitar
+def menuCamper():
+    print("/////////////////////////////////////////////////\n-------------- Bienvenido",archivo["Campers"][i]["nombres"],"""----------------------------
+          1). Reportes
+          2). Cambiar usuarios y contraseñas.
+          3). Cambiar informacion.
+    -------------------------------------------------
+    /////////////////////////////////////////////////
+""")
+
+def menuCamperOpc1():
+    print("""
+    ---------------------REPORTES---------------------
+          1). Mostrar datos del Camper.
+          2). Riesgo del camper.
+          3). Ruta del camper.
+          4). Trainer del camper
+          5). Modulo en el que se encuetra el camper.
+    --------------------------------------------------
+""")
+
+def menuCamperOpc3():
+    print("""
+    ----------------- Cambiar información ------------------
+          1). Cambiar dirección.
+          2). Cambiar telefono movil.
+          3). Cambiar telefono fijo.
+    --------------------------------------------------------
+""")
+
+def menuTrainer():
+    print("///////////////////////////////////////////////////\n----------- BIENVENIDO", archivo["Trainers"][q]["nombres"],"""--------------------
+          1). Cambiar usuario y contraseña
+          2). Ruta de entrenamiento.
+          3). Cambiar información.
+    ---------------------------------------------------
+    ///////////////////////////////////////////////////
+""")
+
+def munuTrainerOpc3():
+    print("""
+    ----------------- Cambiar información ---------------
+          1). Cambiar dirección.
+          2). Cambiar telefono movil.
+          3). Cambiar telefono fijo 
+    -----------------------------------------------------
+""")
+
+def menuCoordinador():
+    print("//////////////////////////////////////////////////////////////////////\n-------------------- BIENVENIDO",archivo["Coordinador"]["nombres"],"""--------------------------
+          1). Cambiar usuarios y contraseñas de todo el sistema educativo.
+          2). Cambiar informacion de todo el sistema educativo.
+          3). Agregar nota de examen de aprobación.
+          4). Agregar nota de filtro. 
+          5). Consultar cuales campers se encuentra en riego.
+          6). Reporte.
+    -----------------------------------------------------------------------
+    ///////////////////////////////////////////////////////////////////////
+""")
+
+def menuCoordinadorOpc6():
+    print("""
+    ---------------------------------    Reporte   ----------------------------------------------------
+          1). Listar los campers que se encuentre en estado inscrito.
+          2). Listar los campers que aprobaron el examen final.
+          3). Listar los trainers que se encuentre trabajando en Campusland. 
+          4). Litar los campers que se encuentre en bajo rendimiento.
+          5). Listar los campers y trainers que se encuentren asociados a una ruta de entretenimiento.
+          6). Mostrar cuantos campers perdieron y aprobaron cada modulo. 
+    ----------------------------------------------------------------------------------------------------
+""")
+    
 
 with open("./Campusland.json", encoding="utf-8") as file:#con esto se abre el archivo de campusland.json que es donde esta toda la informacion
     archivo=json.load(file)
@@ -10,39 +82,62 @@ x=0#esto es para saber si hay alguien con ese usuario ya que si hay alguien con 
 while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo tanto se repetira el bucle while (antes de repetir el bucle se pide que se ingrese de nuevo el usuario para poder ver si el ingresado nuevamente esta o no )
     for i in range(len(archivo["Campers"])):#se usa un bucle for para recorra cada una  de las pociciones de los campers
 
-        if user in archivo["Campers"][i]["user"]["login"]:#se miran todas las pociciones de los campers y si el usuario (login) alguno de ellos coinciden con el ingresado x pasa a valer 1 y se rompe el bucle de while 
+        if user==archivo["Campers"][i]["user"]["login"]:#se miran todas las pociciones de los campers y si el usuario (login) alguno de ellos coinciden con el ingresado x pasa a valer 1 y se rompe el bucle de while 
 
             x+=1
             passwordCamper=input("Ingresa la contraseña\n")#despues de saber cual es el camper con ese usuario se le pide la contraseña 
 
             while passwordCamper not in archivo["Campers"][i]["user"]["contraseña"]:#se usa un bucle while porque mientras que la contraseña ingresada no este en archivo["Campers"][i]["user"]["contraseña"] (que es la direcion en donde esta la contraseña en el archivo) se repetira el bucle que lo que hace es volver a pedirle la contraseña 
                 passwordCamper=input("Contraseña incorrecta ingresela otra vez\n")
-            
-            print("Bienvenido",archivo["Campers"][i]["nombres"] )    
 
+            menuCamper()#aca se llama al menu de las opciones de camper 
+            try:
+                opcMenuCamper=int(input("Ingresa tu opcion\n"))#se pide la opcion a escoger en el menu y en caso de que ingrese una letra para que no muestre un error se pide que ingrese una letra y se lee en la misma variable 
+                while opcMenuCamper<1 or opcMenuCamper>3:
+                    opcMenuCamper=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 3 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla 
+            except ValueError:
+                opcMenuCamper=int(input("Ingresa una opcion valida (Numero)\n"))
+                while opcMenuCamper<1 or opcMenuCamper>3:
+                    opcMenuCamper=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 3 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+            
     for q in range(len(archivo["Trainers"])):#se usa un bucle for para recorra cada una  de las pociciones de los trainers
-        if user in archivo["Trainers"][q]["user"]["login"]:
+
+        if user == archivo["Trainers"][q]["user"]["login"]:#se miran todas las pociciones de los trainers y si el usuario (login) alguno de ellos coinciden con el ingresado x pasa a valer 1 y se rompe el bucle de while
 
             x+=1
-            passwordTrainer=input("Ingresa la contraseña\n")
+            passwordTrainer=input("Ingresa la contraseña\n")#despues de saber cual es el Trainer con ese usuario se le pide la contraseña 
             
-            while passwordTrainer not in archivo["Trainers"][q]["user"]["contraseña"]:
+            while passwordTrainer not in archivo["Trainers"][q]["user"]["contraseña"]:#se usa un bucle while porque mientras que la contraseña ingresada no este en ["Trainers"][q]["user"]["contraseña"] (que es la direcion en donde esta la contraseña en el archivo) se repetira el bucle que lo que hace es volver a pedirle la contraseña 
                 passwordTrainer=input("Contraseña incorrecta ingresela otra vez\n")
-
-            print("Bienvenido",archivo["Trainers"][q]["nombres"])
             
-            
+            menuTrainer()
+            try:
+                opcMenuTrainer=int(input("Ingresa tu opcion\n"))#se pide la opcion a escoger en el menu y en caso de que ingrese una letra para que no muestre un error se pide que ingrese una letra y se lee en la misma variable
+                while opcMenuTrainer<1 or opcMenuTrainer>3:
+                    opcMenuTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 3 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
 
-    if user in archivo["Coordinador"]["user"]["login"]:#como se sabe que solo hay un coordinador mira si en coordinador esta ese usuario ingresado 
+            except ValueError:
+                opcMenuTrainer=int(input("Ingresa una opcion valida (Numero)\n"))
+                while opcMenuTrainer<1 or opcMenuTrainer>3:
+                    opcMenuTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 3 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+
+    if user == archivo["Coordinador"]["user"]["login"]:#como se sabe que solo hay un coordinador mira si en coordinador esta ese usuario ingresado 
 
         x+=1
-        passwordCoordinador=input("Ingresa la contraseña\n")
+        passwordCoordinador=input("Ingresa la contraseña\n")#si el usuario ingresado es el del coordinador se le pide la contraseña
 
-        while passwordCoordinador not in archivo["Coordinador"]["user"]["contraseña"]:
+        while passwordCoordinador not in archivo["Coordinador"]["user"]["contraseña"]:#se usa un bucle while porque mientras que la contraseña ingresada no este en ["Coordinador"]["user"]["contraseña"] (que es la direcion en donde esta la contraseña en el archivo) se repetira el bucle que lo que hace es volver a pedirle la contraseña 
             passwordCoordinador=input("Contraseña incorrecta ingresela otra vez\n")
-        
-        print("Bienvenido",archivo["Coordinador"]["nombres"])
 
+        menuCoordinador()
+        try:
+            opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
+            while opcMenuCoordinador<1 or opcMenuCoordinador>6:
+                    opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+        except ValueError:
+            opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
+            while opcMenuCoordinador<1 or opcMenuCoordinador>6:
+                    opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
     if x==0:
         user=input("No se encontro el usuario ingreselo nuevamente\n")
 
