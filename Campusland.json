@@ -17,15 +17,14 @@
             "fechaInicio": "19-02-2024",
             "grupo": "T2",
             "ruta": "Nodejs",
-            "modulos": "Fundamentos de programacion (Introducci\u00f3n a la algoritmo)",
-            "trainer": "Pedro jose",
-            "riesgo": "bajo"
+            "m\u00f3dulos": "Fundamentos de programacion (Introducci\u00f3n a la algoritmo)",
+            "trainer": "Pedro jose"
         },
         {
             "id": "956443",
             "user": {
-                "login": "zul",
-                "contrase\u00f1a": "Zully09"
+                "login": "zu0910",
+                "contrase\u00f1a": "zully0910"
             },
             "numeroIdentificacion": "10936265354",
             "nombres": "Zully Fernanda",
