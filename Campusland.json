@@ -1,0 +1,99 @@
+{
+    "Campers": [
+        {
+            "user": {
+                "login": "luorheber",
+                "contrase\u00f1a": "luis123"
+            },
+            "numeroIdentificacion": "1003035210",
+            "nombres": "Luis Orlando",
+            "apellidos": "Henao Bermon",
+            "direccion": "Camilo Torres - Tibu",
+            "acudiente": "Blanca Smith Bermon Garay",
+            "telefonoCelular": "3003426875",
+            "telefonoFijo": "513521341",
+            "estado": "Cursando",
+            "fechaInicio": "19-02-2024",
+            "grupo": "T2",
+            "ruta": "Nodejs",
+            "m\u00f3dulos": "Fundamentos de programacion (Introducci\u00f3n a la algoritmo)",
+            "trainer": "Pedro jose"
+        },
+        {
+            "user": {
+                "login": "zu0910",
+                "contrase\u00f1a": "zully0910"
+            },
+            "numeroIdentificacion": "10936265354",
+            "nombres": "Zully Fernanda",
+            "apellidos": "Ortiz Avenda\u00f1o",
+            "direccion": "Diocesano - Tibu",
+            "acudiente": "Zully Fabiola Avenda\u00f1o",
+            "telefonoCelular": "3125355906",
+            "telefonoFijo": "59633416912",
+            "estado": "Inscrito"
+        }
+    ],
+    "Trainers": [
+        {
+            "user": {
+                "login": "pedrosqui2",
+                "contrase\u00f1a": "pedrin7865"
+            },
+            "numeroIdentificacion": "88563265",
+            "nombres": "Pedro jose",
+            "apellidos": "Perez Sanchez",
+            "direccion": "Bucaramanga",
+            "telefonoCelular": "3266598821",
+            "telefonoFijo": "9862656518",
+            "seciones": [
+                {
+                    "horario": 1,
+                    "ruta": "Java",
+                    "grupo": "T1"
+                },
+                {
+                    "horario": 2,
+                    "ruta": "Netcore",
+                    "grupo": "T2"
+                }
+            ]
+        },
+        {
+            "user": {
+                "login": "andregarz",
+                "contrase\u00f1a": "micha6678"
+            },
+            "numeroIdentificacion": "88563265",
+            "nombres": "Michael Andres",
+            "apellidos": "Garzon Ramirez",
+            "direccion": "Bucaramanga",
+            "telefonoCelular": "3285313513",
+            "telefonoFijo": "58416543521",
+            "seciones": [
+                {
+                    "horario": 1,
+                    "ruta": "Java",
+                    "grupo": "T3"
+                },
+                {
+                    "horario": 2,
+                    "ruta": "Nodejs",
+                    "grupo": "T1"
+                }
+            ]
+        }
+    ],
+    "Coordinador": {
+        "user": {
+            "login": "stiven13",
+            "contrase\u00f1a": "stiv2173"
+        },
+        "numeroIdentificacion": "51354323321",
+        "nombres": "Stiven Andres",
+        "apellidos": "Carvajal Bele\u00f1o",
+        "direccion": "Bucaramanga",
+        "telefonoCelular": "3255136625",
+        "telefonoFijo": "55696358563"
+    }
+}
