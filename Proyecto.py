@@ -1,10 +1,15 @@
-import json 
+import json
+from os import system #esto lo voy a usar para limpiar pantalla
+
+system("clear") #esto es para que se limpie todo lo que hay en la terminal
+
 #a continuacion estaran las funciones de los menus que se van a necesitar
 def menuCamper():
     print("/////////////////////////////////////////////////\n-------------- Bienvenido",archivo["Campers"][i]["nombres"],"""----------------------------
           1). Reportes
           2). Cambiar usuarios y contraseñas.
           3). Cambiar informacion.
+          4). Salir
     -------------------------------------------------
     /////////////////////////////////////////////////
 """)
@@ -34,6 +39,7 @@ def menuTrainer():
           1). Cambiar usuario y contraseña
           2). Ruta de entrenamiento.
           3). Cambiar información.
+          4). Salir
     ---------------------------------------------------
     ///////////////////////////////////////////////////
 """)
@@ -48,13 +54,14 @@ def munuTrainerOpc3():
 """)
 
 def menuCoordinador():
-    print("//////////////////////////////////////////////////////////////////////\n-------------------- BIENVENIDO",archivo["Coordinador"]["nombres"],"""--------------------------
+    print("//////////////////////////////////////////////////////////////////////\n    ---------------- Bienvenido",archivo["Coordinador"][0]["nombres"],"""----------------------------
           1). Cambiar usuarios y contraseñas de todo el sistema educativo.
           2). Cambiar informacion de todo el sistema educativo.
           3). Agregar nota de examen de aprobación.
           4). Agregar nota de filtro. 
           5). Consultar cuales campers se encuentra en riego.
           6). Reporte.
+          7). Salir
     -----------------------------------------------------------------------
     ///////////////////////////////////////////////////////////////////////
 """)
@@ -93,11 +100,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
             menuCamper()#aca se llama al menu de las opciones de camper 
             try:
                 opcMenuCamper=int(input("Ingresa tu opcion\n"))#se pide la opcion a escoger en el menu y en caso de que ingrese una letra para que no muestre un error se pide que ingrese una letra y se lee en la misma variable 
-                while opcMenuCamper<1 or opcMenuCamper>3:
+                while opcMenuCamper<1 or opcMenuCamper>4:
                     opcMenuCamper=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 3 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla 
             except ValueError:
                 opcMenuCamper=int(input("Ingresa una opcion valida (Numero)\n"))
-                while opcMenuCamper<1 or opcMenuCamper>3:
+                while opcMenuCamper<1 or opcMenuCamper>4:
                     opcMenuCamper=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 3 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
             
     for q in range(len(archivo["Trainers"])):#se usa un bucle for para recorra cada una  de las pociciones de los trainers
@@ -113,31 +120,131 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
             menuTrainer()
             try:
                 opcMenuTrainer=int(input("Ingresa tu opcion\n"))#se pide la opcion a escoger en el menu y en caso de que ingrese una letra para que no muestre un error se pide que ingrese una letra y se lee en la misma variable
-                while opcMenuTrainer<1 or opcMenuTrainer>3:
+                while opcMenuTrainer<1 or opcMenuTrainer>4:
                     opcMenuTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 3 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
 
             except ValueError:
                 opcMenuTrainer=int(input("Ingresa una opcion valida (Numero)\n"))
-                while opcMenuTrainer<1 or opcMenuTrainer>3:
+                while opcMenuTrainer<1 or opcMenuTrainer>4:
                     opcMenuTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 3 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
 
-    if user == archivo["Coordinador"]["user"]["login"]:#como se sabe que solo hay un coordinador mira si en coordinador esta ese usuario ingresado 
-
+    if user == archivo["Coordinador"][0]["user"]["login"]:#como se sabe que solo hay un coordinador mira si en coordinador esta ese usuario ingresado 
+        system("clear")
         x+=1
         passwordCoordinador=input("Ingresa la contraseña\n")#si el usuario ingresado es el del coordinador se le pide la contraseña
 
-        while passwordCoordinador not in archivo["Coordinador"]["user"]["contraseña"]:#se usa un bucle while porque mientras que la contraseña ingresada no este en ["Coordinador"]["user"]["contraseña"] (que es la direcion en donde esta la contraseña en el archivo) se repetira el bucle que lo que hace es volver a pedirle la contraseña 
+        while passwordCoordinador not in archivo["Coordinador"][0]["user"]["contraseña"]:#se usa un bucle while porque mientras que la contraseña ingresada no este en archivo["Coordinador"]["user"][0]["contraseña"] (que es la direcion en donde esta la contraseña en el archivo) se repetira el bucle que lo que hace es volver a pedirle la contraseña 
             passwordCoordinador=input("Contraseña incorrecta ingresela otra vez\n")
+
+        system("clear")
 
         menuCoordinador()
         try:
             opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
-            while opcMenuCoordinador<1 or opcMenuCoordinador>6:
+            while opcMenuCoordinador<1 or opcMenuCoordinador>7:
                     opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
         except ValueError:
             opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
-            while opcMenuCoordinador<1 or opcMenuCoordinador>6:
+            while opcMenuCoordinador<1 or opcMenuCoordinador>7:
                     opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+        
+        
+        bol1=True
+        while bol1== True:
+            if opcMenuCoordinador==1:
+                system("clear")
+                print("----Usiarios----\nCampers\nTrainers\nCoordinador")
+                personaCambiar=input("¿Que usuario quieres cambiar?\n")
+                while personaCambiar not in archivo:
+                    personaCambiar=input("Ingresa un usuario de los que aparecen en pantalla\n")
+
+                for x in range(len(archivo[personaCambiar])):
+                    print(archivo[personaCambiar][x]["nombres"])
+                     
+                    
+
+                
+                menuCoordinador()
+                try:
+                    opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                except ValueError:
+                    opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+
+            elif opcMenuCoordinador==2:
+
+
+                menuCoordinador()
+                try:
+                    opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                except ValueError:
+                    opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+
+            elif opcMenuCoordinador==3:
+
+
+                menuCoordinador()
+                try:
+                    opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                except ValueError:
+                    opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+
+            elif opcMenuCoordinador==4:
+
+
+                menuCoordinador()
+                try:
+                    opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                except ValueError:
+                    opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+
+
+            elif opcMenuCoordinador==5:
+
+
+                menuCoordinador()
+                try:
+                    opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                except ValueError:
+                    opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+
+            elif opcMenuCoordinador==6:
+
+
+                menuCoordinador()
+                try:
+                    opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                except ValueError:
+                    opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+            
+            elif opcMenuCoordinador==7:
+                print ("Gracias por usar el programa")
+
+                bol1=False
+
     if x==0:
         user=input("No se encontro el usuario ingreselo nuevamente\n")
 

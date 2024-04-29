@@ -84,16 +84,18 @@
             ]
         }
     ],
-    "Coordinador": {
-        "user": {
-            "login": "stiven13",
-            "contrase\u00f1a": "stiv2173"
-        },
-        "numeroIdentificacion": "51354323321",
-        "nombres": "Stiven Andres",
-        "apellidos": "Carvajal Bele\u00f1o",
-        "direccion": "Bucaramanga",
-        "telefonoCelular": "3255136625",
-        "telefonoFijo": "55696358563"
-    }
+    "Coordinador": [
+        {
+            "user": {
+                "login": "stiven13",
+                "contrase\u00f1a": "stiven14"
+            },
+            "numeroIdentificacion": "51354323321",
+            "nombres": "Stiven Andres",
+            "apellidos": "Carvajal Bele\u00f1o",
+            "direccion": "Bucaramanga",
+            "telefonoCelular": "3255136625",
+            "telefonoFijo": "55696358563"
+        }
+    ]
 }
