@@ -12,17 +12,18 @@
             "acudiente": "Blanca Smith Bermon Garay",
             "telefonoCelular": "3003426875",
             "telefonoFijo": "513521341",
-            "estado": "Cursando",
+            "estado": "cursando",
             "fechaInicio": "19-02-2024",
             "grupo": "T2",
             "ruta": "Nodejs",
             "m\u00f3dulos": "Fundamentos de programacion (Introducci\u00f3n a la algoritmo)",
-            "trainer": "Pedro jose"
+            "trainer": "Pedro jose",
+            "riesgo": "bajo"
         },
         {
             "user": {
-                "login": "zu0910",
-                "contrase\u00f1a": "zully0910"
+                "login": "zu_0910",
+                "contrase\u00f1a": "zully.091005"
             },
             "numeroIdentificacion": "10936265354",
             "nombres": "Zully Fernanda",
