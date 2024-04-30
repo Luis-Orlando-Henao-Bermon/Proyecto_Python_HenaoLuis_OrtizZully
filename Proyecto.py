@@ -206,39 +206,54 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
         system("clear")
 
         menuCoordinador()
-        try:
-            opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
-            while opcMenuCoordinador<1 or opcMenuCoordinador>7:
-                    opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
-        except ValueError:
-            opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
-            while opcMenuCoordinador<1 or opcMenuCoordinador>7:
-                    opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+        bol21=True
+        while bol21==True:
+            try:
+                opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
+                while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                        opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                bol21=False
+            except ValueError:
+                print("Ingresa una opcion valida (Numero)\n")
+
         
         
         bol1=True
         while bol1== True:
-            if opcMenuCoordinador==1:
+            if opcMenuCoordinador==1:#si ecoge la opcion numero 1 hace el siguiente codigo
                 system("clear")
                 print("----Usiarios----\nCampers\nTrainers\nCoordinador")#se le muestran los tipos de usuarios que hay y se le preguanta cual de esos quiere cambiar
                 personaCambiar=input("¿Que usuario quieres cambiar?\n")
                 while personaCambiar not in archivo:#mientras que el usuario que ingrese no este en archivo
-                    personaCambiar=input("Ingresa un usuario de los que aparecen en pantalla\n")
+                    personaCambiar=input("Ingresa un usuario de los que aparecen en pantalla (Tienes que escribirlos como se ven ahi)\n")
 
-                for r in range(len(archivo[personaCambiar])):
-                    print("Nombre:",archivo[personaCambiar][r]["nombres"])
-                    print("ID:",archivo[personaCambiar][r]["id"])
+                for r in range(len(archivo[personaCambiar])):#este for se usa solo para que mire todas las personas que hay en el tipo de usuario quiere el cambiar (ejemplo: Campers)
+                    print("Nombre:",archivo[personaCambiar][r]["nombres"]) #siguiendo con el ejemplo le muestra todos los nombres que hay en Campers ya que recorre cada uno con el bucle for
+                    print("ID:",archivo[personaCambiar][r]["id"])#siguiendo con el ejemplo le muestra todos los id que hay en Campers ya que recorre cada uno con el bucle for
 
-                print("Ingresa el id del", personaCambiar, "que quieres cambiar")
+                print("Ingresa el id del", personaCambiar, "que quieres cambiar")#se le pide el id de la persona que quiere cambiar usuario y contraseña  y se guarda en user1 
                 user1=input()
 
-                for w in range(len(archivo[personaCambiar])):
+                u=0#esta variable me va servir para saber si hay un usuario con ese id 
+                while u==0:#mientras u siga valiendo 0 se va a repetir el bucle 
+                    for t in range(len(archivo[personaCambiar])):#con el for se recorren todos loa puestos de las personas que hay en el tipo de usuario que quiere cambiar 
+                        if user1==archivo[personaCambiar][t]["id"]:#mira si el id de algun usuario es igual al ingresado 
+                            u=1#si hay un usuario igual al imgresado u va a valer 1 y se terminara el bucle de while 
+                    
+                    if u==0:#en caso de que no haya ninguan persona con ese id u seguira valiendo 0 por lo tanto se pide que vuevla a escribir el id 
+                        user1=input("ID no encontrado por favor ingresa uno valido\n")
+
+                
+
+                for w in range(len(archivo[personaCambiar])):#se usa un for para que mire las personas que hay en el tipo de usuario que quiere cambiar
                     if user1== archivo[personaCambiar][w]["id"]:
-                        newUser20=input("Cual es el nuevo usuario\n")
+
+                        newUser20=input("Cual es el nuevo usuario\n")#se pregunta cual va a ser 
                         archivo[personaCambiar][w]["user"]["login"]=newUser20
+
                         newPassword20=input("Cual es la nueva contraseña\n")
                         archivo[personaCambiar][w]["user"]["contraseña"]=newPassword20
-                     
+                    
                     
 
                 
