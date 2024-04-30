@@ -155,7 +155,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                     elif numOpc==2:
                         newPhone=input("Ingrese el nuevo telefono movil\n")
-                        archivo["Campers"][i]["telefonoCelular"]=newPhone
+                        archivo["Campers"][i]["telefonoCelular"]=newPhone#
 
                     elif numOpc==3:
                         newFijo=input("Ingrese el nuevo telefono fijo\n")
