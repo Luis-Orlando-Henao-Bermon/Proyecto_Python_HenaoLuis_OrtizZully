@@ -3,36 +3,36 @@
         {
             "id": 352143685,
             "user": {
-                "login": "luorheber",
+                "login": "henao12",
                 "contrase\u00f1a": "luis123"
             },
             "numeroIdentificacion": 1003035210,
             "nombres": "Luis Orlando",
             "apellidos": "Henao Bermon",
-            "direccion": "El tarra ",
+            "direccion": "Pachelli",
             "acudiente": "Blanca Smith Bermon Garay",
             "telefonoCelular": 3125465214,
-            "telefonoFijo": 123654,
+            "telefonoFijo": 3125546,
             "estado": "cursando",
             "fechaInicio": "19-02-2024",
             "fechaCierre": "19-02-2025",
             "grupo": "T2",
             "ruta": "Nodejs",
-            "modulos": "Fundamentos de programacion (Introducci\u00f3n a la algoritmo)",
+            "m\u00f3dulos": "Fundamentos de programacion (Introducci\u00f3n a la algoritmo)",
             "trainer": "Pedro jose"
         },
         {
             "id": 956443,
             "user": {
-                "login": "zulita",
-                "contrase\u00f1a": "lully32"
+                "login": "zullxd",
+                "contrase\u00f1a": "zuortiz"
             },
             "numeroIdentificacion": 10936265354,
             "nombres": "Zully Fernanda",
             "apellidos": "Ortiz Avenda\u00f1o",
-            "direccion": "Diocesano - Tibu",
+            "direccion": "tecnico",
             "acudiente": "Zully Fabiola Avenda\u00f1o",
-            "telefonoCelular": 3125355906,
+            "telefonoCelular": 3138905220,
             "telefonoFijo": 59633416912,
             "estado": "inscrito"
         }
@@ -41,8 +41,8 @@
         {
             "id": 75458546,
             "user": {
-                "login": "pedrosqui2",
-                "contrase\u00f1a": "pedrin7865"
+                "login": "Pedrito09",
+                "contrase\u00f1a": "Pedrosqui010"
             },
             "numeroIdentificacion": 88563265,
             "nombres": "Pedro jose",
