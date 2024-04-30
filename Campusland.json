@@ -19,7 +19,8 @@
             "grupo": "T2",
             "ruta": "Nodejs",
             "modulos": "Fundamentos de programacion (Introducci\u00f3n a la algoritmo)",
-            "trainer": "Pedro jose"
+            "trainer": "Pedro jose",
+            "riesgo": "bajo"
         },
         {
             "id": 956443,
@@ -47,9 +48,9 @@
             "numeroIdentificacion": 88563265,
             "nombres": "Pedro jose",
             "apellidos": "Perez Sanchez",
-            "direccion": "Bucaramanga",
-            "telefonoCelular": 3266598821,
-            "telefonoFijo": 9862656518,
+            "direccion": "Bogota",
+            "telefonoCelular": 3125355623,
+            "telefonoFijo": 123654,
             "seciones": [
                 {
                     "horario": 1,
