@@ -115,8 +115,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 if opcMenuCamper==1:
 
                     if archivo["Campers"][i]["estado"]=="aprobado" or archivo["Campers"][i]["estado"]=="cursando": # Si en las posiciones del camper se encuentra el estado aprobado o cursando se le mstrata al camper.
-                        print("Te encuentras",archivo["Campers"][i]["riesgo"])#Se le mostrara al camper el riesgor que se encuentra
-                    else:#Si el camper no se encuentra en aprobado o cursando se le notificara que se encuetra retirado
+                        print("Te encuentras",archivo["Campers"][i]["riesgo"])#Se le mostrara al camper el riesgos que se encuentra
+                    else:#Si el camper no se encuentra en aprobado o cursando se le notificara que se encuetra retirado por lo tanto no va a estar en riesgo 
                         print("Te encuentras",archivo["Campers"][i]["estado"]),"por lo tanto no tienes riesgo"
 
                     menuCamper()#aca se llama al menu de las opciones de camper 
@@ -131,10 +131,10 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                 elif opcMenuCamper==2:#Si la opcion elegida del menu del camper es dos se hara lo siguiente
                     newUser1=input("¿Cual es el nuevo usuario?\n")#Se le preguntara al camper cual va a ser el nuevo usuario
-                    archivo["Campers"][i]["user"]["login"]=newUser1
+                    archivo["Campers"][i]["user"]["login"]=newUser1#ingresara las posiciones del camper donde esta el user y mira el login(usuario) del camper y lo cambia por el nuevo.
 
                     newPass1=input("¿Ingrese la nueva contraseña?\n")#Se le preguntara al camper cual va a ser el nuevo usuario
-                    archivo["Campers"][i]["user"]["contraseña"]=newPass1
+                    archivo["Campers"][i]["user"]["contraseña"]=newPass1#ingresara las posiciones del camper donde esta el user y mira la contraseña del camper y lo cambia por el nuevo que ingreso.
 
                     menuCamper()#aca se llama al menu de las opciones de camper 
                     try:
@@ -146,20 +146,20 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         while opcMenuCamper<1 or opcMenuCamper>4:
                             opcMenuCamper=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 3 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
 
-                elif opcMenuCamper==3:
-                    menuCamperOpc3()
-                    numOpc=int(input("Ingrese una de las opciones del menu anterior\n"))
-                    if numOpc==1:
-                        newAdress=input("Ingrese la nueva direccion\n")
-                        archivo["Campers"][i]["direccion"]=newAdress
+                elif opcMenuCamper==3:#Si la opcion elegida del camper se hara:
+                    menuCamperOpc3()#Se llamara la funcion del menu camper opcion tres donde se le mostrara las opciones disponibles del menu.
+                    numOpc=int(input("Ingrese una de las opciones del menu anterior\n"))#El ingresara la opcione que desee realizar del menu anterior 
+                    if numOpc==1:#Si la opcion del menu es uno se hara:
+                        newAdress=input("Ingrese la nueva direccion\n")#el camper ingresara la nueva direccion 
+                        archivo["Campers"][i]["direccion"]=newAdress#Ingresara en las posiciones del camper y ingresara  a la direccion y asi se guardara el cambio de la nueva direccion 
 
-                    elif numOpc==2:
-                        newPhone=input("Ingrese el nuevo telefono movil\n")
-                        archivo["Campers"][i]["telefonoCelular"]=newPhone#
+                    elif numOpc==2:#Si la opcion del menu es dos se hara:
+                        newPhone=input("Ingrese el nuevo telefono movil\n")#el camper ingresara el nuevo telefono movil 
+                        archivo["Campers"][i]["telefonoCelular"]=newPhone#Ingresara en las posiciones del camper y ingresara donde esta el telefono movil y asi se guardara el cambio del nuevo dato ingresado.
 
                     elif numOpc==3:
-                        newFijo=input("Ingrese el nuevo telefono fijo\n")
-                        archivo["Campers"][i]["telefonoFijo"]=newFijo
+                        newFijo=input("Ingrese el nuevo telefono fijo\n")#el camper ingresara el nuevo telefono fijo
+                        archivo["Campers"][i]["telefonoFijo"]=newFijo#Ingresara en las posiciones del camper y ingresara donde se encuentra telefono fijo y asi se guardara el nuevo dato ingresado. 
                         
                     menuCamper()#aca se llama al menu de las opciones de camper 
                     try:

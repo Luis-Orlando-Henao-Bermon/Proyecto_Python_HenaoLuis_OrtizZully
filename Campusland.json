@@ -1,18 +1,18 @@
 {
     "Campers": [
         {
-            "id": "352143685",
+            "id": 352143685,
             "user": {
                 "login": "luorheber",
                 "contrase\u00f1a": "luis123"
             },
-            "numeroIdentificacion": "1003035210",
+            "numeroIdentificacion": 1003035210,
             "nombres": "Luis Orlando",
             "apellidos": "Henao Bermon",
             "direccion": "El tarra ",
             "acudiente": "Blanca Smith Bermon Garay",
-            "telefonoCelular": "3125465214",
-            "telefonoFijo": "123654",
+            "telefonoCelular": 3125465214,
+            "telefonoFijo": 123654,
             "estado": "cursando",
             "fechaInicio": "19-02-2024",
             "grupo": "T2",
@@ -21,34 +21,34 @@
             "trainer": "Pedro jose"
         },
         {
-            "id": "956443",
+            "id": 956443,
             "user": {
                 "login": "zullxd",
                 "contrase\u00f1a": "zuortiz"
             },
-            "numeroIdentificacion": "10936265354",
+            "numeroIdentificacion": 10936265354,
             "nombres": "Zully Fernanda",
             "apellidos": "Ortiz Avenda\u00f1o",
             "direccion": "Diocesano - Tibu",
             "acudiente": "Zully Fabiola Avenda\u00f1o",
-            "telefonoCelular": "3125355906",
-            "telefonoFijo": "59633416912",
+            "telefonoCelular": 3125355906,
+            "telefonoFijo": 59633416912,
             "estado": "inscrito"
         }
     ],
     "Trainers": [
         {
-            "id": "75458546",
+            "id": 75458546,
             "user": {
                 "login": "pedrosqui2",
                 "contrase\u00f1a": "pedrin7865"
             },
-            "numeroIdentificacion": "88563265",
+            "numeroIdentificacion": 88563265,
             "nombres": "Pedro jose",
             "apellidos": "Perez Sanchez",
             "direccion": "Bucaramanga",
-            "telefonoCelular": "3266598821",
-            "telefonoFijo": "9862656518",
+            "telefonoCelular": 3266598821,
+            "telefonoFijo": 9862656518,
             "seciones": [
                 {
                     "horario": 1,
@@ -63,17 +63,17 @@
             ]
         },
         {
-            "id": "521535413",
+            "id": 521535413,
             "user": {
                 "login": "michelin03",
                 "contrase\u00f1a": "michael1504"
             },
-            "numeroIdentificacion": "88563265",
+            "numeroIdentificacion": 88563265,
             "nombres": "Michael Andres",
             "apellidos": "Garzon Ramirez",
             "direccion": "Bucaramanga",
-            "telefonoCelular": "3285313513",
-            "telefonoFijo": "58416543521",
+            "telefonoCelular": 3285313513,
+            "telefonoFijo": 58416543521,
             "seciones": [
                 {
                     "horario": 1,
@@ -90,17 +90,17 @@
     ],
     "Coordinador": [
         {
-            "id": "545454654",
+            "id": 545454654,
             "user": {
                 "login": "stiv1",
                 "contrase\u00f1a": "stiv12"
             },
-            "numeroIdentificacion": "51354323321",
+            "numeroIdentificacion": 51354323321,
             "nombres": "Stiven Andres",
             "apellidos": "Carvajal Bele\u00f1o",
             "direccion": "Bucaramanga",
-            "telefonoCelular": "3255136625",
-            "telefonoFijo": "55696358563"
+            "telefonoCelular": 3255136625,
+            "telefonoFijo": 55696358563
         }
     ]
 }
