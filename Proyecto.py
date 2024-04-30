@@ -108,16 +108,16 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     opcMenuCamper=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 3 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
             
             system("clear")
+            #Crear otro booleano para que se repita las opciones del menu del camper
             campers=True
             while campers==True:
-                
+                #Si la opcion elegida del menu del camper es uno se hara lo siguiente
                 if opcMenuCamper==1:
 
-                    if archivo["Campers"][i]["estado"]=="aprobado" or archivo["Campers"][i]["estado"]=="cursando":
-                        print(archivo["Campers"][i]["riesgo"])
-                    
-                    else:
-                        print("Te encuentras",archivo["Campers"][i]["estado"],"por lo tanto no tienes riesgo")
+                    if archivo["Campers"][i]["estado"]=="aprobado" or archivo["Campers"][i]["estado"]=="cursando": # Si en las posiciones del camper se encuentra el estado aprobado o cursando se le mstrata al camper.
+                        print("Te encuentras",archivo["Campers"][i]["riesgo"])#Se le mostrara al camper el riesgor que se encuentra
+                    else:#Si el camper no se encuentra en aprobado o cursando se le notificara que se encuetra retirado
+                        print("Te encuentras",archivo["Campers"][i]["estado"]),"por lo tanto no tienes riesgo"
 
                     menuCamper()#aca se llama al menu de las opciones de camper 
                     try:
@@ -129,14 +129,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         while opcMenuCamper<1 or opcMenuCamper>4:
                             opcMenuCamper=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 3 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
 
-
-
-
-                elif opcMenuCamper==2:
-                    newUser1=input("¿Cual es el nuevo usuario?\n")
+                elif opcMenuCamper==2:#Si la opcion elegida del menu del camper es dos se hara lo siguiente
+                    newUser1=input("¿Cual es el nuevo usuario?\n")#Se le preguntara al camper cual va a ser el nuevo usuario
                     archivo["Campers"][i]["user"]["login"]=newUser1
 
-                    newPass1=input("¿Ingrese la nueva contraseña?\n")
+                    newPass1=input("¿Ingrese la nueva contraseña?\n")#Se le preguntara al camper cual va a ser el nuevo usuario
                     archivo["Campers"][i]["user"]["contraseña"]=newPass1
 
                     menuCamper()#aca se llama al menu de las opciones de camper 
@@ -149,7 +146,30 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         while opcMenuCamper<1 or opcMenuCamper>4:
                             opcMenuCamper=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 3 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
 
+                elif opcMenuCamper==3:
+                    menuCamperOpc3()
+                    numOpc=int(input("Ingrese una de las opciones del menu anterior\n"))
+                    if numOpc==1:
+                        newAdress=input("Ingrese la nueva direccion\n")
+                        archivo["Campers"][i]["direccion"]=newAdress
 
+                    elif numOpc==2:
+                        newPhone=input("Ingrese el nuevo telefono movil\n")
+                        archivo["Campers"][i]["telefonoCelular"]=newPhone
+
+                    elif numOpc==3:
+                        newFijo=input("Ingrese el nuevo telefono fijo\n")
+                        archivo["Campers"][i]["telefonoFijo"]=newFijo
+                        
+                    menuCamper()#aca se llama al menu de las opciones de camper 
+                    try:
+                        opcMenuCamper=int(input("Ingresa tu opcion\n"))#se pide la opcion a escoger en el menu y en caso de que ingrese una letra para que no muestre un error se pide que ingrese una letra y se lee en la misma variable 
+                        while opcMenuCamper<1 or opcMenuCamper>4:
+                            opcMenuCamper=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 3 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla 
+                    except ValueError:
+                        opcMenuCamper=int(input("Ingresa una opcion valida (Numero)\n"))
+                        while opcMenuCamper<1 or opcMenuCamper>4:
+                            opcMenuCamper=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 3 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
                 elif opcMenuCamper==4:
                      campers=False
                     
