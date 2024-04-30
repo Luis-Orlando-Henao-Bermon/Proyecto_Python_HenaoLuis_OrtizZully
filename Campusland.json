@@ -1,6 +1,7 @@
 {
     "Campers": [
         {
+            "id": "352143685",
             "user": {
                 "login": "luorheber",
                 "contrase\u00f1a": "luis123"
@@ -17,13 +18,13 @@
             "grupo": "T2",
             "ruta": "Nodejs",
             "m\u00f3dulos": "Fundamentos de programacion (Introducci\u00f3n a la algoritmo)",
-            "trainer": "Pedro jose",
-            "riesgo": "bajo"
+            "trainer": "Pedro jose"
         },
         {
+            "id": "956443",
             "user": {
-                "login": "zu_0910",
-                "contrase\u00f1a": "zully.091005"
+                "login": "zu0910",
+                "contrase\u00f1a": "zully0910"
             },
             "numeroIdentificacion": "10936265354",
             "nombres": "Zully Fernanda",
@@ -32,11 +33,12 @@
             "acudiente": "Zully Fabiola Avenda\u00f1o",
             "telefonoCelular": "3125355906",
             "telefonoFijo": "59633416912",
-            "estado": "Inscrito"
+            "estado": "inscrito"
         }
     ],
     "Trainers": [
         {
+            "id": "75458546",
             "user": {
                 "login": "pedrosqui2",
                 "contrase\u00f1a": "pedrin7865"
@@ -61,9 +63,10 @@
             ]
         },
         {
+            "id": "521535413",
             "user": {
-                "login": "andregarz",
-                "contrase\u00f1a": "micha6678"
+                "login": "michelin03",
+                "contrase\u00f1a": "michael1504"
             },
             "numeroIdentificacion": "88563265",
             "nombres": "Michael Andres",
@@ -87,9 +90,10 @@
     ],
     "Coordinador": [
         {
+            "id": "545454654",
             "user": {
-                "login": "stiven13",
-                "contrase\u00f1a": "stiven14"
+                "login": "stiv1",
+                "contrase\u00f1a": "stiv12"
             },
             "numeroIdentificacion": "51354323321",
             "nombres": "Stiven Andres",

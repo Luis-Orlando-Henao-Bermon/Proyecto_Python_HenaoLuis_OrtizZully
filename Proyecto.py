@@ -220,13 +220,24 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
         while bol1== True:
             if opcMenuCoordinador==1:
                 system("clear")
-                print("----Usiarios----\nCampers\nTrainers\nCoordinador")
+                print("----Usiarios----\nCampers\nTrainers\nCoordinador")#se le muestran los tipos de usuarios que hay y se le preguanta cual de esos quiere cambiar
                 personaCambiar=input("¿Que usuario quieres cambiar?\n")
-                while personaCambiar not in archivo:
+                while personaCambiar not in archivo:#mientras que el usuario que ingrese no este en archivo
                     personaCambiar=input("Ingresa un usuario de los que aparecen en pantalla\n")
 
-                for x in range(len(archivo[personaCambiar])):
-                    print(archivo[personaCambiar][x]["nombres"])
+                for r in range(len(archivo[personaCambiar])):
+                    print("Nombre:",archivo[personaCambiar][r]["nombres"])
+                    print("ID:",archivo[personaCambiar][r]["id"])
+
+                print("Ingresa el id del", personaCambiar, "que quieres cambiar")
+                user1=input()
+
+                for w in range(len(archivo[personaCambiar])):
+                    if user1== archivo[personaCambiar][w]["id"]:
+                        newUser20=input("Cual es el nuevo usuario\n")
+                        archivo[personaCambiar][w]["user"]["login"]=newUser20
+                        newPassword20=input("Cual es la nueva contraseña\n")
+                        archivo[personaCambiar][w]["user"]["contraseña"]=newPassword20
                      
                     
 
