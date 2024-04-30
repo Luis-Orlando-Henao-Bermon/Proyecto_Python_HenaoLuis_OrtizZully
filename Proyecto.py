@@ -6,7 +6,7 @@ system("clear") #esto es para que se limpie todo lo que hay en la terminal
 #a continuacion estaran las funciones de los menus que se van a necesitar
 def menuCamper():
     print("/////////////////////////////////////////////////\n-------------- Bienvenido",archivo["Campers"][i]["nombres"],"""----------------------------
-          1). Verificar el riego del camper.
+          1). Verificar el riesgo del camper.
           2). Cambiar usuarios y contraseñas.
           3). Cambiar informacion.
           4). Salir
@@ -171,10 +171,10 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         archivo["Campers"][i]["telefonoCelular"]=newPhone#Ingresara en las posiciones del camper y ingresara donde esta el telefono movil y asi se guardara el cambio del nuevo dato ingresado.
                     elif numOpc==3:
                         bol8=True
-                        while bol7==True:
+                        while bol8==True:
                             try:
                                 newFijo=int(input("Ingrese el nuevo telefono fijo\n"))#el camper ingresara el nuevo telefono fijo
-                                bol7=False
+                                bol8=False
                             except ValueError:
                                 newFijo=int(input("Ingrese un telefono fijo valido(solo numeros)\n"))
 
@@ -217,8 +217,50 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 except ValueError:
                     print("Ingresa una opcion valida (Numero)\n")
             system("clear")
-            
 
+            trainers=True
+            while trainers==True:
+                 
+                if opcMenuTrainer == 1:
+
+                    newUser2=input("¿Cual es el nuevo usuario?:\n")
+                    archivo["Trainers"][q]["user"]["login"]=newUser2
+
+                    newPass2=input("¿Cual es la nueva contraseña?:\n")
+                    archivo["Trainers"][q]["user"]["contraseña"]=newPass2
+
+                    menuTrainer()
+                    bol9=True
+                    while bol9==True: 
+                        try:
+                            opcMenuTrainer=int(input("Ingresa tu opcion\n"))
+                            while opcMenuTrainer<1 or opcMenuTrainer>4:
+                                opcMenuTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                            bol9=False
+                        except ValueError:
+                            print("Ingresa una opcion valida (Numero)\n")
+                    system("clear")
+
+                elif opcMenuTrainer == 2:
+                    ruta=archivo["Trainers"][q]["seciones"]
+                    print(ruta)
+
+                    menuTrainer()
+                    bol9=True
+                    while bol9==True: 
+                        try:
+                            opcMenuTrainer=int(input("Ingresa tu opcion\n"))
+                            while opcMenuTrainer<1 or opcMenuTrainer>4:
+                                    opcMenuTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                            bol9=False
+                        except ValueError:
+                            print("Ingresa una opcion valida (Numero)\n")
+                    system("clear")
+                    
+                elif opcMenuTrainer == 4:
+                    trainers=False
+                    
+            
     if user == archivo["Coordinador"][0]["user"]["login"]:#como se sabe que solo hay un coordinador mira si en coordinador esta ese usuario ingresado 
         system("clear")
         x+=1
