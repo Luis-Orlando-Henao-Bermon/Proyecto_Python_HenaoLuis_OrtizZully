@@ -118,7 +118,14 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     #El camper ingresara 
                     newOpc1=int(input("Ingrese una opcion del menu anterior:\n"))
                     if newOpc1==1:
-                        print(archivo["Campers"][i]["numeroIdentificacion"]["nombres"]["apellidos"]["direccion"]["acudiente"]["telefonoCelular"]["telefonoFijo"])
+                        print("Numero de identificaion:",archivo["Campers"][i]["numeroIdentificacion"])
+                        print("Nombres:",archivo["Campers"][i]["nombres"])
+                        print("Apellidos:",archivo["Campers"][i]["apellidos"])
+                        print("Direccion:",archivo["Campers"][i]["direccion"])
+                        print("Acudiente:",archivo["Campers"][i]["acudiente"])
+                        print("Telefono celular:",archivo["Campers"][i]["telefonoCelular"])
+                        print("Telefono fijo:",archivo["Campers"][i]["telefonoFijo"])
+                        
 
                     elif newOpc1==2:
                         if archivo["Campers"][i]["estado"]=="aprobado" or archivo["Campers"][i]["estado"]=="cursando": 
