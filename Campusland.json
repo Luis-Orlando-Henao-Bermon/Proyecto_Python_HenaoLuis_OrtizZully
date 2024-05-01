@@ -1,12 +1,12 @@
 {
     "Campers": [
         {
-            "id": 352143685,
+            "id": 3704,
             "user": {
                 "login": "henao12",
                 "contrase\u00f1a": "luis123"
             },
-            "numeroIdentificacion": 1003035210,
+            "numeroIdentificacion": 109365598,
             "nombres": "Luis Orlando",
             "apellidos": "Henao Bermon",
             "direccion": "Pachelli",
@@ -18,7 +18,22 @@
             "fechaCierre": "19-02-2025",
             "grupo": "T2",
             "ruta": "Nodejs",
-            "modulos": "Fundamentos de programacion (Introducci\u00f3n a la algoritmo)",
+            "moduloActual": 1,
+            "modulos": [
+                [
+                    "Introduccion a la algoritmo",
+                    "Pseint",
+                    "Python"
+                ],
+                [
+                    "HTML",
+                    "CSS",
+                    "Bootstrap"
+                ],
+                [],
+                [],
+                []
+            ],
             "trainer": "Pedro jose"
         },
         {
