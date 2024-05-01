@@ -1,18 +1,18 @@
 {
     "Campers": [
         {
-            "id": 3704,
+            "id": 5708,
             "user": {
                 "login": "Luis123",
                 "contrase\u00f1a": "Henao123"
             },
-            "numeroIdentificacion": 109365598,
-            "nombres": "Luis Orlando",
-            "apellidos": "Henao Bermon",
-            "direccion": "Camilo Torres",
-            "acudiente": "Blanca Smith Bermon Garay",
-            "telefonoCelular": 3125465214,
-            "telefonoFijo": 3125546,
+            "numeroIdentificacion": 10939352265,
+            "nombres": "Luis Jose",
+            "apellidos": "Bemon Henao",
+            "direccion": "Camilo torres",
+            "acudiente": "Franklin Henao",
+            "telefonoCelular": 3003426875,
+            "telefonoFijo": 10263629852,
             "tiposDeEstados": [
                 "En proceso",
                 "Inscrito",
@@ -22,16 +22,33 @@
                 "Expulsado",
                 "Retirado"
             ],
-            "estado": "cursando",
-            "fechaInicio": "19-02-2024",
-            "fechaCierre": "19-02-2025",
-            "grupo": "T2",
-            "ruta": "Nodejs",
-            "tiposDeRutas":["Nodejs","Java","Netcore"],
+            "estado": "Cursando",
+            "fechaInicio": "19-03-2024",
+            "fechaCierre": "19-03-2025",
+            "grupo": "T1",
+            "ruta": "Java",
+            "tiposDeRutas": [
+                "Nodejs",
+                "Java",
+                "Netcore"
+            ],
             "moduloActual": 1,
-            "materiasM3":["Java", "JavaScript", "C#"],
-            "materiasM4":["Mysql", "MongoDb" , "Postgresql"],
-            "materiasM5":["Netcore", "Spring Boot", "NodeJs" , "Express"],
+            "materiasM3": [
+                "Java",
+                "JavaScript",
+                "C#"
+            ],
+            "materiasM4": [
+                "Mysql",
+                "MongoDb",
+                "Postgresql"
+            ],
+            "materiasM5": [
+                "Netcore",
+                "Spring Boot",
+                "NodeJs",
+                "Express"
+            ],
             "modulos": [
                 [
                     "Introduccion a la algoritmo",
@@ -43,9 +60,18 @@
                     "CSS",
                     "Bootstrap"
                 ],
-                [],
-                [],
-                []
+                [
+                    "Java",
+                    "JavaScript"
+                ],
+                [
+                    "Mysql",
+                    "Postgresql"
+                ],
+                [
+                    "NodeJs",
+                    "Express"
+                ]
             ],
             "trainer": "Pedro jose",
             "riesgo": "bajo"
@@ -63,7 +89,16 @@
             "acudiente": "Zully Fabiola Avenda\u00f1o",
             "telefonoCelular": 3138905220,
             "telefonoFijo": 59633416912,
-            "estado": "inscrito",
+            "tiposDeEstados": [
+                "En proceso",
+                "Inscrito",
+                "Aprobado",
+                "Cursando",
+                "Graduado",
+                "Expulsado",
+                "Retirado"
+            ],
+            "estado": "Inscrito",
             "fechaInicio": "",
             "fechaCierre": "",
             "grupo": "",

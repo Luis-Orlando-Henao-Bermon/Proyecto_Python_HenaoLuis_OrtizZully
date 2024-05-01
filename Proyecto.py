@@ -636,29 +636,29 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         elif opcCambioCamper==9:
                             
                             print("-----Tipos de estado-----")
-                            for a in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeEstados"])):
+                            for a in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeEstados"])):#se muestran los tipos de estado con unbucle for
                                 print(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeEstados"][a])
                             
-                            estadoCambiar=input("¿Cual es el nuevo estado?\n")
+                            estadoCambiar=input("¿Cual es el nuevo estado?\n")#se pregunta cual es el nuevo estado y se guarda en la variable estadoCambiar
 
-                            while estadoCambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeEstados"]:
+                            while estadoCambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeEstados"]: #mientras que el estado ingresado por el usuario no este en los tipos de estados le pedira que ingrese un estado valido 
                                 estadoCambiar=input("Ingrese un estado valido (Tienes que escribirlo como aparece en los tipos de estado)\n")
 
-                            archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=estadoCambiar
+                            archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=estadoCambiar# Como ya se sabe cual es el nuevo estado que quiere solo se remplaza el que ya estaba por el que ingreso el usuario
 
-                            if estadoCambiar=="Cursando":
+                            if estadoCambiar=="Aprobado":#si el usuario puso de nuevo estado aprovado se tienen que llenar otra informacion ya que ahora pertenece a campusland
 
-                                print("Como el estado del estudiante ahora es cursando tienes que llenar la siguiente informacion:")
+                                print("Como el estado del estudiante ahora es Aprobado tienes que llenar la siguiente informacion:")
 
-                                agregarFechaInicio=input("Ingrese una fecha de inicio (DD-MM-AAAA)\n")
+                                agregarFechaInicio=input("Ingrese una fecha de inicio (DD-MM-AAAA)\n")#se pide y se agrega la fecha de inicio
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["fechaInicio"]=agregarFechaInicio
 
                                 system("clear")
-                                agregarFechaCierre=input("Ingrese una fecha de cierre (DD-MM-AAAA)\n")
+                                agregarFechaCierre=input("Ingrese una fecha de cierre (DD-MM-AAAA)\n")#se pide y se agrega la fecha de cierre
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["fechaCierre"]=agregarFechaCierre
 
                                 system("clear")
-                                agregarGrupo=input("Ingrese el grupo al que va a pertenecer el Camper\n")
+                                agregarGrupo=input("Ingrese el grupo al que va a pertenecer el Camper\n")#Se pregunta el grupo al que va a pertenecer y se agrega 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["grupo"]=agregarGrupo
 
                                 system("clear")
@@ -666,47 +666,52 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 for y in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"])):#se muestran todos los tipos de rutas que hay 
                                     print(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"][y])
                                 
-                                rutaAgregar=input("Ingresa una ruta\n")
+                                rutaAgregar=input("Ingresa una ruta\n")#se pide la tura a agregar
 
                                 while rutaAgregar not in archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"]:
+                                    #mientras que la ruta que agregue no este en tiposDeRutas 
                                     rutaAgregar=input("Ingresa una ruta valida (Tienes que escribirlo como aparece en los tipos de rutas)\n")
 
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=rutaAgregar
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=rutaAgregar#despues de haber dicho la ruta que quiere se agrega a ruta
 
                                 system("clear")
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["moduloActual"]=1#se pone que el modulo actual es igual a 1 ya que como apenas esta empezando empieza en el modulo 1
 
+                                #solo los modulos 3, 4 y 5 se pueden escoger las materias por lo tanto son las unicas que se piden 
 
                                 print("-----Materias del modulo 3-----")#se muestran las materias que hay para el modulo 3
                                 for i in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"])):
                                     print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"][i])
                                 
-                                modulo3Agregar1=input("Ingresa las 1 materia que quieres agregar\n")
-                                while modulo3Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"]:
+                                #como se pueden agregar 2 materias se piden solo 2
+                                modulo3Agregar1=input("Ingresa las 1 materia que quieres agregar\n")#se pide la primera materia del modulo tres 
+
+                                while modulo3Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
                                     modulo3Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
                                 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][2].append(modulo3Agregar1)
                                 
-                                modulo3Agregar2=input("Ingresa las 1 materia que quieres agregar\n")
-                                while modulo3Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"]:
+                                modulo3Agregar2=input("Ingresa las 2 materia que quieres agregar\n")#se pide la segunda materia del modulo tres 
+                                while modulo3Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
                                     modulo3Agregar2=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][2].append(modulo3Agregar2)
 
                                 system("clear")
 
-                                print("-----Materias del modulo 4-----")#se muestran las materias que hay para el modulo 3
+                                #como se pueden agregar 2 materias se piden solo 2
+                                print("-----Materias del modulo 4-----")#se muestran las materias que hay para el modulo 4
                                 for i in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"])):
                                     print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"][i])
                                 
-                                modulo4Agregar1=input("Ingresa las 1 materia que quieres agregar\n")
-                                while modulo4Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"]:
+                                modulo4Agregar1=input("Ingresa las 1 materia que quieres agregar\n")#se pide la primera materia del modulo 4
+                                while modulo4Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
                                     modulo4Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
                                 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][3].append(modulo4Agregar1)
                                 
-                                modulo4Agregar2=input("Ingresa las 1 materia que quieres agregar\n")
-                                while modulo4Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"]:
+                                modulo4Agregar2=input("Ingresa las 2 materia que quieres agregar\n")#se pide la segunda materia del modulo 4
+                                while modulo4Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
                                     modulo4Agregar2=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][3].append(modulo4Agregar2)
@@ -714,46 +719,153 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                                 system("clear")
 
-                                print("-----Materias del modulo 5-----")#se muestran las materias que hay para el modulo 3
+                                #como se pueden agregar 2 materias se piden solo 2
+                                print("-----Materias del modulo 5-----")#se muestran las materias que hay para el modulo 5
                                 for i in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"])):
                                     print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"][i])
                                 
-                                modulo5Agregar1=input("Ingresa las 1 materia que quieres agregar\n")
-                                while modulo5Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"]:
+                                modulo5Agregar1=input("Ingresa las 1 materia que quieres agregar\n")#se pide la primera materia del modulo 5
+                                while modulo5Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
                                     modulo5Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
                                 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4].append(modulo5Agregar1)
                                 
-                                modulo5Agregar2=input("Ingresa las 1 materia que quieres agregar\n")
-                                while modulo5Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"]:
+                                modulo5Agregar2=input("Ingresa las 2 materia que quieres agregar\n")#se pide la segunda materia del modulo 5
+                                while modulo5Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
                                     modulo5Agregar2=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4].append(modulo5Agregar2)
 
+                            
+                            elif estadoCambiar=="Cursando" and archivo[personaCambiarInfo][posicionCamperCambiar]["fechaInicio"]=="":#si el estado ingresado es Cursando y en la fecha de inicio no hay nada se tienen que llenar unos datos (se mira si la fecha de inicio esta vacia por si el estado pasa de estado Incrito directamente a Aprobado(esto solo es un ejemplo))
+
+                                #si el usuario puso de nuevo estado aprovado se tienen que llenar otra informacion ya que ahora pertenece a campusland
+
+                                print("Como el estado del estudiante ahora es Cursando tienes que llenar la siguiente informacion:")
+
+                                agregarFechaInicio=input("Ingrese una fecha de inicio (DD-MM-AAAA)\n")#se pide y se agrega la fecha de inicio
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["fechaInicio"]=agregarFechaInicio
+
+                                system("clear")
+                                agregarFechaCierre=input("Ingrese una fecha de cierre (DD-MM-AAAA)\n")#se pide y se agrega la fecha de cierre
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["fechaCierre"]=agregarFechaCierre
+
+                                system("clear")
+                                agregarGrupo=input("Ingrese el grupo al que va a pertenecer el Camper\n")#Se pregunta el grupo al que va a pertenecer y se agrega 
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["grupo"]=agregarGrupo
+
+                                system("clear")
+                                print("-----Tipos de Rutas-----")
+                                for y in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"])):#se muestran todos los tipos de rutas que hay 
+                                    print(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"][y])
+                                
+                                rutaAgregar=input("Ingresa una ruta\n")#se pide la tura a agregar
+
+                                while rutaAgregar not in archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"]:
+                                    #mientras que la ruta que agregue no este en tiposDeRutas 
+                                    rutaAgregar=input("Ingresa una ruta valida (Tienes que escribirlo como aparece en los tipos de rutas)\n")
+
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=rutaAgregar#despues de haber dicho la ruta que quiere se agrega a ruta
+
+                                system("clear")
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["moduloActual"]=1#se pone que el modulo actual es igual a 1 ya que como apenas esta empezando empieza en el modulo 1
+
+                                #solo los modulos 3, 4 y 5 se pueden escoger las materias por lo tanto son las unicas que se piden 
+
+                                print("-----Materias del modulo 3-----")#se muestran las materias que hay para el modulo 3
+                                for i in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"])):
+                                    print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"][i])
+                                
+                                #como se pueden agregar 2 materias se piden solo 2
+                                modulo3Agregar1=input("Ingresa las 1 materia que quieres agregar\n")#se pide la primera materia del modulo tres 
+
+                                while modulo3Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
+                                    modulo3Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
+                                
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][2].append(modulo3Agregar1)
+                                
+                                modulo3Agregar2=input("Ingresa las 2 materia que quieres agregar\n")#se pide la segunda materia del modulo tres 
+                                while modulo3Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
+                                    modulo3Agregar2=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
+
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][2].append(modulo3Agregar2)
+
                                 system("clear")
 
-                                trainerHay=[]
-                                print("-----Trainers-----")
-                                for z in range(len(archivo["Trainers"])):
-                                    print(archivo["Trainers"][z]["nombres"])
-                                    if archivo["Trainers"][z]["nombres"] not in trainerHay:
-                                        trainerHay.append(archivo["Trainers"][z]["nombres"])
+                                #como se pueden agregar 2 materias se piden solo 2
+                                print("-----Materias del modulo 4-----")#se muestran las materias que hay para el modulo 4
+                                for i in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"])):
+                                    print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"][i])
+                                
+                                modulo4Agregar1=input("Ingresa las 1 materia que quieres agregar\n")#se pide la primera materia del modulo 4
+                                while modulo4Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
+                                    modulo4Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
+                                
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][3].append(modulo4Agregar1)
+                                
+                                modulo4Agregar2=input("Ingresa las 2 materia que quieres agregar\n")#se pide la segunda materia del modulo 4
+                                while modulo4Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
+                                    modulo4Agregar2=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
 
-                                trainerAgregar=input("Ingresa el trainer\n")
-                                while trainerAgregar not in trainerHay:
-                                    trainerAgregar=input("Ingresa un trainer valido (Tienes que escribirlo como aparece en Trainers)\n")
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][3].append(modulo4Agregar2)
+
+
+                                system("clear")
+
+                                #como se pueden agregar 2 materias se piden solo 2
+                                print("-----Materias del modulo 5-----")#se muestran las materias que hay para el modulo 5
+                                for i in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"])):
+                                    print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"][i])
+                                
+                                modulo5Agregar1=input("Ingresa las 1 materia que quieres agregar\n")#se pide la primera materia del modulo 5
+                                while modulo5Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
+                                    modulo5Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
+                                
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4].append(modulo5Agregar1)
+                                
+                                modulo5Agregar2=input("Ingresa las 2 materia que quieres agregar\n")#se pide la segunda materia del modulo 5
+                                while modulo5Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
+                                    modulo5Agregar2=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
+
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4].append(modulo5Agregar2)
+
+
+                                
+                            system("clear")
+
+                            trainerHay=[]#en esta lista se guardaran los nombres de los trainers que hay
+                            print("-----Trainers-----")
+                            for z in range(len(archivo["Trainers"])):#con este bucle for se muestran los nombres de los trainers que hay 
+                                print(archivo["Trainers"][z]["nombres"])
+                                if archivo["Trainers"][z]["nombres"] not in trainerHay:#si el nombre del trainer no esta en la lista trainerHay se agrega y si esta solo lo ignora 
+                                    trainerHay.append(archivo["Trainers"][z]["nombres"])
+
+                            trainerAgregar=input("Ingresa el trainer\n")
+                            while trainerAgregar not in trainerHay:
+                                trainerAgregar=input("Ingresa un trainer valido (Tienes que escribirlo como aparece en Trainers)\n")
 
                             
                             confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
                         
                         if opcCambioCamper==10:
-                            if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="cursando":
+                            if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Aprobado":
                                 fechaCambio=input("¿Cual es la nueva fecha de inicio? (DD-MM-AAAA)\n")
 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["fechaInicio"]=fechaCambio
+                            
+                            elif archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Cursando":
+
+                                fechaCambio=input("¿Cual es la nueva fecha de inicio? (DD-MM-AAAA)\n")
+
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["fechaInicio"]=fechaCambio
+                            
+                        
                             else:
                                 print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene fecha de inicio")
+
+                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            system("clear")
 
 
                 menuCoordinador()
