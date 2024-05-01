@@ -33,6 +33,13 @@
                 "Netcore"
             ],
             "moduloActual": 1,
+            "numeroModulo": [
+                "Fundamentos de programacion",
+                "Programacion web",
+                "Programacion Formal",
+                "Bases de datos",
+                "Backend"
+            ],
             "materiasM3": [
                 "Java",
                 "JavaScript",
