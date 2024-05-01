@@ -360,10 +360,12 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 personaCambiar=input("¿Que usuario quieres cambiar?:\n")
                 while personaCambiar not in archivo:#mientras que el usuario que ingrese no este en archivo
                     personaCambiar=input("Ingresa un usuario de los que aparecen en pantalla (Tienes que escribirlos como se ven ahi):\n")
-
+                print("-----Campers-----")
                 for r in range(len(archivo[personaCambiar])):#este for se usa solo para que mire todas las personas que hay en el tipo de usuario quiere el cambiar (ejemplo: Campers)
+                    print("------------------\n")
                     print("Nombre:",archivo[personaCambiar][r]["nombres"]) #siguiendo con el ejemplo le muestra todos los nombres que hay en Campers ya que recorre cada uno con el bucle for
                     print("ID:",archivo[personaCambiar][r]["id"])#siguiendo con el ejemplo le muestra todos los id que hay en Campers ya que recorre cada uno con el bucle for
+                    print("------------------\n")
 
                 bol22=True
                 while bol22==True:
@@ -419,15 +421,17 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 personaCambiarInfo=input("¿A que usuario le quieres cambiar informacion?:\n")
                 while personaCambiarInfo not in archivo:#mientras que el usuario que ingrese no este en archivo
                     personaCambiarInfo=input("Ingresa un usuario de los que aparecen en pantalla (Tienes que escribirlos como se ven ahi):\n")
-
+                print("-----Campers-----")
                 for r in range(len(archivo[personaCambiarInfo])):#este for se usa solo para que mire todas las personas que hay en el tipo de usuario quiere el cambiar (ejemplo: Campers)
+                    print("------------------")
                     print("Nombre:",archivo[personaCambiarInfo][r]["nombres"]) #siguiendo con el ejemplo le muestra todos los nombres que hay en Campers ya que recorre cada uno con el bucle for
                     print("ID:",archivo[personaCambiarInfo][r]["id"])#siguiendo con el ejemplo le muestra todos los id que hay en Campers ya que recorre cada uno con el bucle for
+                    print("------------------\n")
                 if personaCambiarInfo=="Campers":
                     bol23=True
                     while bol23==True:
                         try:#se usa un bucle try dentro de un bucle while para que cada vez que mande error se repita el codigo y se pueda cometer ese error muchas veces 
-                            print("Ingresa el id del Camper al que le quieres cambiar la informacion:")#se le pide el id de la persona que quiere cambiar usuario y contraseña  y se guarda en user1
+                            print("Ingresa el ID del Camper al que le quieres cambiar la informacion:")#se le pide el id de la persona que quiere cambiar usuario y contraseña  y se guarda en user1
                             user2=int(input())
                             bol23=False
                         except ValueError:
@@ -438,24 +442,109 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         for t in range(len(archivo[personaCambiarInfo])):#con el for se recorren todos loa puestos de las personas que hay en el tipo de usuario que quiere cambiar 
                             if user2==archivo[personaCambiarInfo][t]["id"]:#mira si el id de algun usuario es igual al ingresado 
                                 o=1#si hay un usuario igual al imgresado u va a valer 1 y se terminara el bucle de while
-                                if archivo[personaCambiarInfo][t]["estado"]!="retirado" or archivo[personaCambiarInfo][t]["estado"]== "expulsado":
-                                    print("El estado del camper es:",archivo[personaCambiarInfo][t]["estado"],"por lo tanto no se le puede cambiar la informacion")
-                                    o=1
-                                    confiInfor="nos"
-                        
+                                confiInfor="si"
+                                posicionCamperCambiar=t
+                                if archivo[personaCambiarInfo][t]["estado"]== "graduado" or archivo[personaCambiarInfo][t]["estado"]== "expulsado" or archivo[personaCambiarInfo][t]["estado"]== "retirado":#con esto se mira si el estado del camper es graduado, expulsado o retirado si es asi se le dice que no se puede modificar nada de la informacion ya que ya no pertenece a la institucion
+                                    print("El estado del camper es:",archivo[personaCambiarInfo][t]["estado"],",por lo tanto no se le puede cambiar la informacion")
+                                    confiInfor="no"
+                                else:
+                                    confiInfor="si"
                         if o==0:#en caso de que no haya ninguan persona con ese id u seguira valiendo 0 por lo tanto se pide que vuelva a escribir el id 
                             
                             try:
                                 user2=int(input("ID no encontrado por favor ingresa uno valido\n"))
                             except ValueError:
                                 print("Ingresa un ID valido (solo numeros)")
-                
-                    confiInfor="si"
 
+                    
+                    system("clear")
                     while confiInfor=="si":
-                        print("Datos por cambiar\n1.ID\n2. Numero de Identificacion\n3. Nombres\n4. Apellidos\n5. Direccion\n6. Acudiente\n7. Telefono Celular\n8. Telefono fijo\n9. Estado\nLa siguiente informacion solo es valida para usuarios que ya han sido aprovados o estan cursando")
+                        print("Datos por cambiar\n1. ID\n2. Numero de Identificacion\n3. Nombres\n4. Apellidos\n5. Direccion\n6. Acudiente\n7. Telefono Celular\n8. Telefono fijo\n9. Estado\n\nLa siguiente informacion solo es valida para usuarios que ya han sido aprovados o estan cursando\n\n10. Fecha de inicio\n11. Fecha de cierre\n12. grupo\n13. Modulo actual\n14. Modulos\n15. Trainer")
 
-                        confiInfor="no"
+                        #esta es la manera en la que se puede hacer repetir un error 
+                        bol24=True
+                        while bol24==True:
+                            try:
+
+                                opcCambioCamper=int(input("¿Que dato quieres cambiar?:\n"))
+                                while opcCambioCamper<1 or opcCambioCamper>15:#este while es para que ingrese una opcion de las que hay en pantalla 
+                                    opcCambioCamper=int(input("ingresa una opcion de las que hay en pantalla\n"))
+                                bol24=False
+                            except ValueError:
+                                   print("Ingresa una opcion valida (Numeros)")
+
+                        if opcCambioCamper==1:
+
+                            #esta es la manera en la que se puede hacer repetir un error 
+                            bol25=True
+                            while bol25==True:
+                                try:
+                                    idCambiar=int(input("Ingresa el nuevo ID\n"))
+                                    bol25=False
+                                except ValueError:
+                                    print("Ingresa un ID valido (Solo numeros)")
+                            
+                            archivo[personaCambiarInfo][posicionCamperCambiar]["id"]=idCambiar#despues de haber pedido el nuevo id solo remplaza el que ya esta por el nuevo
+
+                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            system("clear")
+
+                        if opcCambioCamper==2:
+
+                            #esta es la manera en la que se puede hacer repetir un error 
+                            bol26=True
+                            while bol26==True:
+                                try:
+                                    identificacionCambiar=int(input("Ingresa el nuevo numero de identificacion\n"))
+                                    bol26=False
+                                except ValueError:
+                                    print("Ingresa un numero de identificaion valido (Solo numeros)")
+                            
+                            archivo[personaCambiarInfo][posicionCamperCambiar]["numeroIdentificacion"]=identificacionCambiar #despues de haber pedido el nuevo numero de identificacion solo remplaza el que ya estaba por el nuevo
+
+                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            system("clear")
+
+                        if opcCambioCamper==3:
+
+                            nombreCambiar=input("Ingresa el nuevo nombre\n")
+
+                            archivo[personaCambiarInfo][posicionCamperCambiar]["nombres"]=nombreCambiar
+
+                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            system("clear")
+
+                        if opcCambioCamper==7:
+
+                            #esta es la manera en la que se puede hacer repetir un error 
+                            bol27=True
+                            while bol27==True:
+                                try:
+                                    telefonoCambiar=int(input("Ingresa el nuevo numero de telefono movil\n"))
+                                    bol27=False
+                                except ValueError:
+                                    print("Ingresa un numero de telefono movil valido (Solo numeros)")
+                            
+                            archivo[personaCambiarInfo][posicionCamperCambiar]["telefonoCelular"]=telefonoCambiar #despues de haber pedido el nuevo telefono movil solo remplaza el que ya estaba por el nuevo
+
+                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            system("clear")
+                        
+                        if opcCambioCamper==8:
+
+                            #esta es la manera en la que se puede hacer repetir un error 
+                            bol28=True
+                            while bol28==True:
+                                try:
+                                    telefonoFijoCambiar=int(input("Ingresa el nuevo numero de telefono fijo\n"))
+                                    bol28=False
+                                except ValueError:
+                                    print("Ingresa un numero de telefono fijo valido (Solo numeros)")
+                            
+                            archivo[personaCambiarInfo][posicionCamperCambiar]["telefonoFijo"]=telefonoFijoCambiar #despues de haber pedido el nuevo numero de identificacion solo remplaza el que ya estaba por el nuevo
+
+                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            system("clear")
 
                 menuCoordinador()
                 try:
@@ -521,6 +610,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
             
             elif opcMenuCoordinador==7:
+
+                system("clear")
                 print ("Gracias por usar el programa")
 
                 bol1=False
