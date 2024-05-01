@@ -115,9 +115,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 if opcMenuCamper==1:
                     #Le mostrara el camper el submenu de la opcion uno 
                     menuCamperOpc1()
-                    #El camper ingresara 
+                    #El camper ingresara la opcion que desea observar 
                     newOpc1=int(input("Ingrese una opcion del menu anterior:\n"))
-                    if newOpc1==1:
+                    #Si la opcion elegida es uno se mostrara 
+                    if newOpc1==1:#toda la informacion que tiene el camper, llamar desde json cada informacion del camper para que se muestre de una forma ordenada en la pantalla
+                        print("Hola",archivo["Campers"][i]["nombres"],"estos son tus datos:\n")
                         print("Numero de identificaion:",archivo["Campers"][i]["numeroIdentificacion"])
                         print("Nombres:",archivo["Campers"][i]["nombres"])
                         print("Apellidos:",archivo["Campers"][i]["apellidos"])
@@ -125,31 +127,87 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         print("Acudiente:",archivo["Campers"][i]["acudiente"])
                         print("Telefono celular:",archivo["Campers"][i]["telefonoCelular"])
                         print("Telefono fijo:",archivo["Campers"][i]["telefonoFijo"])
-                        
-
+                        print("")
+                        #Despues de mostrado lo anterior se lo mostrara otra vez el sudmenu por si el camper desea observar otra opción
+                        menuCamperOpc1()#aca se llama al menu de las opciones de camper 
+                        bol18=True#este booleano es por si el camper ingresa una letra no le finalice la plataforma si no que le indique que vuelva a ingresar el numero de la opcion y se le recordara que debe ingresar solo numero 
+                        while bol18==True:
+                            try:
+                                opcMenuCamperOpc1=int(input("Ingresa tu opcion\n"))
+                                while opcMenuCamperOpc1<1 or opcMenuCamperOpc1>5:
+                                        opcMenuCamperopc1=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                                bol18=False
+                            except ValueError:
+                                print("Ingresa una opcion valida (Numero)\n")
+                        system("clear")
+                    #Si la opcion elegida es dos se hara:
                     elif newOpc1==2:
                         if archivo["Campers"][i]["estado"]=="aprobado" or archivo["Campers"][i]["estado"]=="cursando": 
                             # Si en las posiciones del camper se encuentra el estado aprobado o cursando se le mstrata al camper.   
                             print("Tu riesgo es:",archivo["Campers"][i]["riesgo"])#Se le mostrara al camper el riesgos que se encuentra
-                        else:#Si el camper no se encuentra en aprobado o cursando se le mostrara ne qu eestado se encuentra y se aclarara que no tienes riesgo por lo mismo.
+                        else:#Si el camper no se encuentra en aprobado o cursando se le mostrara en que estado se encuentra y se le aclarará que no tienes riesgo por lo mismo.
                             print("Tu estado es:",archivo["Campers"][i]["estado"],"por lo tanto no tienes riesgo")
-                         
-  
 
+                        menuCamperOpc1()#aca se llama al menu de las opciones de camper 
+                        bol14=True#este booleano es por si el camper ingresa una letra no le finalice la plataforma si no que le indique que vuelva a ingresar el numero de la opcion y se le recordara que debe ingresar solo numero 
+                        while bol14==True:
+                            try:
+                                opcMenuCamperOpc1=int(input("Ingresa tu opcion\n"))
+                                while opcMenuCamperOpc1<1 or opcMenuCamperOpc1>5:
+                                        opcMenuCamperopc1=int(input("Ingresa una opcion de las que aparecen en pantalla\n")) #se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                                bol14=False
+                            except ValueError:
+                                print("Ingresa una opcion valida (Numero)\n")
+                        system("clear")
+                    #Si la opcion elegida es tres se hara:
                     elif newOpc1==3:
-                        print("Tu ruta es:",archivo["Campers"][i]["ruta"])
+                        print("Tu ruta es:",archivo["Campers"][i]["ruta"])#Se le mostara la ruta en el que se encuentra el camper
 
+                        menuCamperOpc1()#aca se llama al menu de las opciones de camper 
+                        bol15=True#este booleano es por si el camper ingresa una letra no le finalice la plataforma si no que le indique que vuelva a ingresar el numero de la opcion y se le recordara que debe ingresar solo numero 
+                        while bol15==True:
+                            try:
+                                opcMenuCamperOpc1=int(input("Ingresa tu opcion\n"))
+                                while opcMenuCamperOpc1<1 or opcMenuCamperOpc1>5:
+                                        opcMenuCamperopc1=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                                bol15=False
+                            except ValueError:
+                                print("Ingresa una opcion valida (Numero)\n")
+                        system("clear")
+                    #Si la opcion elegida del camper es cuatro se hara: 
                     elif newOpc1==4:
-                        print("Tu trainer es:",archivo["Campers"][i]["trainer"])
-                         
+                        print("Tu trainer es:",archivo["Campers"][i]["trainer"])#Se le mostrara el trainer del camper
 
+                        menuCamperOpc1()#aca se llama al menu de las opciones de camper 
+                        bol16=True#este booleano es por si el camper ingresa una letra no le finalice la plataforma si no que le indique que vuelva a ingresar el numero de la opcion y se le recordara que debe ingresar solo numero 
+                        while bol16==True:
+                            try:
+                                opcMenuCamperOpc1=int(input("Ingresa tu opcion\n"))
+                                while opcMenuCamperOpc1<1 or opcMenuCamperOpc1>5:
+                                        opcMenuCamperopc1=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                                bol16=False
+                            except ValueError:
+                                print("Ingresa una opcion valida (Numero)\n")
+                        system("clear")
+                    #Si la opcion elegida es cinco se hara:
                     elif newOpc1==5:
-                        print("El modulo que te encuentras actualmente es:",archivo["Campers"][i]["modulos"])
+                        print("El modulo que te encuentras actualmente es:",archivo["Campers"][i]["modulos"])#SSe mostrara el modulo que se encuentra actualmente el camper
+
+                        menuCamperOpc1()#aca se llama al menu de las opciones de camper 
+                        bol17=True#este booleano es por si el camper ingresa una letra no le finalice la plataforma si no que le indique que vuelva a ingresar el numero de la opcion y se le recordara que debe ingresar solo numero 
+                        while bol17==True:
+                            try:
+                                opcMenuCamperOpc1=int(input("Ingresa tu opcion\n"))
+                                while opcMenuCamperOpc1<1 or opcMenuCamperOpc1>5:
+                                        opcMenuCamperopc1=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                                bol17=False
+                            except ValueError:
+                                print("Ingresa una opcion valida (Numero)\n")
+                        system("clear")
 
                     
-
                     menuCamper()#aca se llama al menu de las opciones de camper 
-                    bol3=True
+                    bol3=True#Este booleano es por si el camper ingresa una letra en las opciones no se le permitira y se le recordara que solo puede ingresar numeros.
                     while bol3==True:
                         try:
                             opcMenuCamper=int(input("Ingresa tu opcion\n"))
@@ -169,7 +227,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     archivo["Campers"][i]["user"]["contraseña"]=newPass1#ingresara las posiciones del camper donde esta el user y mira la contraseña del camper y lo cambia por el nuevo que ingreso.
 
                     menuCamper()#aca se llama al menu de las opciones de camper 
-                    bol4=True
+                    bol4=True#Este booleano es por si el camper ingresa una letra en las opciones, no se le permitira seguir y se le recordara que solo puede ingresar numeros, hata que no lo haga bien el bucle no va a parar y se seguira repitiendo.
                     while bol4==True:
                         try:
                             opcMenuCamper=int(input("Ingresa tu opcion\n"))
@@ -189,7 +247,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         archivo["Campers"][i]["direccion"]=newAdress#Ingresara en las posiciones del camper y ingresara  a la direccion y asi se guardara el cambio de la nueva direccion 
 
                     elif numOpc==2:#Si la opcion del menu es dos se hara:
-                        bol7=True#
+                        bol7=True#este boleano es para que el valor a ingresar a pantalla sea numero si no es numero se volvera a repetir el bucle y no le permitira seguir.
                         while bol7==True:
                             try:
                                 newPhone=int(input("Ingrese el nuevo telefono movil\n"))#el camper ingresara el nuevo telefono movil 
@@ -198,8 +256,9 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 newPhone=int(input("Ingrese un telefono movil valido (solo numeros)\n"))#el camper ingresara el nuevo telefono movil
 
                         archivo["Campers"][i]["telefonoCelular"]=newPhone#Ingresara en las posiciones del camper y ingresara donde esta el telefono movil y asi se guardara el cambio del nuevo dato ingresado.
-                    elif numOpc==3:
-                        bol8=True
+
+                    elif numOpc==3:#Si la opcion elegida es tres se hara:
+                        bol8=True#este boleano es para que el valor a ingresar a pantalla sea numero si no es numero se volvera a repetir el bucle y no le permitira seguir.
                         while bol8==True:
                             try:
                                 newFijo=int(input("Ingrese el nuevo telefono fijo\n"))#el camper ingresara el nuevo telefono fijo
@@ -210,7 +269,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         archivo["Campers"][i]["telefonoFijo"]=newFijo#Ingresara en las posiciones del camper y ingresara donde se encuentra telefono fijo y asi se guardara el nuevo dato ingresado. 
                         
                     menuCamper()#aca se llama al menu de las opciones de camper 
-                    bol5=True
+                    bol5=True#Este booleano es por si el camper ingresa una letra en las opciones, no se le permitira seguir y se le recordara que solo puede ingresar numeros, hata que no lo haga bien el bucle no va a parar y se seguira repitiendo.
                     while bol5==True:
                         try:
                             opcMenuCamper=int(input("Ingresa tu opcion\n"))
@@ -236,12 +295,12 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 passwordTrainer=input("Contraseña incorrecta ingresela otra vez\n")
             
             menuTrainer()
-            bol6=True
+            bol6=True#Este booleano es por si el camper ingresa una letra en las opciones, no se le permitira seguir y se le recordara que solo puede ingresar numeros, hata que no lo haga bien el bucle no va a parar y se seguira repitiendo.
             while bol6==True:
                 try:
                     opcMenuTrainer=int(input("Ingresa tu opcion\n"))
                     while opcMenuTrainer<1 or opcMenuTrainer>4:
-                            opcMenuTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                            opcMenuTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero menor a 4 o mayor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
                     bol6=False
                 except ValueError:
                     print("Ingresa una opcion valida (Numero)\n")
@@ -263,7 +322,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         try:
                             opcMenuTrainer=int(input("Ingresa tu opcion\n"))
                             while opcMenuTrainer<1 or opcMenuTrainer>4:
-                                opcMenuTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                                opcMenuTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero menor a 4 o mayor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
                             bol9=False
                         except ValueError:
                             print("Ingresa una opcion valida (Numero)\n")
@@ -284,35 +343,36 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         except ValueError:
                             print("Ingresa una opcion valida (Numero)\n")
                     system("clear")
-
+                #Si la opcion elegida es tres se hara:
                 elif opcMenuTrainer==3:
+                    #se le mostara el submenu de la opcion 3 al trainer 
                     menuTrainerOpc3()
-                    newOpc=int(input("Ingrese unas de las opciones del menu anterior:\n"))
-                    if newOpc==1:
-                        newAdress1=input("Ingrese la nueva dirección:\n")
-                        archivo["Trainers"][q]["direccion"]=newAdress1
-
+                    newOpc=int(input("Ingrese unas de las opciones del menu anterior:\n"))#Ingresara una opcion del submenu anterior
+                    if newOpc==1:#Si la opcion es uno se hara:
+                        newAdress1=input("Ingrese la nueva dirección:\n")#El trainer ingresara la direccion nueva 
+                        archivo["Trainers"][q]["direccion"]=newAdress1#en las pociciones del trainer en la posicion de direccion se le cambiara a la direccion nueva ingresada por el mismo.
+                    #si la opcion elegida es dos se hara:
                     elif newOpc==2:
-                        bol10=True
+                        bol10=True#este booleano es por que el dato a ingresar debe ser entero por ende si el trainer ingresa una letra no se le aceptara y se le volvera a repetir el valor a ingresar hasta que no lo ingrese bien el bucle no parará.
                         while bol10==True:
                             try:
-                                newPhone1=int(input("Ingrese el nuevo telefono movil:\n"))
+                                newPhone1=int(input("Ingrese el nuevo telefono movil:\n"))#El trainer ingresara el nuevo telefono movil
                                 bol10=False
                             except ValueError:
                                 newPhone1=int(input("Ingrese un telefono movil valido(solo numeros)\n"))
-                        archivo["Trainers"][q]["telefonoCelular"]=newPhone1
-
+                        archivo["Trainers"][q]["telefonoCelular"]=newPhone1#En las posiciones del trainer en la posicion del telefono celular se guardara el dato que ingreso en trainer
+                    #Si la opcion elegida es tres se hara: 
                     elif newOpc==3:
-                        bol11=True
+                        bol11=True#este booleano es por que el dato a ingresar debe ser entero por ende si el trainer ingresa una letra no se le aceptara y se le volvera a repetir el valor a ingresar hasta que no lo ingrese bien el bucle no parará.
                         while bol11==True:
                             try:
-                                newFijo1=int(input("Ingrese el nuevo telefono fijo:\n"))
+                                newFijo1=int(input("Ingrese el nuevo telefono fijo:\n"))#El trainer ingresara el nuevo telefono fijo
                                 bol11=False
                             except ValueError:
                                 newFijo1=int(input("Ingrese un telefono fijo valido (solo numeros)\n"))
-                        archivo["Trainers"][q]["telefonoFijo"]=newFijo1
+                        archivo["Trainers"][q]["telefonoFijo"]=newFijo1#En las posiciones del trainer en la posicion del telefono fijo se guardara el dato que ingreso en trainer
 
-                        menuTrainer()
+                        menuTrainer()#Se le volvera a mostrar el menu principal al trainer
                         bol12=True
                         while bol12==True: 
                             try:

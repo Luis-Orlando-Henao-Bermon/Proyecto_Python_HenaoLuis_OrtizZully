@@ -3,13 +3,13 @@
         {
             "id": 3704,
             "user": {
-                "login": "henao12",
-                "contrase\u00f1a": "luis123"
+                "login": "Luis123",
+                "contrase\u00f1a": "Henao123"
             },
             "numeroIdentificacion": 109365598,
             "nombres": "Luis Orlando",
             "apellidos": "Henao Bermon",
-            "direccion": "Pachelli",
+            "direccion": "Camilo Torres",
             "acudiente": "Blanca Smith Bermon Garay",
             "telefonoCelular": 3125465214,
             "telefonoFijo": 3125546,
@@ -34,7 +34,8 @@
                 [],
                 []
             ],
-            "trainer": "Pedro jose"
+            "trainer": "Pedro jose",
+            "riesgo": "bajo"
         },
         {
             "id": 956443,
