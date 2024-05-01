@@ -6,7 +6,7 @@ system("clear") #esto es para que se limpie todo lo que hay en la terminal
 #a continuacion estaran las funciones de los menus que se van a necesitar
 def menuCamper():
     print("/////////////////////////////////////////////////\n-------------- Bienvenido",archivo["Campers"][i]["nombres"],"""----------------------------
-          1). Verificar el riesgo del camper.
+          1). Reportes.
           2). Cambiar usuarios y contraseñas.
           3). Cambiar informacion.
           4). Salir
@@ -44,7 +44,7 @@ def menuTrainer():
     ///////////////////////////////////////////////////
 """)
 
-def munuTrainerOpc3():
+def menuTrainerOpc3():
     print("""
     ----------------- Cambiar información ---------------
           1). Cambiar dirección.
@@ -113,11 +113,33 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
             while campers==True:
                 #Si la opcion elegida del menu del camper es uno se hara lo siguiente
                 if opcMenuCamper==1:
+                    #Le mostrara el camper el submenu de la opcion uno 
+                    menuCamperOpc1()
+                    #El camper ingresara 
+                    newOpc1=int(input("Ingrese una opcion del menu anterior:\n"))
+                    if newOpc1==1:
+                        print(archivo["Campers"][i]["numeroIdentificacion"]["nombres"]["apellidos"]["direccion"]["acudiente"]["telefonoCelular"]["telefonoFijo"])
 
-                    if archivo["Campers"][i]["estado"]=="aprobado" or archivo["Campers"][i]["estado"]=="cursando": # Si en las posiciones del camper se encuentra el estado aprobado o cursando se le mstrata al camper.
-                        print("Tu riesgo es:",archivo["Campers"][i]["riesgo"])#Se le mostrara al camper el riesgos que se encuentra
-                    else:#Si el camper no se encuentra en aprobado o cursando se le notificara que se encuetra retirado por lo tanto no va a estar en riesgo 
-                        print("Tu estado es:",archivo["Campers"][i]["estado"],"por lo tanto no tienes riesgo")
+                    elif newOpc1==2:
+                        if archivo["Campers"][i]["estado"]=="aprobado" or archivo["Campers"][i]["estado"]=="cursando": 
+                            # Si en las posiciones del camper se encuentra el estado aprobado o cursando se le mstrata al camper.   
+                            print("Tu riesgo es:",archivo["Campers"][i]["riesgo"])#Se le mostrara al camper el riesgos que se encuentra
+                        else:#Si el camper no se encuentra en aprobado o cursando se le mostrara ne qu eestado se encuentra y se aclarara que no tienes riesgo por lo mismo.
+                            print("Tu estado es:",archivo["Campers"][i]["estado"],"por lo tanto no tienes riesgo")
+                         
+  
+
+                    elif newOpc1==3:
+                        print("Tu ruta es:",archivo["Campers"][i]["ruta"])
+
+                    elif newOpc1==4:
+                        print("Tu trainer es:",archivo["Campers"][i]["trainer"])
+                         
+
+                    elif newOpc1==5:
+                        print("El modulo que te encuentras actualmente es:",archivo["Campers"][i]["modulos"])
+
+                    
 
                     menuCamper()#aca se llama al menu de las opciones de camper 
                     bol3=True
@@ -176,7 +198,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 newFijo=int(input("Ingrese el nuevo telefono fijo\n"))#el camper ingresara el nuevo telefono fijo
                                 bol8=False
                             except ValueError:
-                                newFijo=int(input("Ingrese un telefono fijo valido(solo numeros)\n"))
+                                newFijo=int(input("Ingrese un telefono fijo valido(solo numeros)\n"))#Si el camper ingresa alguna letra se le notificara y se le recordara que solo se acepta numero y se volvera a repetir 
 
                         archivo["Campers"][i]["telefonoFijo"]=newFijo#Ingresara en las posiciones del camper y ingresara donde se encuentra telefono fijo y asi se guardara el nuevo dato ingresado. 
                         
@@ -192,7 +214,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             print("Ingresa una opcion valida (Numero)\n")
                     system("clear")
 
-                elif opcMenuCamper==4:
+                elif opcMenuCamper==4:#Si la opcion del menu del camper es cuatro se finalizara la plataforma
                      campers=False
                     
 
@@ -220,14 +242,13 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
             trainers=True
             while trainers==True:
-                 
+                #Si la opcion del menu del trainer es uno se hara:
                 if opcMenuTrainer == 1:
 
-                    newUser2=input("¿Cual es el nuevo usuario?:\n")
-                    archivo["Trainers"][q]["user"]["login"]=newUser2
-
-                    newPass2=input("¿Cual es la nueva contraseña?:\n")
-                    archivo["Trainers"][q]["user"]["contraseña"]=newPass2
+                    newUser2=input("¿Cual es el nuevo usuario?:\n")#El trainer ingresara el nuevo usuario 
+                    archivo["Trainers"][q]["user"]["login"]=newUser2 #en el archivo se posicionara donde estan los trainer e ingresara a user login(usuario) y se guardara el nuevo usuario que ingreso el trainer
+                    newPass2=input("¿Cual es la nueva contraseña?:\n")#El trainer ingresara la nueva contraseña
+                    archivo["Trainers"][q]["user"]["contraseña"]=newPass2#en el archivo se posicionara donde se encuantre los traines e ingresara a user contraseña y se guardara la nueva contraseña que ingreso el trainer 
 
                     menuTrainer()
                     bol9=True
@@ -240,10 +261,10 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         except ValueError:
                             print("Ingresa una opcion valida (Numero)\n")
                     system("clear")
-
+                #Si la opcion del menu del trainer es dos se hara:
                 elif opcMenuTrainer == 2:
-                    ruta=archivo["Trainers"][q]["seciones"]
-                    print(ruta)
+                    print(archivo["Trainers"][q]["seciones"])
+                    
 
                     menuTrainer()
                     bol9=True
@@ -256,9 +277,49 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         except ValueError:
                             print("Ingresa una opcion valida (Numero)\n")
                     system("clear")
-                    
+
+                elif opcMenuTrainer==3:
+                    menuTrainerOpc3()
+                    newOpc=int(input("Ingrese unas de las opciones del menu anterior:\n"))
+                    if newOpc==1:
+                        newAdress1=input("Ingrese la nueva dirección:\n")
+                        archivo["Trainers"][q]["direccion"]=newAdress1
+
+                    elif newOpc==2:
+                        bol10=True
+                        while bol10==True:
+                            try:
+                                newPhone1=int(input("Ingrese el nuevo telefono movil:\n"))
+                                bol10=False
+                            except ValueError:
+                                newPhone1=int(input("Ingrese un telefono movil valido(solo numeros)\n"))
+                        archivo["Trainers"][q]["telefonoCelular"]=newPhone1
+
+                    elif newOpc==3:
+                        bol11=True
+                        while bol11==True:
+                            try:
+                                newFijo1=int(input("Ingrese el nuevo telefono fijo:\n"))
+                                bol11=False
+                            except ValueError:
+                                newFijo1=int(input("Ingrese un telefono fijo valido (solo numeros)\n"))
+                        archivo["Trainers"][q]["telefonoFijo"]=newFijo1
+
+                        menuTrainer()
+                        bol12=True
+                        while bol12==True: 
+                            try:
+                                opcMenuTrainer=int(input("Ingresa tu opcion\n"))
+                                while opcMenuTrainer<1 or opcMenuTrainer>4:
+                                        opcMenuTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                                bol12=False
+                            except ValueError:
+                                print("Ingresa una opcion valida (Numero)\n")
+                        system("clear")
+
+                #si la opcion del menu del trainer es cuatro se hara:
                 elif opcMenuTrainer == 4:
-                    trainers=False
+                    trainers=False#se finalizara la plataforma 
                     
             
     if user == archivo["Coordinador"][0]["user"]["login"]:#como se sabe que solo hay un coordinador mira si en coordinador esta ese usuario ingresado 
