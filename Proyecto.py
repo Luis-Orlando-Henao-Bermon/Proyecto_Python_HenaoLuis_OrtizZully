@@ -357,7 +357,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         while bol10==True:
                             try:
                                 newPhone1=int(input("Ingrese el nuevo telefono movil:\n"))#El trainer ingresara el nuevo telefono movil
-                                bol10=False
+                                bol10=False#
                             except ValueError:
                                 newPhone1=int(input("Ingrese un telefono movil valido(solo numeros)\n"))
                         archivo["Trainers"][q]["telefonoCelular"]=newPhone1#En las posiciones del trainer en la posicion del telefono celular se guardara el dato que ingreso en trainer

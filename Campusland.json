@@ -51,6 +51,7 @@
             ],
             "modulos": [
                 [
+                
                     "Introduccion a la algoritmo",
                     "Pseint",
                     "Python"
@@ -103,7 +104,28 @@
             "fechaCierre": "",
             "grupo": "",
             "ruta": "",
+            "tiposDeRutas": [
+                "Nodejs",
+                "Java",
+                "Netcore"
+            ],
             "moduloActual": 1,
+            "materiasM3": [
+                "Java",
+                "JavaScript",
+                "C#"
+            ],
+            "materiasM4": [
+                "Mysql",
+                "MongoDb",
+                "Postgresql"
+            ],
+            "materiasM5": [
+                "Netcore",
+                "Spring Boot",
+                "NodeJs",
+                "Express"
+            ],
             "modulos": [
                 [
                     "Introduccion a la algoritmo",
