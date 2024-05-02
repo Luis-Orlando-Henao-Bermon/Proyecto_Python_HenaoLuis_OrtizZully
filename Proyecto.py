@@ -420,7 +420,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 personaCambiar=input("¿Que usuario quieres cambiar?:\n")
                 while personaCambiar not in archivo:#mientras que el usuario que ingrese no este en archivo
                     personaCambiar=input("Ingresa un usuario de los que aparecen en pantalla (Tienes que escribirlos como se ven ahi):\n")
-                print("-----Campers-----")
+                print("-----",personaCambiar,"-----")
                 for r in range(len(archivo[personaCambiar])):#este for se usa solo para que mire todas las personas que hay en el tipo de usuario quiere el cambiar (ejemplo: Campers)
                     print("------------------\n")
                     print("Nombre:",archivo[personaCambiar][r]["nombres"]) #siguiendo con el ejemplo le muestra todos los nombres que hay en Campers ya que recorre cada uno con el bucle for
@@ -481,13 +481,15 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 personaCambiarInfo=input("¿A que usuario le quieres cambiar informacion?:\n")
                 while personaCambiarInfo not in archivo:#mientras que el usuario que ingrese no este en archivo
                     personaCambiarInfo=input("Ingresa un usuario de los que aparecen en pantalla (Tienes que escribirlos como se ven ahi):\n")
-                print("-----Campers-----")
-                for r in range(len(archivo[personaCambiarInfo])):#este for se usa solo para que mire todas las personas que hay en el tipo de usuario quiere el cambiar (ejemplo: Campers)
-                    print("------------------")
-                    print("Nombre:",archivo[personaCambiarInfo][r]["nombres"]) #siguiendo con el ejemplo le muestra todos los nombres que hay en Campers ya que recorre cada uno con el bucle for
-                    print("ID:",archivo[personaCambiarInfo][r]["id"])#siguiendo con el ejemplo le muestra todos los id que hay en Campers ya que recorre cada uno con el bucle for
-                    print("------------------\n")
                 if personaCambiarInfo=="Campers":
+
+                    print("-----Campers-----")
+                    for r in range(len(archivo[personaCambiarInfo])):#este for se usa solo para que mire todas las personas que hay en el tipo de usuario quiere el cambiar (ejemplo: Campers)
+                        print("------------------")
+                        print("Nombre:",archivo[personaCambiarInfo][r]["nombres"]) #siguiendo con el ejemplo le muestra todos los nombres que hay en Campers ya que recorre cada uno con el bucle for
+                        print("ID:",archivo[personaCambiarInfo][r]["id"])#siguiendo con el ejemplo le muestra todos los id que hay en Campers ya que recorre cada uno con el bucle for
+                        print("------------------\n")
+
                     bol23=True
                     while bol23==True:
                         try:#se usa un bucle try dentro de un bucle while para que cada vez que mande error se repita el codigo y se pueda cometer ese error muchas veces 
@@ -736,6 +738,20 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4].append(modulo5Agregar2)
 
+                                system("clear")
+
+                                trainerHay=[]#en esta lista se guardaran los nombres de los trainers que hay
+                                print("-----Trainers-----")
+                                for z in range(len(archivo["Trainers"])):#con este bucle for se muestran los nombres de los trainers que hay 
+                                    print(archivo["Trainers"][z]["nombres"])
+                                    if archivo["Trainers"][z]["nombres"] not in trainerHay:#si el nombre del trainer no esta en la lista trainerHay se agrega y si esta solo lo ignora 
+                                        trainerHay.append(archivo["Trainers"][z]["nombres"])
+
+                                trainerAgregar=input("Ingresa el trainer\n")
+                                while trainerAgregar not in trainerHay:
+                                    trainerAgregar=input("Ingresa un trainer valido (Tienes que escribirlo como aparece en Trainers)\n")
+
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=trainerAgregar
                             
                             elif estadoCambiar=="Cursando" and archivo[personaCambiarInfo][posicionCamperCambiar]["fechaInicio"]=="":#si el estado ingresado es Cursando y en la fecha de inicio no hay nada se tienen que llenar unos datos (se mira si la fecha de inicio esta vacia por si el estado pasa de estado Incrito directamente a Aprobado(esto solo es un ejemplo))
 
@@ -831,18 +847,20 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
 
                                 
-                            system("clear")
+                                system("clear")
 
-                            trainerHay=[]#en esta lista se guardaran los nombres de los trainers que hay
-                            print("-----Trainers-----")
-                            for z in range(len(archivo["Trainers"])):#con este bucle for se muestran los nombres de los trainers que hay 
-                                print(archivo["Trainers"][z]["nombres"])
-                                if archivo["Trainers"][z]["nombres"] not in trainerHay:#si el nombre del trainer no esta en la lista trainerHay se agrega y si esta solo lo ignora 
-                                    trainerHay.append(archivo["Trainers"][z]["nombres"])
+                                trainerHay=[]#en esta lista se guardaran los nombres de los trainers que hay
+                                print("-----Trainers-----")
+                                for z in range(len(archivo["Trainers"])):#con este bucle for se muestran los nombres de los trainers que hay 
+                                    print(archivo["Trainers"][z]["nombres"])
+                                    if archivo["Trainers"][z]["nombres"] not in trainerHay:#si el nombre del trainer no esta en la lista trainerHay se agrega y si esta solo lo ignora 
+                                        trainerHay.append(archivo["Trainers"][z]["nombres"])
 
-                            trainerAgregar=input("Ingresa el trainer\n")
-                            while trainerAgregar not in trainerHay:
-                                trainerAgregar=input("Ingresa un trainer valido (Tienes que escribirlo como aparece en Trainers)\n")
+                                trainerAgregar=input("Ingresa el trainer\n")
+                                while trainerAgregar not in trainerHay:
+                                    trainerAgregar=input("Ingresa un trainer valido (Tienes que escribirlo como aparece en Trainers)\n")
+                                
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=trainerAgregar
 
                             
                             confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
@@ -908,7 +926,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             system("clear")
 
 
-                        elif opcMenuCamper==13:
+                        elif opcCambioCamper==13:
 
                             if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Aprobado":
                                 print("----Modulos-----")
@@ -961,8 +979,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         elif opcCambioCamper==14:
 
                             if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Aprobado":
-                                print("----Modulos-----")
-                                for s in range(len(2,archivo[personaCambiarInfo][posicionCamperCambiar]["numeroModulo"])):#se muestran los modulos que hay 
+                                print("----Modulos que se pueden cambiar-----")
+                                for s in range(2,len(archivo[personaCambiarInfo][posicionCamperCambiar]["numeroModulo"])):#se muestran los modulos que hay 
                                     print(s+1,archivo[personaCambiarInfo][posicionCamperCambiar]["numeroModulo"][s])
                                 
                                 bol30=True
@@ -1035,8 +1053,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             
                             elif archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Cursando":
 
-                                print("----Modulos-----")
-                                for s in range(len(2,archivo[personaCambiarInfo][posicionCamperCambiar]["numeroModulo"])):#se muestran los modulos que hay 
+                                print("----Modulos que se pueden cambiar-----")
+                                for s in range(2,len(archivo[personaCambiarInfo][posicionCamperCambiar]["numeroModulo"])):#se muestran los modulos que hay 
                                     print(s+1,archivo[personaCambiarInfo][posicionCamperCambiar]["numeroModulo"][s])
                                 
                                 bol30=True
@@ -1122,10 +1140,10 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                     if archivo["Trainers"][p]["nombres"] not in trainerHayCambiar:
                                         trainerHayCambiar.append(archivo["Trainers"][p]["nombres"])
                                 
-                                trainerCambiar=input("¿Cual es el nuevo trainer?")#se pregunta cual sera el nuevo trainer 
+                                trainerCambiar=input("¿Cual es el nuevo trainer?\n")#se pregunta cual sera el nuevo trainer 
 
                                 while trainerCambiar not in trainerHayCambiar:#mientras el nuevo trainer no este en la lista trainerHayCambiar se le pedira que ingrese un trainer valido
-                                    trainerCambiar=input("Ingrese un trainer valido (Tiene que escribirlo como aparece en pantalla)")
+                                    trainerCambiar=input("Ingrese un trainer valido (Tiene que escribirlo como aparece en pantalla)\n")
                                 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=trainerCambiar#despues de saber cual es el nuevo trainer remplaza al que ya estaba
                             
@@ -1138,10 +1156,10 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                     if archivo["Trainers"][p]["nombres"] not in trainerHayCambiar:
                                         trainerHayCambiar.append(archivo["Trainers"][p]["nombres"])
                                 
-                                trainerCambiar=input("¿Cual es el nuevo trainer?")#se pregunta cual sera el nuevo trainer 
+                                trainerCambiar=input("¿Cual es el nuevo trainer?\n")#se pregunta cual sera el nuevo trainer 
 
                                 while trainerCambiar not in trainerHayCambiar:#mientras el nuevo trainer no este en la lista trainerHayCambiar se le pedira que ingrese un trainer valido
-                                    trainerCambiar=input("Ingrese un trainer valido (Tiene que escribirlo como aparece en pantalla)")
+                                    trainerCambiar=input("Ingrese un trainer valido (Tiene que escribirlo como aparece en pantalla)\n")
                                 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=trainerCambiar#despues de saber cual es el nuevo trainer remplaza al que ya estaba
 
@@ -1159,9 +1177,9 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 for g in range(len( archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"])):
                                     print(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"][g])
                                 
-                                rutaCambiar=input("¿Cual es la nueva ruta?")
+                                rutaCambiar=input("¿Cual es la nueva ruta?\n")
                                 while rutaCambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"]:
-                                    rutaCambiar=input("Ingrese un ruta valida (Tienes que ecribirla como aparece en pantalla)")
+                                    rutaCambiar=input("Ingrese un ruta valida (Tienes que ecribirla como aparece en pantalla)\n")
 
 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=rutaCambiar
@@ -1172,9 +1190,9 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 for g in range(len( archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"])):
                                     print(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"][g])
                                 
-                                rutaCambiar=input("¿Cual es la nueva ruta?")
+                                rutaCambiar=input("¿Cual es la nueva ruta?\n")
                                 while rutaCambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"]:
-                                    rutaCambiar=input("Ingrese un ruta valida (Tienes que ecribirla como aparece en pantalla)")
+                                    rutaCambiar=input("Ingrese un ruta valida (Tienes que ecribirla como aparece en pantalla)\n")
 
 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=rutaCambiar
@@ -1187,12 +1205,39 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             system("clear")
                         
                         if opcCambioCamper==17:
-
+                            system("clear")
                             confiInfor="no"
 
+                if personaCambiarInfo=="Trainers":#si el usuario al que se le quiere cambiar la informacion es Trainers se hace lo siguiente
+                    idTrainer=[]#en esta lista se guardaran todos los id de los trainer para saber si el id que ingrese esta en los trainers
+                    print("-----Trainers-----")
+                    for x in range(len(archivo["Trainers"])):
+                        print("----------------------")
+                        print("Nombre:",archivo["Trainers"][x]["nombres"])#se muestran los nombres de los trainers y el id 
+                        print("ID:",archivo["Trainers"][x]["id"])        
+                        print("----------------------")
+                        if archivo["Trainers"][x]["id"] not in idTrainer:#mirando todas las pociciones de los trainers en el id si ese id no esta en idTrainer se agrega para asi tener todos los id que hay en trainers
+                            idTrainer.append(archivo["Trainers"][x]["id"])
+
+                    bol31=True
+                    while bol31==True:
+                        try:#se usa este try porque el id que se pide se pide en entero entonces en caso de que ingresen una letra le pueda mostrar un error 
+                            idTrainerCambiar=int(input("Ingresa el ID del trainer a cambiar\n"))#se pide el id del trainer que quiere cambiar 
+                            while idTrainerCambiar not in idTrainer:#mientras que el id de trainer no este en idTrainer se dice que id no encontrado y se pide que ingrese uno valido
+                                idTrainerCambiar=int(input("ID no encontrado por favor escribe uno valido\n"))
+                            bol31=False
+                        except ValueError:
+                            print("Por favor ingresa un ID valido (Solo numeros)")
+                    
+                    for b in range(len(archivo["Trainers"])):#depues de ver que el id si esta en los trainers se usa este bucle for para saber la posicion del trainer con ese id 
+                        if idTrainerCambiar==archivo["Trainers"][b]["id"]:
+                            posicionTrainerCambiar=b
+                        
+                    print("-----Informacion que se puede cambiar-----\n1. ID\n2. Numero de identificacion\n3. Nombres\n4. Apellidos\n5. Direccion\n6. Telefono Celular\n7. Telefono Fijo\n8. Ruta\n9. Volver al menu anterior ")
 
 
-
+                            
+                             
                 menuCoordinador()
                 try:
                     opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
@@ -1217,6 +1262,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
 
             elif opcMenuCoordinador==4:
+
+                print()
 
 
                 menuCoordinador()

@@ -105,12 +105,40 @@
                 "Expulsado",
                 "Retirado"
             ],
-            "estado": "Inscrito",
-            "fechaInicio": "",
-            "fechaCierre": "",
-            "grupo": "",
-            "ruta": "",
-            "moduloActual": 1,
+            "estado": "Cursando",
+            "fechaInicio": "19-02-2024",
+            "fechaCierre": "20-02-2025",
+            "grupo": "T1",
+            "ruta": "Java",
+            "tiposDeRutas": [
+                "Nodejs",
+                "Java",
+                "Netcore"
+            ],
+            "moduloActual": 2,
+            "numeroModulo": [
+                "Fundamentos de programacion",
+                "Programacion web",
+                "Programacion Formal",
+                "Bases de datos",
+                "Backend"
+            ],
+            "materiasM3": [
+                "Java",
+                "JavaScript",
+                "C#"
+            ],
+            "materiasM4": [
+                "Mysql",
+                "MongoDb",
+                "Postgresql"
+            ],
+            "materiasM5": [
+                "Netcore",
+                "Spring Boot",
+                "NodeJs",
+                "Express"
+            ],
             "modulos": [
                 [
                     "Introduccion a la algoritmo",
@@ -122,11 +150,26 @@
                     "CSS",
                     "Bootstrap"
                 ],
-                [],
-                [],
-                []
+                [
+                    "Java",
+                    "C#"
+                ],
+                [
+                    "Postgresql",
+                    "Mysql"
+                ],
+                [
+                    "Express",
+                    "NodeJs"
+                ]
             ],
-            "trainer": ""
+            "trainer": "Pedro jose",
+            "riesgo": "",
+            "notaFiltro1":"",
+            "notaFiltro2":"",
+            "notaFiltro3":"",
+            "notaFiltro4":"",
+            "notaFiltro5":""
         }
     ],
     "Trainers": [
@@ -142,18 +185,8 @@
             "direccion": "Bucaramanga",
             "telefonoCelular": 3266598821,
             "telefonoFijo": 9862656518,
-            "seciones": [
-                {
-                    "horario": 1,
-                    "ruta": "Java",
-                    "grupo": "T1"
-                },
-                {
-                    "horario": 2,
-                    "ruta": "Netcore",
-                    "grupo": "T2"
-                }
-            ]
+            "ruta":"Java"
+            
         },
         {
             "id": 521535413,
@@ -167,18 +200,7 @@
             "direccion": "Bucaramanga",
             "telefonoCelular": 3285313513,
             "telefonoFijo": 58416543521,
-            "seciones": [
-                {
-                    "horario": 1,
-                    "ruta": "Java",
-                    "grupo": "T3"
-                },
-                {
-                    "horario": 2,
-                    "ruta": "Nodejs",
-                    "grupo": "T1"
-                }
-            ]
+            "ruta":"Nodejs"
         }
     ],
     "Coordinador": [
