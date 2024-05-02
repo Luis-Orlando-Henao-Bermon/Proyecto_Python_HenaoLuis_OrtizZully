@@ -3,16 +3,16 @@
         {
             "id": 5708,
             "user": {
-                "login": "Luis123",
-                "contrase\u00f1a": "Henao123"
+                "login": "luorheber",
+                "contrase\u00f1a": "Luis123"
             },
             "numeroIdentificacion": 10939352265,
             "nombres": "Luis Jose",
             "apellidos": "Bemon Henao",
-            "direccion": "Camilo torres",
+            "direccion": "La Gabarra",
             "acudiente": "Franklin Henao",
-            "telefonoCelular": 3003426875,
-            "telefonoFijo": 10263629852,
+            "telefonoCelular": 3122565452,
+            "telefonoFijo": 324568,
             "tiposDeEstados": [
                 "En proceso",
                 "Inscrito",
@@ -33,6 +33,13 @@
                 "Netcore"
             ],
             "moduloActual": 1,
+            "numeroModulo": [
+                "Fundamentos de programacion",
+                "Programacion web",
+                "Programacion Formal",
+                "Bases de datos",
+                "Backend"
+            ],
             "materiasM3": [
                 "Java",
                 "JavaScript",
@@ -75,21 +82,26 @@
                 ]
             ],
             "trainer": "Pedro jose",
-            "riesgo": "bajo"
+            "riesgo": "bajo",
+            "notaFiltro1": "",
+            "notaFiltro2": "",
+            "notaFiltro3": "",
+            "notaFiltro4": "",
+            "notaFiltro5": ""
         },
         {
             "id": 956443,
             "user": {
-                "login": "zullxd",
-                "contrase\u00f1a": "zuortiz"
+                "login": "zu123",
+                "contrase\u00f1a": "fer123"
             },
             "numeroIdentificacion": 10936265354,
             "nombres": "Zully Fernanda",
             "apellidos": "Ortiz Avenda\u00f1o",
-            "direccion": "tecnico",
+            "direccion": "pinos",
             "acudiente": "Zully Fabiola Avenda\u00f1o",
-            "telefonoCelular": 3138905220,
-            "telefonoFijo": 59633416912,
+            "telefonoCelular": 153513513,
+            "telefonoFijo": 513135135,
             "tiposDeEstados": [
                 "En proceso",
                 "Inscrito",
@@ -104,28 +116,7 @@
             "fechaCierre": "",
             "grupo": "",
             "ruta": "",
-            "tiposDeRutas": [
-                "Nodejs",
-                "Java",
-                "Netcore"
-            ],
             "moduloActual": 1,
-            "materiasM3": [
-                "Java",
-                "JavaScript",
-                "C#"
-            ],
-            "materiasM4": [
-                "Mysql",
-                "MongoDb",
-                "Postgresql"
-            ],
-            "materiasM5": [
-                "Netcore",
-                "Spring Boot",
-                "NodeJs",
-                "Express"
-            ],
             "modulos": [
                 [
                     "Introduccion a la algoritmo",
@@ -137,19 +128,34 @@
                     "CSS",
                     "Bootstrap"
                 ],
-                [],
-                [],
-                []
+                [
+                    "Java",
+                    "C#"
+                ],
+                [
+                    "Postgresql",
+                    "Mysql"
+                ],
+                [
+                    "Express",
+                    "NodeJs"
+                ]
             ],
-            "trainer": ""
+            "trainer": "Pedro jose",
+            "riesgo": "",
+            "notaFiltro1": "",
+            "notaFiltro2": "",
+            "notaFiltro3": "",
+            "notaFiltro4": "",
+            "notaFiltro5": ""
         }
     ],
     "Trainers": [
         {
             "id": 75458546,
             "user": {
-                "login": "Pedrito09",
-                "contrase\u00f1a": "Pedrosqui010"
+                "login": "pedrito",
+                "contrase\u00f1a": "pedrosqui"
             },
             "numeroIdentificacion": 88563265,
             "nombres": "Pedro jose",
@@ -157,21 +163,11 @@
             "direccion": "Bucaramanga",
             "telefonoCelular": 3266598821,
             "telefonoFijo": 9862656518,
-            "seciones": [
-                {
-                    "horario": 1,
-                    "ruta": "Java",
-                    "grupo": "T1"
-                },
-                {
-                    "horario": 2,
-                    "ruta": "Netcore",
-                    "grupo": "T2"
-                }
-            ]
+            "ruta":"Java"
+            
         },
         {
-            "id": 521535413,
+            "id": 1523,
             "user": {
                 "login": "michelin03",
                 "contrase\u00f1a": "michael1504"
@@ -182,33 +178,22 @@
             "direccion": "Bucaramanga",
             "telefonoCelular": 3285313513,
             "telefonoFijo": 58416543521,
-            "seciones": [
-                {
-                    "horario": 1,
-                    "ruta": "Java",
-                    "grupo": "T3"
-                },
-                {
-                    "horario": 2,
-                    "ruta": "Nodejs",
-                    "grupo": "T1"
-                }
-            ]
+            "ruta":" Nodejs"
         }
     ],
     "Coordinador": [
         {
-            "id": 545454654,
+            "id": 3704,
             "user": {
                 "login": "stiv1",
                 "contrase\u00f1a": "stiv12"
             },
-            "numeroIdentificacion": 51354323321,
-            "nombres": "Stiven Andres",
-            "apellidos": "Carvajal Bele\u00f1o",
-            "direccion": "Bucaramanga",
-            "telefonoCelular": 3255136625,
-            "telefonoFijo": 55696358563
+            "numeroIdentificacion": 1586516131,
+            "nombres": "Luis Orlando",
+            "apellidos": "Henao Bermon",
+            "direccion": "Tibu",
+            "telefonoCelular": 3003526653,
+            "telefonoFijo": 5131151813
         }
     ]
 }
