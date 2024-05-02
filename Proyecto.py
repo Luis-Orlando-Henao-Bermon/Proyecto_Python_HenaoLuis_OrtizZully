@@ -59,7 +59,7 @@ def menuCoordinador():
           2). Cambiar informacion de todo el sistema educativo.
           3). Agregar nota de examen de aprobación.
           4). Agregar nota de filtro. 
-          5). Consultar cuales campers se encuentra en riego.
+          5). Consultar cuales campers se encuentra en riesgo alto.
           6). Reporte.
           7). Salir
     -----------------------------------------------------------------------
@@ -1227,14 +1227,14 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     
 
                     confiInforTrainer="si"
-                    while confiInforTrainer=="si":
-
+                    while confiInforTrainer=="si":#este bucle se usa para preguntar si quiere cambiar algo mas si escribe si se repite el bucle y si preciona enter se sale del bucle y vuelve al menu anterior
+                        #se muestra la informacion que se puede cambiar 
                         print("-----Informacion que se puede cambiar-----\n1. ID\n2. Numero de identificacion\n3. Nombres\n4. Apellidos\n5. Direccion\n6. Telefono Celular\n7. Telefono Fijo\n8. Ruta\n9. Volver al menu anterior ")
                     
                         bol32=True
                         while bol32==True:
                             try:
-                                opcCambioTrainer=int(input("Ingresa tu opcion\n"))
+                                opcCambioTrainer=int(input("Ingresa tu opcion\n")) #se pide la opcion y si la opcion no esta entre las que aparecen en pantalla le mada error
                                 while opcCambioTrainer<1 or opcCambioTrainer>9:
                                     opcCambioTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))
                                 bol32=False
@@ -1242,7 +1242,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 print("Ingresa un opcion valida (Numero)")
                         
                         if opcCambioTrainer==1:
-
+                            #si escoge la opcion 1 le pide el nuevo id y lo remplaza por el que ya estaba
                             bol33=True
                             while bol33==True:
                                 
@@ -1254,11 +1254,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             
                             archivo[personaCambiarInfo][posicionTrainerCambiar]["id"]=idCambioTrainer
                                 
-                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")
+                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#aca es donde se pregunta si quiere cambiar algo mas para saber si se repite el bucle o no
                             system("clear")
                         
                         elif opcCambioTrainer==2:
-
+                            #si escoge la opcion 2 le pide el nuevo numero de identificacion y lo remplaza por el que ya estaba
                             bol34=True
                             while bol34==True:
                                 try:
@@ -1269,38 +1269,44 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                             archivo[personaCambiarInfo][posicionTrainerCambiar]["numeroIdentificacion"]= nidCambioTrainer
 
-                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")
+                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#aca es donde se pregunta si quiere cambiar algo mas para saber si se repite el bucle o no
                             system("clear")
                         
                         elif opcCambioTrainer==3:
+                            #si escoge la opcion 3 le pide los nuevos nombres y los remplaza por el que ya estaba
 
                             nombreCambioTrainer= input("Ingresa los nuevos nombres\n")
 
                             archivo[personaCambiarInfo][posicionTrainerCambiar]["nombres"]=nombreCambioTrainer
 
-                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")
+                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#aca es donde se pregunta si quiere cambiar algo mas para saber si se repite el bucle o no
                             system("clear")
                         
                         elif opcCambioTrainer==4:
 
+                            #si escoge la opcion 4 le pide los nuevos apellidos y los remplaza por el que ya estaba
                             apellidoCambioTrainer=input("Ingresa los nuevos apellidos\n")
 
                             archivo[personaCambiarInfo][posicionTrainerCambiar]["apellidos"]=apellidoCambioTrainer
 
-                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")
+                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#aca es donde se pregunta si quiere cambiar algo mas para saber si se repite el bucle o no
                             system("clear")
                         
                         elif opcCambioTrainer==5:
+                            
+                            #si escoge la opcion 5 le pide la nueva direccion y la remplaza por la que ya estaba
 
                             direccionCambioTrainer=input("Ingresa la nueva direccion\n")
 
                             archivo[personaCambiarInfo][posicionTrainerCambiar]["direccion"]=direccionCambioTrainer
 
-                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")
+                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#aca es donde se pregunta si quiere cambiar algo mas para saber si se repite el bucle o no
                             system("clear")
                         
                         elif opcCambioTrainer==6:
                             
+                            #si escoge la opcion 6 le pide el nuevo numero de telefono y lo remplaza por el que ya estaba
+
                             bol35=True
                             while bol35==True:
                                 try:
@@ -1311,11 +1317,13 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 
                             archivo[personaCambiarInfo][posicionTrainerCambiar]["telefonoCelular"]=TelefonoCelularTrainerCambiar
 
-                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")
+                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#aca es donde se pregunta si quiere cambiar algo mas para saber si se repite el bucle o no
                             system("clear")
 
                         elif opcCambioTrainer==7:
                             
+                            #si escoge la opcion 7 le pide el nuevo numero de telefono fijo y lo remplaza por el que ya estaba
+
                             bol35=True
                             while bol35==True:
                                 try:
@@ -1326,10 +1334,12 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 
                             archivo[personaCambiarInfo][posicionTrainerCambiar]["telefonoFijo"]=TelefonoFijoTrainerCambiar
 
-                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")
+                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#aca es donde se pregunta si quiere cambiar algo mas para saber si se repite el bucle o no
                             system("clear")
 
                         elif opcCambioTrainer==8:
+
+                            #si escoge la opcion 8 le pide el nuevo id y lo remplaza por el que ya estaba
 
                             print("-----Tipos de rutas-----")
                             for p in range(len(archivo[personaCambiarInfo][posicionTrainerCambiar]["tiposDeRutas"])):
@@ -1343,33 +1353,37 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                             archivo[personaCambiarInfo][posicionTrainerCambiar]["ruta"]=rutaTrainerCambiar
 
-                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")
+                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#aca es donde se pregunta si quiere cambiar algo mas para saber si se repite el bucle o no
                             system("clear")
                         
                         elif opcCambioTrainer==9:
+                            #si escoge el punto 9 confiInforTrainer es igual a "" y con esto se edevuelve al menu anterior 
                             system("clear")
 
-                            confiInforTrainer="no"
+                            confiInforTrainer=""
 
                 if personaCambiarInfo=="Coordinador":
+                    #como solo hay un solo coordinador directamente se le pregunta que quiere cambiar de esa informacion
 
                     confiInforCoordinador="si"
-                    while confiInforCoordinador=="si":
+                    while confiInforCoordinador=="si":#este while se usa para saber si quiere cambiar mas cosas de los datos y si quiere hacerlo se repite este bucle 
 
-                        print("-----Informacion que se puede cambiar-----\n1. ID\n2. Numero de identificacion\n3. Nombres\n4. Apellidos\n5. Direccion\n6. Telefono Celular\n7. Telefono Fijo\n8. Volver al menu anterior ")
+                        print("-----Informacion que se puede cambiar-----\n1. ID\n2. Numero de identificacion\n3. Nombres\n4. Apellidos\n5. Direccion\n6. Telefono Celular\n7. Telefono Fijo\n8. Volver al menu anterior ")#se muestran las opciones que puede modificar
 
 
                         bol36=True
                         while bol36==True:
                             try:
-                                opcCambioCoordinador=int(input("Ingresa tu opcion\n"))
-                                while opcCambioCoordinador<1 or opcCambioCoordinador>8:
+                                opcCambioCoordinador=int(input("Ingresa tu opcion\n"))#se pide la opcion que quiiere cambiar
+                                while opcCambioCoordinador<1 or opcCambioCoordinador>8:#mientras que la opcion que quiere cambiar no este entre las que hay en pantalla le pedira que ingrese una opcion valida 
                                     opcCambioCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))
                                 bol36=False
                             except ValueError:
                                 print("Ingrese una opcion valida (Numero)")
                         
                         if opcCambioCoordinador==1:
+
+                            #si escoge la opcion 1 le pide el nuevo id y lo remplaza por el que ya estaba
 
                             bol37=True
                             while bol37==True:
@@ -1386,6 +1400,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         
                         elif opcCambioCoordinador==2:
 
+                            #si escoge la opcion 2 le pide el nuevo numero de identificacion y lo remplaza por el que ya estaba
+
                             bol38=True
                             while bol38==True:
                                 try:
@@ -1401,6 +1417,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                         elif opcCambioCoordinador==3:
 
+                            #si escoge la opcion 3 le pide los nuevos nombres y los remplaza por el que ya estaba
+
                             nombreCambioCoordinador=input("Ingresa los nuevos nombres del coordinador\n")
 
                             archivo["Coordinador"][0]["nombres"]=nombreCambioCoordinador
@@ -1409,6 +1427,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             system("clear")
 
                         elif opcCambioCoordinador==4:
+
+                            #si escoge la opcion 4 le pide los nuevos apellidos y lo remplaza por el que ya estaba
 
                             apellidoCambioCoordinador=input("Ingresa los nuevos apellidos del coordinador\n")
 
@@ -1419,6 +1439,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         
                         elif opcCambioCoordinador==5:
 
+                            #si escoge la opcion 5 le pide la nueva direccion y lo remplaza por la que ya estaba
+
                             direccionCambioCoordinador=input("Ingresa la nueva direccion\n")
 
                             archivo["Coordinador"][0]["direccion"]=direccionCambioCoordinador
@@ -1427,6 +1449,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             system("clear")
 
                         elif opcCambioCoordinador==6:
+
+                            #si escoge la opcion 6 le pide el nuevo numero de telefono movil y lo remplaza por el que ya estaba
 
                             bol39=True
                             while bol39==True:
@@ -1443,6 +1467,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         
                         elif opcCambioCoordinador==7:
 
+                            #si escoge la opcion 7 le pide el nuevo numero de telefono fijo y lo remplaza por el que ya estaba
+
                             bol40=True
                             while bol40==True:
                                 try:
@@ -1457,6 +1483,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             system("clear")
 
                         elif opcCambioCoordinador==8:
+
+                            #si escoge la opcion 8 confiInforCoordinador se vuelve igual a "" y se cierra el ciclo
 
                             confiInforCoordinador=""
                             system("clear")
@@ -1503,33 +1531,263 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 bol41=True
                 while bol41==True:
                     try:
-                        idNotaFiltro=int(input("Ingresa el ID del camper al que le quieres agregar la nota\n"))
+                        idNotaFiltro=int(input("Ingresa el ID del camper al que le quieres agregar la nota\n"))#se pide el id del camper al que se le quiere agregar la nota y si el camper no esta en la lista idCamperNota le pida que ingrese uno valido
                         while idNotaFiltro not in idCamperNota:
                             idNotaFiltro=int(input("ID no encontrado por favor ingresa uno valido\n"))
                         bol41=False
                     except ValueError:
                         print("Ingresa un ID valido (Solo numeros)")
                 
-                for j in range(len(archivo["Campers"])):
+                for j in range(len(archivo["Campers"])):#este bucle for se usa para saber la pocicion del camper que tiene el id ingresado
                     if idNotaFiltro==archivo["Campers"][j]["id"]:
                         posicionCamperNota=j
+                
+                system("clear")
 
                 
                 confiAgregarNota="si"
                 while confiAgregarNota=="si":
-                    print("-----Modulos-----")
+                    print("-----Modulos-----")#se muestran los modulos que hay (esa informacion la tiene cada uno de los campers)
                     for g in range(len(archivo["Campers"][posicionCamperNota]["numeroModulo"])):
                         print(g+1,archivo["Campers"][posicionCamperNota]["numeroModulo"][g])
 
                     bol42=True
                     while bol42==True:
                         try:
-                            moduloAgregarNota=int(input("Ingrese el modulo al que le quiere agregar la nota del filtro (Ingrese el numero)\n"))
+                            moduloAgregarNota=int(input("Ingrese el modulo al que le quiere agregar la nota del filtro (Ingrese el numero)\n"))#se pide el modulo en el cual quiere agregar nota de filtro y si dice una nota diferente a las que hay en pantalla le pide que ingrese una valida
                             while moduloAgregarNota<1 or moduloAgregarNota>5:
                                 moduloAgregarNota=int(input("Ingrese un modulo de los que aparecen en pantalla\n"))
                             bol42=False
                         except ValueError:
                             print("Ingrese el numero del modulo")
+
+                    
+                    #dependiendo de la opcion que escoja se le pide la nota eorica y la practica luego se saca el promedio de esas 2 y esa es la nota que se agrega a cada modulo (cada camper tiene un lugar para cada nota)
+
+                    if moduloAgregarNota==1:
+                        system("clear")
+                        
+                        bol43=True
+                        while bol43==True:
+                            
+                            try:
+                                notaTeoricaM1=int(input("Ingrese la nota del filtro teorico\n"))
+                                while notaTeoricaM1<0 or notaTeoricaM1>100:
+                                    notaTeoricaM1=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
+                                bol43=False
+                            except ValueError:
+                                print("Ingresa una nota valida (Numero)")
+                        
+                        system("clear")
+                        
+                        bol44=True
+                        while bol44==True:
+                            
+                            try:
+                                notaPracticaM1=int(input("Ingrese la nota del filtro practico\n"))
+                                while notaPracticaM1<0 or notaPracticaM1>100:
+                                    notaPracticaM1=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
+                                bol44=False
+                            except ValueError:
+                                print("Ingresa una nota valida (Numero)")
+                        
+                        
+                        notaFiltroM1=(notaPracticaM1+notaTeoricaM1)/2
+
+                        if notaFiltroM1<60:
+                            riesgoM1="Alto"
+                        
+                        elif notaFiltroM1>60:
+                            riesgoM1="Bajo"
+
+
+                        archivo["Campers"][posicionCamperNota]["riesgo"][0]=riesgoM1#aca se agrega el riesgo de este modulo
+                        
+                        archivo["Campers"][posicionCamperNota]["notaFiltro1"]=notaFiltroM1
+
+                        confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
+                        system("clear")
+
+                    elif moduloAgregarNota==2:
+                        system("clear")
+                        
+                        bol43=True
+                        while bol43==True:
+                            
+                            try:
+                                notaTeoricaM2=int(input("Ingrese la nota del filtro teorico\n"))
+                                while notaTeoricaM2<0 or notaTeoricaM2>100:
+                                    notaTeoricaM2=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
+                                bol43=False
+                            except ValueError:
+                                print("Ingresa una nota valida (Numero)")
+                        
+                        system("clear")
+                        
+                        bol44=True
+                        while bol44==True:
+                            
+                            try:
+                                notaPracticaM2=int(input("Ingrese la nota del filtro practico\n"))
+                                while notaPracticaM2<0 or notaPracticaM2>100:
+                                    notaPracticaM2=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
+                                bol44=False
+                            except ValueError:
+                                print("Ingresa una nota valida (Numero)")
+                        
+                        
+                        notaFiltroM2=(notaPracticaM2+notaTeoricaM2)/2
+
+                        if notaFiltroM2<60:
+                            riesgoM2="Alto"
+                        
+                        elif notaFiltroM2>60:
+                            riesgoM2="Bajo"
+
+
+                        archivo["Campers"][posicionCamperNota]["riesgo"][1]=riesgoM2#aca se agrega el riesgo de este modulo
+                        
+                        
+                        archivo["Campers"][posicionCamperNota]["notaFiltro2"]=notaFiltroM2
+
+                        confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
+                        system("clear")
+
+                    elif moduloAgregarNota==3:
+                        system("clear")
+                        
+                        bol43=True
+                        while bol43==True:
+                            
+                            try:
+                                notaTeoricaM3=int(input("Ingrese la nota del filtro teorico\n"))
+                                while notaTeoricaM3<0 or notaTeoricaM3>100:
+                                    notaTeoricaM3=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
+                                bol43=False
+                            except ValueError:
+                                print("Ingresa una nota valida (Numero)")
+                        
+                        system("clear")
+                        
+                        bol44=True
+                        while bol44==True:
+                            
+                            try:
+                                notaPracticaM3=int(input("Ingrese la nota del filtro practico\n"))
+                                while notaPracticaM3<0 or notaPracticaM3>100:
+                                    notaPracticaM3=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
+                                bol44=False
+                            except ValueError:
+                                print("Ingresa una nota valida (Numero)")
+                        
+                        
+                        notaFiltroM3=(notaPracticaM3+notaTeoricaM3)/2
+
+                        if notaFiltroM3<60:
+                            riesgoM3="Alto"
+                        
+                        elif notaFiltroM3>60:
+                            riesgoM3="Bajo"
+
+
+                        archivo["Campers"][posicionCamperNota]["riesgo"][2]=riesgoM3#aca se agrega el riesgo de este modulo
+                        
+                        
+                        archivo["Campers"][posicionCamperNota]["notaFiltro3"]=notaFiltroM3
+
+                        confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
+                        system("clear")
+
+                    elif moduloAgregarNota==4:
+                        system("clear")
+                        
+                        bol43=True
+                        while bol43==True:
+                            
+                            try:
+                                notaTeoricaM4=int(input("Ingrese la nota del filtro teorico\n"))
+                                while notaTeoricaM4<0 or notaTeoricaM4>100:
+                                    notaTeoricaM4=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
+                                bol43=False
+                            except ValueError:
+                                print("Ingresa una nota valida (Numero)")
+                        
+                        system("clear")
+                        
+                        bol44=True
+                        while bol44==True:
+                            
+                            try:
+                                notaPracticaM4=int(input("Ingrese la nota del filtro practico\n"))
+                                while notaPracticaM4<0 or notaPracticaM4>100:
+                                    notaPracticaM4=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
+                                bol44=False
+                            except ValueError:
+                                print("Ingresa una nota valida (Numero)")
+                        
+                        
+                        notaFiltroM4=(notaPracticaM4+notaTeoricaM4)/2
+
+                        if notaFiltroM4<60:
+                            riesgoM4="Alto"
+                        
+                        elif notaFiltroM4>60:
+                            riesgoM4="Bajo"
+
+
+                        archivo["Campers"][posicionCamperNota]["riesgo"][3]=riesgoM4#aca se agrega el riesgo de este modulo
+                        
+                        
+                        archivo["Campers"][posicionCamperNota]["notaFiltro4"]=notaFiltroM4
+
+                        confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
+                        system("clear")
+                    
+                    elif moduloAgregarNota==5:
+                        system("clear")
+                        
+                        bol43=True
+                        while bol43==True:
+                            
+                            try:
+                                notaTeoricaM5=int(input("Ingrese la nota del filtro teorico\n"))
+                                while notaTeoricaM5<0 or notaTeoricaM5>100:
+                                    notaTeoricaM5=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
+                                bol43=False
+                            except ValueError:
+                                print("Ingresa una nota valida (Numero)")
+                        
+                        system("clear")
+                        
+                        bol44=True
+                        while bol44==True:
+                            
+                            try:
+                                notaPracticaM5=int(input("Ingrese la nota del filtro practico\n"))
+                                while notaPracticaM5<0 or notaPracticaM5>100:
+                                    notaPracticaM5=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
+                                bol44=False
+                            except ValueError:
+                                print("Ingresa una nota valida (Numero)")
+                        
+                        
+                        notaFiltroM5=(notaPracticaM5+notaTeoricaM5)/2
+
+                        if notaFiltroM5<60:
+                            riesgoM5="Alto"
+                        
+                        elif notaFiltroM5>60:
+                            riesgoM5="Bajo"
+
+
+                        archivo["Campers"][posicionCamperNota]["riesgo"][4]=riesgoM5#aca se agrega el riesgo de este modulo
+                        
+                        
+                        archivo["Campers"][posicionCamperNota]["notaFiltro5"]=notaFiltroM5
+
+                        confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
+                        system("clear")
+
 
                 menuCoordinador()
                 try:

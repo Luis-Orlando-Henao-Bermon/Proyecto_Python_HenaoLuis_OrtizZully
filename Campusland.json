@@ -81,12 +81,18 @@
                 ]
             ],
             "trainer": "Pedro jose",
-            "riesgo": "bajo",
-            "notaFiltro1": "",
-            "notaFiltro2": "",
-            "notaFiltro3": "",
-            "notaFiltro4": "",
-            "notaFiltro5": ""
+            "riesgo": [
+                "Bajo",
+                "Alto",
+                "Bajo",
+                "Bajo",
+                "Bajo"
+            ],
+            "notaFiltro1": 77.0,
+            "notaFiltro2": 56.5,
+            "notaFiltro3": 77.5,
+            "notaFiltro4": 70.0,
+            "notaFiltro5": 88.0
         },
         {
             "id": 956443,
@@ -169,12 +175,18 @@
                 ]
             ],
             "trainer": "Pedro jose",
-            "riesgo": "",
-            "notaFiltro1": "",
-            "notaFiltro2": "",
-            "notaFiltro3": "",
-            "notaFiltro4": "",
-            "notaFiltro5": ""
+            "riesgo": [
+                "Alto",
+                "Bajo",
+                "Alto",
+                "Alto",
+                "Bajo"
+            ],
+            "notaFiltro1": 41.5,
+            "notaFiltro2": 77.5,
+            "notaFiltro3": 48.0,
+            "notaFiltro4": 46.0,
+            "notaFiltro5": 74.0
         }
     ],
     "Trainers": [
@@ -190,8 +202,7 @@
             "direccion": "Bucaramanga",
             "telefonoCelular": 3266598821,
             "telefonoFijo": 9862656518,
-            "ruta":"Java"
-            
+            "ruta": "Java"
         },
         {
             "id": 1523,
@@ -205,7 +216,7 @@
             "direccion": "Bucaramanga",
             "telefonoCelular": 3285313513,
             "telefonoFijo": 58416543521,
-            "ruta":" Nodejs"
+            "ruta": " Nodejs"
         }
     ],
     "Coordinador": [
