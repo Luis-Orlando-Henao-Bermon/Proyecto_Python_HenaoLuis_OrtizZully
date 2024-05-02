@@ -548,7 +548,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             
                             archivo[personaCambiarInfo][posicionCamperCambiar]["id"]=idCambiar#despues de haber pedido el nuevo id solo remplaza el que ya esta por el nuevo
 
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
 
                         elif opcCambioCamper==2:
@@ -564,7 +564,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             
                             archivo[personaCambiarInfo][posicionCamperCambiar]["numeroIdentificacion"]=identificacionCambiar #despues de haber pedido el nuevo numero de identificacion solo remplaza el que ya estaba por el nuevo
 
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
 
                         elif opcCambioCamper==3:
@@ -573,7 +573,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                             archivo[personaCambiarInfo][posicionCamperCambiar]["nombres"]=nombreCambiar #se preguntan los nuevos nombres y remplaza al que ya esta  
 
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
 
                         elif opcCambioCamper==4:
@@ -582,7 +582,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                             archivo[personaCambiarInfo][posicionCamperCambiar]["apellidos"]=apellidoCambiar #se preguntan los nuevos apellidos y remplaza al que ya esta  
 
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
 
                         elif opcCambioCamper==5:
@@ -591,7 +591,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                             archivo[personaCambiarInfo][posicionCamperCambiar]["direccion"]=direccionCambiar #se pregunta la nueva direccion y remplaza al que ya esta  
 
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
 
                         elif opcCambioCamper==6:
@@ -600,7 +600,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                             archivo[personaCambiarInfo][posicionCamperCambiar]["acudiente"]=acudienteCambiar #se preguntan los nuevos nombres y apellidos del acudiente y remplaza al que ya esta  
 
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
 
                         elif opcCambioCamper==7:
@@ -616,7 +616,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             
                             archivo[personaCambiarInfo][posicionCamperCambiar]["telefonoCelular"]=telefonoCambiar #despues de haber pedido el nuevo telefono movil solo remplaza el que ya estaba por el nuevo
 
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
                         
                         elif opcCambioCamper==8:
@@ -632,7 +632,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             
                             archivo[personaCambiarInfo][posicionCamperCambiar]["telefonoFijo"]=telefonoFijoCambiar #despues de haber pedido el nuevo numero de identificacion solo remplaza el que ya estaba por el nuevo
 
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
 
                         elif opcCambioCamper==9:
@@ -863,7 +863,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=trainerAgregar
 
                             
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
                         
                         elif opcCambioCamper==10:
@@ -882,7 +882,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             else:
                                 print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene fecha de inicio")
 
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
                         
                         elif opcCambioCamper==11:
@@ -903,7 +903,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene fecha de inicio")
 
 
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
 
 
@@ -922,7 +922,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene grupo")
 
 
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
 
 
@@ -972,7 +972,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                             
 
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
                         
 
@@ -1127,7 +1127,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             else:
                                 print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene modulo actual")
                             
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
                         
                         if opcCambioCamper==15:
@@ -1167,7 +1167,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             else:
                                 print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene Trainer")
                             
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
                         
                         if opcCambioCamper==16:
@@ -1201,7 +1201,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             else:
                                 print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene Trainer")
                             
-                            confiInfor=input("¿Quieres cambiar algo mas? si/no\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
+                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
                         
                         if opcCambioCamper==17:
@@ -1233,8 +1233,82 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         if idTrainerCambiar==archivo["Trainers"][b]["id"]:
                             posicionTrainerCambiar=b
                         
-                    print("-----Informacion que se puede cambiar-----\n1. ID\n2. Numero de identificacion\n3. Nombres\n4. Apellidos\n5. Direccion\n6. Telefono Celular\n7. Telefono Fijo\n8. Ruta\n9. Volver al menu anterior ")
+                    
 
+                    confiInforTrainer="si"
+                    while confiInforTrainer=="si":
+
+                        print("-----Informacion que se puede cambiar-----\n1. ID\n2. Numero de identificacion\n3. Nombres\n4. Apellidos\n5. Direccion\n6. Telefono Celular\n7. Telefono Fijo\n8. Ruta\n9. Volver al menu anterior ")
+                    
+                        bol32=True
+                        while bol32==True:
+                            try:
+                                opcCambioTrainer=int(input("Ingresa tu opcion\n"))
+                                while opcCambioTrainer<9 or opcCambioTrainer>1:
+                                    opcCambioTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))
+                                bol32=False
+                            except ValueError:
+                                print("Ingresa un opcion valida (Numero)")
+                        
+                        if opcCambioTrainer==1:
+
+                            bol33=True
+                            while bol33==True:
+                                
+                                try:
+                                    idCambioTrainer=int(input("Ingresa el nuevo ID\n"))
+                                    bol33=False
+                                except ValueError:
+                                    print("Ingresa un ID valido (Solo numeros)")
+                            
+                            archivo[personaCambiarInfo][posicionTrainerCambiar]["id"]=idCambioTrainer
+                                
+                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")
+                            system("clear")
+                        
+                        elif opcCambioTrainer==2:
+
+                            bol34=True
+                            while bol34==True:
+                                try:
+                                    nidCambioTrainer=int(input("Ingresa el nuevo Numero de identificacion\n"))
+                                    bol34=False
+                                except ValueError:
+                                    print("Ingresa un numero de identificadion valido (Solo numeros)")
+
+                            archivo[personaCambiarInfo][posicionTrainerCambiar]["numeroIdentificacion"]= nidCambioTrainer
+
+                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")
+                            system("clear")
+                        
+                        elif opcCambioTrainer==3:
+
+                            nombreCambioTrainer= input("Ingresa los nuevos nombres\n")
+
+                            archivo[personaCambiarInfo][posicionTrainerCambiar]["nombres"]=nombreCambioTrainer
+
+                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")
+                            system("clear")
+                        
+                        elif opcCambioTrainer==4:
+
+                            apellidoCambioTrainer=input("Ingresa los nuevos apellidos\n")
+
+                            archivo[personaCambiarInfo][posicionTrainerCambiar]["apellidos"]=apellidoCambioTrainer
+
+                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")
+                            system("clear")
+                        
+                        elif opcCambioTrainer==5:
+
+                            direccionCambioTrainer=input("Ingresa la nueva direccion\n")
+
+                            archivo[personaCambiarInfo][posicionTrainerCambiar]["direccion"]=direccionCambioTrainer
+
+                            confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona cualquier letra\n")
+                            system("clear")
+                        
+                        
 
                             
                              
