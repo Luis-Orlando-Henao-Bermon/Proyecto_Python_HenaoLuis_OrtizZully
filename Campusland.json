@@ -81,7 +81,12 @@
                 ]
             ],
             "trainer": "Pedro jose",
-            "riesgo": "bajo"
+            "riesgo": "bajo",
+            "notaFiltro1": "",
+            "notaFiltro2": "",
+            "notaFiltro3": "",
+            "notaFiltro4": "",
+            "notaFiltro5": ""
         },
         {
             "id": 956443,
@@ -165,11 +170,11 @@
             ],
             "trainer": "Pedro jose",
             "riesgo": "",
-            "notaFiltro1":"",
-            "notaFiltro2":"",
-            "notaFiltro3":"",
-            "notaFiltro4":"",
-            "notaFiltro5":""
+            "notaFiltro1": "",
+            "notaFiltro2": "",
+            "notaFiltro3": "",
+            "notaFiltro4": "",
+            "notaFiltro5": ""
         }
     ],
     "Trainers": [
@@ -185,37 +190,46 @@
             "direccion": "Bucaramanga",
             "telefonoCelular": 3266598821,
             "telefonoFijo": 9862656518,
-            "ruta":"Java"
-            
+            "ruta": "Java",
+            "tiposDeRutas": [
+                "Nodejs",
+                "Java",
+                "Netcore"
+            ]
         },
         {
-            "id": 521535413,
+            "id": 1523,
             "user": {
                 "login": "michelin03",
                 "contrase\u00f1a": "michael1504"
             },
-            "numeroIdentificacion": 88563265,
-            "nombres": "Michael Andres",
-            "apellidos": "Garzon Ramirez",
-            "direccion": "Bucaramanga",
-            "telefonoCelular": 3285313513,
-            "telefonoFijo": 58416543521,
-            "ruta":" Nodejs"
+            "numeroIdentificacion": 153513541351,
+            "nombres": "jose jose",
+            "apellidos": "rodriguez sanzhez",
+            "direccion": "bogota",
+            "telefonoCelular": 15153513536,
+            "telefonoFijo": 526352651,
+            "ruta": "Java",
+            "tiposDeRutas": [
+                "Nodejs",
+                "Java",
+                "Netcore"
+            ]
         }
     ],
     "Coordinador": [
         {
-            "id": 545454654,
+            "id": 3704,
             "user": {
                 "login": "stiv1",
                 "contrase\u00f1a": "stiv12"
             },
-            "numeroIdentificacion": 51354323321,
-            "nombres": "Stiven Andres",
-            "apellidos": "Carvajal Bele\u00f1o",
-            "direccion": "Bucaramanga",
-            "telefonoCelular": 3255136625,
-            "telefonoFijo": 55696358563
+            "numeroIdentificacion": 1586516131,
+            "nombres": "Luis Orlando",
+            "apellidos": "Henao Bermon",
+            "direccion": "Tibu",
+            "telefonoCelular": 3003526653,
+            "telefonoFijo": 5131151813
         }
     ]
 }
