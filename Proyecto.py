@@ -576,7 +576,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     
                     system("clear")
                     while confiInfor=="si":
-                        print("Datos por cambiar\n1. ID\n2. Numero de Identificacion\n3. Nombres\n4. Apellidos\n5. Direccion\n6. Acudiente\n7. Telefono Celular\n8. Telefono fijo\n9. Estado\n\nLa siguiente informacion solo es valida para usuarios que ya estan cursando\n\n10. Fecha de inicio\n11. Fecha de cierre\n12. grupo\n13. Modulo actual\n14. Modulos\n15. Trainer\n16. Ruta\n17. Volver al menu anterior ")
+                        print("Datos por cambiar\n1. ID\n2. Numero de Identificacion\n3. Nombres\n4. Apellidos\n5. Direccion\n6. Acudiente\n7. Telefono Celular\n8. Telefono fijo\n9. Estado\n\nLa siguiente informacion solo es valida para usuarios que ya estan cursando\n\n10. Fecha de inicio\n11. Fecha de cierre\n12. grupo\n13. Modulo actual\n14. Volver al menu anterior ")
 
                         #esta es la manera en la que se puede hacer repetir un error 
                         bol24=True
@@ -691,6 +691,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             system("clear")
 
                         elif opcCambioCamper==9:
+                            system("clear")
                             
                             print("-----Tipos de estado-----")
                             for a in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeEstados"])):#se muestran los tipos de estado con unbucle for
@@ -703,7 +704,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                             archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=estadoCambiar# Como ya se sabe cual es el nuevo estado que quiere solo se remplaza el que ya estaba por el que ingreso el usuario
 
-                            if estadoCambiar=="Aprobado":#si el usuario puso de nuevo estado aprovado se tienen que llenar otra informacion ya que ahora pertenece a campusland
+                            if estadoCambiar=="Aprobado" and archivo[personaCambiarInfo][posicionCamperCambiar]["fechaInicio"]=="" or estadoCambiar=="Cursando" and archivo[personaCambiarInfo][posicionCamperCambiar]["fechaInicio"]=="":#si el usuario puso de nuevo estado aprovado se tienen que llenar otra informacion ya que ahora pertenece a campusland
 
                                 print("Como el estado del estudiante ahora es Aprobado tienes que llenar la siguiente informacion:")
 
@@ -714,101 +715,59 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 agregarFechaCierre=input("Ingrese una fecha de cierre (DD-MM-AAAA)\n")#se pide y se agrega la fecha de cierre
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["fechaCierre"]=agregarFechaCierre
 
-
-                                system("clear")
-                                print("-----Tipos de Rutas-----")
-                                for y in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"])):#se muestran todos los tipos de rutas que hay 
-                                    print(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"][y])
-                                
-                                rutaAgregar=input("Ingresa una ruta\n")#se pide la tura a agregar
-
-                                while rutaAgregar not in archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"]:
-                                    #mientras que la ruta que agregue no este en tiposDeRutas 
-                                    rutaAgregar=input("Ingresa una ruta valida (Tienes que escribirlo como aparece en los tipos de rutas)\n")
-
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=rutaAgregar#despues de haber dicho la ruta que quiere se agrega a ruta
-
                                 system("clear")
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["moduloActual"]=1#se pone que el modulo actual es igual a 1 ya que como apenas esta empezando empieza en el modulo 1
 
-
-                                trainerHay=[]#en esta lista se guardaran los nombres de los trainers que hay
-                                print("-----Trainers-----")
-                                for z in range(len(archivo["Trainers"])):#con este bucle for se muestran los nombres de los trainers que hay 
-                                    print(archivo["Trainers"][z]["nombres"])
-                                    if archivo["Trainers"][z]["nombres"] not in trainerHay:#si el nombre del trainer no esta en la lista trainerHay se agrega y si esta solo lo ignora 
-                                        trainerHay.append(archivo["Trainers"][z]["nombres"])
-
-                                trainerAgregar=input("Ingresa el trainer\n")
-                                while trainerAgregar not in trainerHay:
-                                    trainerAgregar=input("Ingresa un trainer valido (Tienes que escribirlo como aparece en Trainers)\n")
-
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=trainerAgregar
-                            
-                            elif estadoCambiar=="Cursando" and archivo[personaCambiarInfo][posicionCamperCambiar]["fechaInicio"]=="":#si el estado ingresado es Cursando y en la fecha de inicio no hay nada se tienen que llenar unos datos (se mira si la fecha de inicio esta vacia por si el estado pasa de estado Incrito directamente a Aprobado(esto solo es un ejemplo))
-
-                                #si el usuario puso de nuevo estado aprovado se tienen que llenar otra informacion ya que ahora pertenece a campusland
-
-                                print("Como el estado del estudiante ahora es Cursando tienes que llenar la siguiente informacion:")
-
-                                agregarFechaInicio=input("Ingrese una fecha de inicio (DD-MM-AAAA)\n")#se pide y se agrega la fecha de inicio
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["fechaInicio"]=agregarFechaInicio
-
                                 system("clear")
-                                agregarFechaCierre=input("Ingrese una fecha de cierre (DD-MM-AAAA)\n")#se pide y se agrega la fecha de cierre
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["fechaCierre"]=agregarFechaCierre
 
-
-                                system("clear")
-                                print("-----Tipos de Rutas-----")
-                                for y in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"])):#se muestran todos los tipos de rutas que hay 
-                                    print(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"][y])
+                                grupos=[]
+                                for q in range(len(archivo["Coordinador"][1]["rutas"])):
+                                    print("-----------------------------------")
+                                    print("Ruta:",archivo["Coordinador"][1]["rutas"][q])
+                                    for t in range(len(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"])):
+                                        print("-----Grupos-----")
+                                        print(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t])
+                                        if archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t] not in grupos:
+                                            grupos.append(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t])
+                                    
                                 
-                                rutaAgregar=input("Ingresa una ruta\n")#se pide la tura a agregar
-
-                                while rutaAgregar not in archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"]:
-                                    #mientras que la ruta que agregue no este en tiposDeRutas 
-                                    rutaAgregar=input("Ingresa una ruta valida (Tienes que escribirlo como aparece en los tipos de rutas)\n")
-
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=rutaAgregar#despues de haber dicho la ruta que quiere se agrega a ruta
-
-                                system("clear")
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["moduloActual"]=1#se pone que el modulo actual es igual a 1 ya que como apenas esta empezando empieza en el modulo 1 
-
-
+                                grupoCambiar=input("Ingrese un grupo (Escogelo dependiendo de la ruta que Quieras)\n")
                                 
-                                system("clear")
+                                while grupoCambiar not in grupos:
+                                    grupoCambiar=input("Ingresa un grupo de los que hay en pantalla \n")
 
-                                trainerHay=[]#en esta lista se guardaran los nombres de los trainers que hay
-                                print("-----Trainers-----")
-                                for z in range(len(archivo["Trainers"])):#con este bucle for se muestran los nombres de los trainers que hay 
-                                    print(archivo["Trainers"][z]["nombres"])
-                                    if archivo["Trainers"][z]["nombres"] not in trainerHay:#si el nombre del trainer no esta en la lista trainerHay se agrega y si esta solo lo ignora 
-                                        trainerHay.append(archivo["Trainers"][z]["nombres"])
+                                estudiantesG=0
+                                for y in range(len(archivo["Campers"])):
+                                    if grupoCambiar==archivo["Campers"][y]["grupo"]:
+                                        estudiantesG=estudiantesG+1
 
-                                trainerAgregar=input("Ingresa el trainer\n")
-                                while trainerAgregar not in trainerHay:
-                                    trainerAgregar=input("Ingresa un trainer valido (Tienes que escribirlo como aparece en Trainers)\n")
-                                
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=trainerAgregar
+                                while estudiantesG==1:
+                                    grupoCambiar=input("Grupo con limites de estudiantes por favor ingresa otro\n")
 
-                            
+                                    while grupoCambiar not in grupos:
+                                        grupoCambiar=input("Ingresa un grupo de los que hay en pantalla \n")
+
+                                    estudiantesG=0
+                                    for y in range(len(archivo["Campers"])):
+                                        if grupoCambiar==archivo["Campers"][y]["grupo"]:
+                                            estudiantesG=estudiantesG+1
+
+
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["grupo"]=grupoCambiar
+
+                                for u in range(len(archivo["Coordinador"][1]["rutas"])):
+                                    if grupoCambiar in archivo["Coordinador"][1]["tiposDeRutas"][u]["grupos"]:
+                                        archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=archivo["Coordinador"][1]["rutas"][u]
+
                             confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
                         
                         elif opcCambioCamper==10:
-                            if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Aprobado":
+                            if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Aprobado" or archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Cursando":
                                 fechaCambio=input("¿Cual es la nueva fecha de inicio? (DD-MM-AAAA)\n")
 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["fechaInicio"]=fechaCambio
-                            
-                            elif archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Cursando":
-
-                                fechaCambio=input("¿Cual es la nueva fecha de inicio? (DD-MM-AAAA)\n")
-
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["fechaInicio"]=fechaCambio
-                            
-                        
+                                            
                             else:
                                 print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene fecha de inicio")
 
@@ -817,18 +776,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         
                         elif opcCambioCamper==11:
 
-                            if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Aprobado":
+                            if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Aprobado" or archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Cursando":
                                 fechaCierreCambio=input("¿Cual es la nueva fecha de cierre? (DD-MM-AAAA)\n")
 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["fechaCierre"]=fechaCierreCambio
                             
-                            elif archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Cursando":
-
-                                fechaCierreCambio=input("¿Cual es la nueva fecha de cierre? (DD-MM-AAAA)\n")
-
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["fechaCierre"]=fechaCierreCambio
-                            
-                        
                             else:
                                 print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene fecha de inicio")
 
@@ -838,16 +790,50 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
 
                         elif opcCambioCamper==12:
-                            if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Aprobado":
+                            if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Aprobado" or archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Cursando":
+                                
+                                
+                                system("clear")
 
-                                grupoCambiar=input("¿Cual es el nuevo grupo?\n")
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["grupo"]=grupoCambiar
-                            
-                            elif archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Cursando":
+                                grupos=[]
+                                for q in range(len(archivo["Coordinador"][1]["rutas"])):
+                                    print("-----------------------------------")
+                                    print("Ruta:",archivo["Coordinador"][1]["rutas"][q])
+                                    for t in range(len(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"])):
+                                        print("-----Grupos-----")
+                                        print(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t])
+                                        if archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t] not in grupos:
+                                            grupos.append(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t])
+                                    
+                                
+                                grupoCambiar=input("Ingrese un grupo (Escogelo dependiendo de la ruta que Quieras)\n")
+                                
+                                while grupoCambiar not in grupos:
+                                    grupoCambiar=input("Ingresa un grupo de los que hay en pantalla \n")
 
-                                grupoCambiar=input("¿Cual es el nuevo grupo?\n")
+                                estudiantesG=0
+                                for y in range(len(archivo["Campers"])):
+                                    if grupoCambiar==archivo["Campers"][y]["grupo"]:
+                                        estudiantesG=estudiantesG+1
+
+                                while estudiantesG==1:
+                                    grupoCambiar=input("Grupo con limites de estudiantes por favor ingresa otro\n")
+
+                                    while grupoCambiar not in grupos:
+                                        grupoCambiar=input("Ingresa un grupo de los que hay en pantalla \n")
+
+                                    estudiantesG=0
+                                    for y in range(len(archivo["Campers"])):
+                                        if grupoCambiar==archivo["Campers"][y]["grupo"]:
+                                            estudiantesG=estudiantesG+1
+
+
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["grupo"]=grupoCambiar
-                            
+
+                                for u in range(len(archivo["Coordinador"][1]["rutas"])):
+                                    if grupoCambiar in archivo["Coordinador"][1]["tiposDeRutas"][u]["grupos"]:
+                                        archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=archivo["Coordinador"][1]["rutas"][u]
+
                             else:
                                 print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene grupo")
 
@@ -858,10 +844,10 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                         elif opcCambioCamper==13:
 
-                            if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Aprobado":
+                            if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Aprobado" or archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Cursando":
                                 print("----Modulos-----")
-                                for s in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["numeroModulo"])):#se muestran los modulos que hay 
-                                    print(s+1,archivo[personaCambiarInfo][posicionCamperCambiar]["numeroModulo"][s])
+                                for s in range(len(archivo["Coordinador"][1]["numeroModulo"])):#se muestran los modulos que hay 
+                                    print(s+1,archivo["Coordinador"][1]["numeroModulo"][s])
 
                                 #esta es la manera para pedir un entreo y en caso de error se pueda repetir 
                                 bol29=True
@@ -877,25 +863,6 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["moduloActual"]=moduloActualCambiar#despues de haber pedido el nuevo modulo actual se reemplaza por el que ya estaba
                             
-                            elif archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Cursando":
-
-                                print("----Modulos-----")
-                                for s in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["numeroModulo"])):#se muestran los modulos que hay 
-                                    print(s+1,archivo[personaCambiarInfo][posicionCamperCambiar]["numeroModulo"][s])
-
-                                #esta es la manera para pedir un entreo y en caso de error se pueda repetir 
-                                bol29=True
-                                while bol29==True:
-                                    try:
-                                        moduloActualCambiar=int(input("¿Cual es el nuevo modulo actual? (Ingrese el numero del modulo)\n"))
-                                        while moduloActualCambiar<1 or moduloActualCambiar>5:
-                                            moduloActualCambiar=int(input("Ingresa un modulo valido (Entre 1 y 5 que son los que apareren en pantalla)\n"))
-                                        bol29=False
-                                    
-                                    except ValueError:
-                                        print("Ingresa un modulo valido (Numero)")
-                                
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["moduloActual"]=moduloActualCambiar#despues de haber pedido el nuevo modulo actual se reemplaza por el que ya estaba
 
                             else:
                                 print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene modulo actual")
@@ -905,236 +872,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
                         
-
-                        elif opcCambioCamper==14:
-
-                            if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Aprobado":
-                                print("----Modulos que se pueden cambiar-----")
-                                for s in range(2,len(archivo[personaCambiarInfo][posicionCamperCambiar]["numeroModulo"])):#se muestran los modulos que hay 
-                                    print(s+1,archivo[personaCambiarInfo][posicionCamperCambiar]["numeroModulo"][s])
-                                
-                                bol30=True
-                                while bol30==True:
-                                    try:
-                                        moduloCambiar=int(input("¿En que modulo quieres cambiar materias? (Ingresa el numero)\n"))
-                                        while moduloCambiar<3 or moduloCambiar>5:
-                                            moduloCambiar=int(input("Ingresa un modulo de los que aparecen en pantalla\n")) 
-                                        bol30=False
-                                    
-                                    except ValueError:
-                                        print("Ingresa un modulo valido (Numero)")
-                                
-                                if moduloCambiar==3:
-                                    print("-----Materias del modulo 3-----")
-                                    for h in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"])):
-                                        print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"][h])
-                                    materiaModulo3Cambiar=input("Ingresa la primera nueva materia del 3 modulo\n")
-                                    while materiaModulo3Cambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"]:
-                                        materiaModulo3Cambiar=input("Ingresa una materia valida (Tienes que escribirla como aparece en pantalla)\n")
-
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][2]=[]#aca vaciamos la lista para poder añadir las nuevas materias
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][2].append(materiaModulo3Cambiar)
-
-                                    materiaModulo3Cambiar=input("Ingresa la segunda nueva materia del 3 modulo\n")
-                                    while materiaModulo3Cambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"]:
-                                        materiaModulo3Cambiar=input("Ingresa una materia valida (Tienes que escribirla como aparece en pantalla)\n")
-                                    
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][2].append(materiaModulo3Cambiar)
-                                
-                                elif moduloCambiar==4:
-                                    print("-----Materias del modulo 4-----")
-                                    for h in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"])):
-
-                                        print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"][h])
-
-                                    materiaModulo4Cambiar=input("Ingresa la primera nueva materia del 4 modulo\n")
-                                    while materiaModulo4Cambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"]:
-                                        materiaModulo4Cambiar=input("Ingresa una materia valida (Tienes que escribirla como aparece en pantalla)\n")
-
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][3]=[]#aca vaciamos la lista para poder añadir las nuevas materias
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][3].append(materiaModulo4Cambiar)
-
-                                    materiaModulo4Cambiar=input("Ingresa la segunda nueva materia del 4 modulo\n")
-                                    while materiaModulo4Cambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"]:
-                                        materiaModulo4Cambiar=input("Ingresa una materia valida (Tienes que escribirla como aparece en pantalla)\n")
-                                    
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][3].append(materiaModulo4Cambiar)
-                                
-                                elif moduloCambiar==5:
-                                    print("-----Materias del modulo 5-----")
-
-                                    for h in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"])):
-                                        print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"][h])
-
-                                    materiaModulo5Cambiar=input("Ingresa la primera nueva materia del 5 modulo\n")
-                                    while materiaModulo5Cambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"]:
-                                        materiaModulo5Cambiar=input("Ingresa una materia valida (Tienes que escribirla como aparece en pantalla)\n")
-
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4]=[]#aca vaciamos la lista para poder añadir las nuevas materias
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4].append(materiaModulo5Cambiar)
-
-                                    materiaModulo5Cambiar=input("Ingresa la segunda nueva materia del 5 modulo\n")
-                                    while materiaModulo5Cambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"]:
-                                        materiaModulo5Cambiar=input("Ingresa una materia valida (Tienes que escribirla como aparece en pantalla)\n")
-                                    
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4].append(materiaModulo5Cambiar)
-
-                            
-                            
-                            elif archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Cursando":
-
-                                print("----Modulos que se pueden cambiar-----")
-                                for s in range(2,len(archivo[personaCambiarInfo][posicionCamperCambiar]["numeroModulo"])):#se muestran los modulos que hay 
-                                    print(s+1,archivo[personaCambiarInfo][posicionCamperCambiar]["numeroModulo"][s])
-                                
-                                bol30=True
-                                while bol30==True:
-                                    try:
-                                        moduloCambiar=int(input("¿En que modulo quieres cambiar materias? (Ingresa el numero)\n"))
-                                        while moduloCambiar<3 or moduloCambiar>5:
-                                            moduloCambiar=int(input("Ingresa un modulo de los que aparecen en pantalla\n")) 
-                                        bol30=False
-                                    
-                                    except ValueError:
-                                        print("Ingresa un modulo valido (Numero)")
-                                
-                                if moduloCambiar==3:
-                                    print("-----Materias del modulo 3-----")
-                                    for h in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"])):
-                                        print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"][h])
-                                    materiaModulo3Cambiar=input("Ingresa la primera nueva materia del 3 modulo\n")
-                                    while materiaModulo3Cambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"]:
-                                        materiaModulo3Cambiar=input("Ingresa una materia valida (Tienes que escribirla como aparece en pantalla)\n")
-
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][2]=[]#aca vaciamos la lista para poder añadir las nuevas materias
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][2].append(materiaModulo3Cambiar)
-
-                                    materiaModulo3Cambiar=input("Ingresa la segunda nueva materia del 3 modulo\n")
-                                    while materiaModulo3Cambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"]:
-                                        materiaModulo3Cambiar=input("Ingresa una materia valida (Tienes que escribirla como aparece en pantalla)\n")
-                                    
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][2].append(materiaModulo3Cambiar)
-                                
-                                elif moduloCambiar==4:
-                                    print("-----Materias del modulo 4-----")
-                                    for h in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"])):
-
-                                        print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"][h])
-
-                                    materiaModulo4Cambiar=input("Ingresa la primera nueva materia del 4 modulo\n")
-                                    while materiaModulo4Cambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"]:
-                                        materiaModulo4Cambiar=input("Ingresa una materia valida (Tienes que escribirla como aparece en pantalla)\n")
-
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][3]=[]#aca vaciamos la lista para poder añadir las nuevas materias
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][3].append(materiaModulo4Cambiar)
-
-                                    materiaModulo4Cambiar=input("Ingresa la segunda nueva materia del 4 modulo\n")
-                                    while materiaModulo4Cambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"]:
-                                        materiaModulo4Cambiar=input("Ingresa una materia valida (Tienes que escribirla como aparece en pantalla)\n")
-                                    
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][3].append(materiaModulo4Cambiar)
-                                
-                                elif moduloCambiar==5:
-                                    print("-----Materias del modulo 5-----")
-
-                                    for h in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"])):
-                                        print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"][h])
-
-                                    materiaModulo5Cambiar=input("Ingresa la primera nueva materia del 5 modulo\n")
-                                    while materiaModulo5Cambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"]:
-                                        materiaModulo5Cambiar=input("Ingresa una materia valida (Tienes que escribirla como aparece en pantalla)\n")
-
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4]=[]#aca vaciamos la lista para poder añadir las nuevas materias
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4].append(materiaModulo5Cambiar)
-
-                                    materiaModulo5Cambiar=input("Ingresa la segunda nueva materia del 5 modulo\n")
-                                    while materiaModulo5Cambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"]:
-                                        materiaModulo5Cambiar=input("Ingresa una materia valida (Tienes que escribirla como aparece en pantalla)\n")
-                                    
-                                    archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4].append(materiaModulo5Cambiar)
-                                
-                            
-                            else:
-                                print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene modulo actual")
-                            
-                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
-                            system("clear")
-                        
-                        if opcCambioCamper==15:
-                            
-                            if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Aprobado":
-                                trainerHayCambiar=[]
-                                print("-----Trainers-----")
-                                for p in range(len(archivo["Trainers"])):#se muestran los nombres de los trainers y se agregan a la lista trainerHayCambiar
-                                    print(archivo["Trainers"][p]["nombres"])
-                                    if archivo["Trainers"][p]["nombres"] not in trainerHayCambiar:
-                                        trainerHayCambiar.append(archivo["Trainers"][p]["nombres"])
-                                
-                                trainerCambiar=input("¿Cual es el nuevo trainer?\n")#se pregunta cual sera el nuevo trainer 
-
-                                while trainerCambiar not in trainerHayCambiar:#mientras el nuevo trainer no este en la lista trainerHayCambiar se le pedira que ingrese un trainer valido
-                                    trainerCambiar=input("Ingrese un trainer valido (Tiene que escribirlo como aparece en pantalla)\n")
-                                
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=trainerCambiar#despues de saber cual es el nuevo trainer remplaza al que ya estaba
-                            
-                            elif archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Cursando":
-
-                                trainerHayCambiar=[]
-                                print("-----Trainers-----")
-                                for p in range(len(archivo["Trainers"])):#se muestran los nombres de los trainers y se agregan a la lista trainerHayCambiar
-                                    print(archivo["Trainers"][p]["nombres"])
-                                    if archivo["Trainers"][p]["nombres"] not in trainerHayCambiar:
-                                        trainerHayCambiar.append(archivo["Trainers"][p]["nombres"])
-                                
-                                trainerCambiar=input("¿Cual es el nuevo trainer?\n")#se pregunta cual sera el nuevo trainer 
-
-                                while trainerCambiar not in trainerHayCambiar:#mientras el nuevo trainer no este en la lista trainerHayCambiar se le pedira que ingrese un trainer valido
-                                    trainerCambiar=input("Ingrese un trainer valido (Tiene que escribirlo como aparece en pantalla)\n")
-                                
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=trainerCambiar#despues de saber cual es el nuevo trainer remplaza al que ya estaba
-
-
-                            else:
-                                print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene Trainer")
-                            
-                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
-                            system("clear")
-                        
-                        if opcCambioCamper==16:
-
-                            if archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Aprobado":
-                                
-                                for g in range(len( archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"])):
-                                    print(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"][g])
-                                
-                                rutaCambiar=input("¿Cual es la nueva ruta?\n")
-                                while rutaCambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"]:
-                                    rutaCambiar=input("Ingrese un ruta valida (Tienes que ecribirla como aparece en pantalla)\n")
-
-
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=rutaCambiar
-
-
-                            elif archivo[personaCambiarInfo][posicionCamperCambiar]["estado"]=="Cursando":
-
-                                for g in range(len( archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"])):
-                                    print(archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"][g])
-                                
-                                rutaCambiar=input("¿Cual es la nueva ruta?\n")
-                                while rutaCambiar not in archivo[personaCambiarInfo][posicionCamperCambiar]["tiposDeRutas"]:
-                                    rutaCambiar=input("Ingrese un ruta valida (Tienes que ecribirla como aparece en pantalla)\n")
-
-
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=rutaCambiar
-
-                            
-                            else:
-                                print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene Trainer")
-                            
-                            confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
-                            system("clear")
-                        
-                        if opcCambioCamper==17:
+                        if opcCambioCamper==14:
                             system("clear")
                             confiInfor="no"
 
@@ -1280,15 +1018,15 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                         elif opcCambioTrainer==8:
 
-                            #si escoge la opcion 8 le pide el nuevo id y lo remplaza por el que ya estaba
+                            #si escoge la opcion 8 le pide la nueva ruta y lo remplaza por el que ya estaba
 
                             print("-----Tipos de rutas-----")
-                            for p in range(len(archivo[personaCambiarInfo][posicionTrainerCambiar]["tiposDeRutas"])):
-                                print(archivo[personaCambiarInfo][posicionTrainerCambiar]["tiposDeRutas"][p])
+                            for p in range(len(archivo["Coordinador"][1]["rutas"])):
+                                print(archivo["Coordinador"][1]["rutas"][p])
 
                             rutaTrainerCambiar=input("Ingrese la nueva ruta\n")
 
-                            while rutaTrainerCambiar not in archivo[personaCambiarInfo][posicionTrainerCambiar]["tiposDeRutas"]:
+                            while rutaTrainerCambiar not in archivo["Coordinador"][1]["rutas"]:
                                 
                                 rutaTrainerCambiar=input("Ingrese una ruta valida (Tienes que escibirla como aparece en pantalla)\n")
 

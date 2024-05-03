@@ -26,7 +26,7 @@
             "fechaInicio": "19-03-2024",
             "fechaCierre": "19-03-2025",
             "grupo": "T1",
-            "ruta": "Java",
+            "ruta": "Nodejs",
             "moduloActual": 1,
             "trainer": "Pedro jose",
             "riesgo": [
@@ -45,7 +45,7 @@
             ]
         },
         {
-            "id": 956443,
+            "id": 123,
             "user": {
                 "login": "zu123",
                 "contrase\u00f1a": "fer123"
@@ -72,7 +72,7 @@
             "grupo": "",
             "ruta": "",
             "moduloActual": 1,
-            "trainer": "Pedro jose",
+            "trainer": "",
             "riesgo": [
                 "Alto",
                 "Bajo",
@@ -162,8 +162,9 @@
                 "Java",
                 "Netcore"
             ],
-            "tiposDeRutas": {
-                "Nodejs": {
+            "tiposDeRutas": [
+                {
+                    "nombreRuta": "Nodejs",
                     "grupos": [
                         "T1"
                     ],
@@ -192,7 +193,8 @@
                         ]
                     ]
                 },
-                "Java": {
+                {
+                    "nombreRuta": "Java",
                     "grupos": [
                         "T2"
                     ],
@@ -221,7 +223,8 @@
                         ]
                     ]
                 },
-                "Netcore": {
+                {
+                    "nombreRuta": "Netcore",
                     "grupos": [
                         "T3"
                     ],
@@ -250,6 +253,25 @@
                         ]
                     ]
                 }
+            ],
+            "trainers": {
+                "nombres": [
+                    "Pedro jose",
+                    "Michael Andres"
+                ],
+                "id": [
+                    75458546,
+                    1523
+                ],
+                "grupos": [
+                    [
+                        "T1",
+                        "T2"
+                    ],
+                    [
+                        "T3"
+                    ]
+                ]
             }
         }
     ]
