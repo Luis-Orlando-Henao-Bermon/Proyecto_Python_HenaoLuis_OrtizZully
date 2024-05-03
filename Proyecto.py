@@ -78,7 +78,8 @@ def menuCoordinadorOpc6():
           3). Listar los trainers que se encuentre trabajando en Campusland. 
           4). Litar los campers que se encuentre en bajo rendimiento.
           5). Listar los campers y trainers que se encuentren asociados a una ruta de entretenimiento.
-          6). Mostrar cuantos campers perdieron y aprobaron cada modulo. 
+          6). Mostrar cuantos campers perdieron y aprobaron cada modulo.
+          7). Volver al menu anterior 
     ----------------------------------------------------------------------------------------------------
 """)
     
@@ -695,9 +696,6 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 agregarFechaCierre=input("Ingrese una fecha de cierre (DD-MM-AAAA)\n")#se pide y se agrega la fecha de cierre
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["fechaCierre"]=agregarFechaCierre
 
-                                system("clear")
-                                agregarGrupo=input("Ingrese el grupo al que va a pertenecer el Camper\n")#Se pregunta el grupo al que va a pertenecer y se agrega 
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["grupo"]=agregarGrupo
 
                                 system("clear")
                                 print("-----Tipos de Rutas-----")
@@ -715,66 +713,6 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 system("clear")
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["moduloActual"]=1#se pone que el modulo actual es igual a 1 ya que como apenas esta empezando empieza en el modulo 1
 
-                                #solo los modulos 3, 4 y 5 se pueden escoger las materias por lo tanto son las unicas que se piden 
-
-                                print("-----Materias del modulo 3-----")#se muestran las materias que hay para el modulo 3
-                                for i in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"])):
-                                    print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"][i])
-                                
-                                #como se pueden agregar 2 materias se piden solo 2
-                                modulo3Agregar1=input("Ingresa las 1 materia que quieres agregar\n")#se pide la primera materia del modulo tres 
-
-                                while modulo3Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
-                                    modulo3Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
-                                
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][2].append(modulo3Agregar1)
-                                
-                                modulo3Agregar2=input("Ingresa las 2 materia que quieres agregar\n")#se pide la segunda materia del modulo tres 
-                                while modulo3Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
-                                    modulo3Agregar2=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
-
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][2].append(modulo3Agregar2)
-
-                                system("clear")
-
-                                #como se pueden agregar 2 materias se piden solo 2
-                                print("-----Materias del modulo 4-----")#se muestran las materias que hay para el modulo 4
-                                for i in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"])):
-                                    print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"][i])
-                                
-                                modulo4Agregar1=input("Ingresa las 1 materia que quieres agregar\n")#se pide la primera materia del modulo 4
-                                while modulo4Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
-                                    modulo4Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
-                                
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][3].append(modulo4Agregar1)
-                                
-                                modulo4Agregar2=input("Ingresa las 2 materia que quieres agregar\n")#se pide la segunda materia del modulo 4
-                                while modulo4Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
-                                    modulo4Agregar2=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
-
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][3].append(modulo4Agregar2)
-
-
-                                system("clear")
-
-                                #como se pueden agregar 2 materias se piden solo 2
-                                print("-----Materias del modulo 5-----")#se muestran las materias que hay para el modulo 5
-                                for i in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"])):
-                                    print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"][i])
-                                
-                                modulo5Agregar1=input("Ingresa las 1 materia que quieres agregar\n")#se pide la primera materia del modulo 5
-                                while modulo5Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
-                                    modulo5Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
-                                
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4].append(modulo5Agregar1)
-                                
-                                modulo5Agregar2=input("Ingresa las 2 materia que quieres agregar\n")#se pide la segunda materia del modulo 5
-                                while modulo5Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
-                                    modulo5Agregar2=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
-
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4].append(modulo5Agregar2)
-
-                                system("clear")
 
                                 trainerHay=[]#en esta lista se guardaran los nombres de los trainers que hay
                                 print("-----Trainers-----")
@@ -802,9 +740,6 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 agregarFechaCierre=input("Ingrese una fecha de cierre (DD-MM-AAAA)\n")#se pide y se agrega la fecha de cierre
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["fechaCierre"]=agregarFechaCierre
 
-                                system("clear")
-                                agregarGrupo=input("Ingrese el grupo al que va a pertenecer el Camper\n")#Se pregunta el grupo al que va a pertenecer y se agrega 
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["grupo"]=agregarGrupo
 
                                 system("clear")
                                 print("-----Tipos de Rutas-----")
@@ -820,66 +755,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=rutaAgregar#despues de haber dicho la ruta que quiere se agrega a ruta
 
                                 system("clear")
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["moduloActual"]=1#se pone que el modulo actual es igual a 1 ya que como apenas esta empezando empieza en el modulo 1
-
-                                #solo los modulos 3, 4 y 5 se pueden escoger las materias por lo tanto son las unicas que se piden 
-
-                                print("-----Materias del modulo 3-----")#se muestran las materias que hay para el modulo 3
-                                for i in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"])):
-                                    print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"][i])
-                                
-                                #como se pueden agregar 2 materias se piden solo 2
-                                modulo3Agregar1=input("Ingresa las 1 materia que quieres agregar\n")#se pide la primera materia del modulo tres 
-
-                                while modulo3Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
-                                    modulo3Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
-                                
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][2].append(modulo3Agregar1)
-                                
-                                modulo3Agregar2=input("Ingresa las 2 materia que quieres agregar\n")#se pide la segunda materia del modulo tres 
-                                while modulo3Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM3"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
-                                    modulo3Agregar2=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
-
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][2].append(modulo3Agregar2)
-
-                                system("clear")
-
-                                #como se pueden agregar 2 materias se piden solo 2
-                                print("-----Materias del modulo 4-----")#se muestran las materias que hay para el modulo 4
-                                for i in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"])):
-                                    print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"][i])
-                                
-                                modulo4Agregar1=input("Ingresa las 1 materia que quieres agregar\n")#se pide la primera materia del modulo 4
-                                while modulo4Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
-                                    modulo4Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
-                                
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][3].append(modulo4Agregar1)
-                                
-                                modulo4Agregar2=input("Ingresa las 2 materia que quieres agregar\n")#se pide la segunda materia del modulo 4
-                                while modulo4Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM4"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
-                                    modulo4Agregar2=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
-
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][3].append(modulo4Agregar2)
-
-
-                                system("clear")
-
-                                #como se pueden agregar 2 materias se piden solo 2
-                                print("-----Materias del modulo 5-----")#se muestran las materias que hay para el modulo 5
-                                for i in range(len(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"])):
-                                    print(archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"][i])
-                                
-                                modulo5Agregar1=input("Ingresa las 1 materia que quieres agregar\n")#se pide la primera materia del modulo 5
-                                while modulo5Agregar1 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
-                                    modulo5Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
-                                
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4].append(modulo5Agregar1)
-                                
-                                modulo5Agregar2=input("Ingresa las 2 materia que quieres agregar\n")#se pide la segunda materia del modulo 5
-                                while modulo5Agregar2 not in archivo[personaCambiarInfo][posicionCamperCambiar]["materiasM5"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
-                                    modulo5Agregar2=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
-
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["modulos"][4].append(modulo5Agregar2)
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["moduloActual"]=1#se pone que el modulo actual es igual a 1 ya que como apenas esta empezando empieza en el modulo 1 
 
 
                                 
@@ -1527,7 +1403,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             archivo["Coordinador"][0]["telefonoFijo"]=fijoCambioCoordinador
 
                             confiInforCoordinador=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")
-                            system("clear")
+                            system("clear") 
 
                         elif opcCambioCoordinador==8:
 
@@ -1650,7 +1526,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                         archivo["Campers"][posicionCamperNota]["riesgo"][0]=riesgoM1#aca se agrega el riesgo de este modulo
                         
-                        archivo["Campers"][posicionCamperNota]["notaFiltro1"]=notaFiltroM1
+                        archivo["Campers"][posicionCamperNota]["notaFiltro"][0]=notaFiltroM1
 
                         confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
                         system("clear")
@@ -1695,7 +1571,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         archivo["Campers"][posicionCamperNota]["riesgo"][1]=riesgoM2#aca se agrega el riesgo de este modulo
                         
                         
-                        archivo["Campers"][posicionCamperNota]["notaFiltro2"]=notaFiltroM2
+                        archivo["Campers"][posicionCamperNota]["notaFiltro"][1]=notaFiltroM2
 
                         confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
                         system("clear")
@@ -1740,7 +1616,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         archivo["Campers"][posicionCamperNota]["riesgo"][2]=riesgoM3#aca se agrega el riesgo de este modulo
                         
                         
-                        archivo["Campers"][posicionCamperNota]["notaFiltro3"]=notaFiltroM3
+                        archivo["Campers"][posicionCamperNota]["notaFiltro"][2]=notaFiltroM3
 
                         confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
                         system("clear")
@@ -1785,7 +1661,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         archivo["Campers"][posicionCamperNota]["riesgo"][3]=riesgoM4#aca se agrega el riesgo de este modulo
                         
                         
-                        archivo["Campers"][posicionCamperNota]["notaFiltro4"]=notaFiltroM4
+                        archivo["Campers"][posicionCamperNota]["notaFiltro"][3]=notaFiltroM4
 
                         confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
                         system("clear")
@@ -1830,7 +1706,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         archivo["Campers"][posicionCamperNota]["riesgo"][4]=riesgoM5#aca se agrega el riesgo de este modulo
                         
                         
-                        archivo["Campers"][posicionCamperNota]["notaFiltro5"]=notaFiltroM5
+                        archivo["Campers"][posicionCamperNota]["notaFiltro"][4]=notaFiltroM5
 
                         confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
                         system("clear")
@@ -1862,6 +1738,298 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
             elif opcMenuCoordinador==6:
 
+                system("clear")
+                    
+                confiRepoCoordi="si"
+                while confiRepoCoordi=="si":
+
+                    menuCoordinadorOpc6()
+
+                    bol45=True
+                    while bol45 ==True:
+                        try:
+                            opcReporteCoordinador=int(input("Ingresa tu opcion\n"))
+                            while opcReporteCoordinador<1 or opcReporteCoordinador>7:
+                                opcReporteCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))
+                            bol45=False
+                        except ValueError:
+                            print("Ingresa una opcion valida (Numero)")
+
+                    
+                    if opcReporteCoordinador==1:
+
+                        system("clear")
+
+                        print("-----Campers en estado inscrito-----")
+
+                        for j in range(len(archivo["Campers"])):
+
+                            if archivo["Campers"][j]["estado"]=="Inscrito":
+                                print("Estudiante:", archivo["Campers"][j]["nombres"])
+                                print("ID:", archivo["Campers"][j]["id"])
+                                
+                            
+
+                        confiRepoCoordi=input("Si quieres ver otro reporte escribe: si, de lo contrario presiona enter\n")
+                        system("clear")
+
+                    elif opcReporteCoordinador==2:
+                        
+                        system("clear")
+                        print("-----Modulos-----")
+                        for m in range(len(archivo["Campers"][0]["numeroModulo"])):#como todos los campers tiene la informacion de los modulos simplemente se escoge un estudiante y se usa el for para que muestre los modulos 
+                            print(m+1,archivo["Campers"][0]["numeroModulo"][m])
+
+                        bol46=True
+                        while bol46==True:
+                            try:
+                                moduloRendimiento=int(input("Ingresa el numero del modulo actual\n"))
+                                while moduloRendimiento<1 or moduloRendimiento>5:
+                                    moduloRendimiento=int(input("Ingresa un modulo de los que aparecen en pantalla\n"))
+
+                                bol46=False
+                            except ValueError:
+                                print("Ingresa un modulo valido (Numero)")
+
+                            
+                        system("clear")
+                            
+                        print("-----Campers que aprobaron-----")
+                        cont1=0
+                        for t in range(len(archivo["Campers"])):
+
+                            if archivo["Campers"][t]["notaFiltro"][moduloRendimiento-1]>60.0:
+                                print("------------------------------")
+                                print("Estudiante:", archivo["Campers"][t]["nombres"])
+                                print("ID:", archivo["Campers"][t]["id"])
+                                print("------------------------------")
+                                cont1=cont1+1
+                            
+                        if cont1==0:
+                            print("\nNingun camper aprobo este modulo\n")
+
+
+
+
+                        confiRepoCoordi=input("Si quieres ver otro reporte escribe: si, de lo contrario presiona enter\n")
+                        system("clear")
+
+
+                    elif opcReporteCoordinador==3:
+
+                        system("clear")
+
+                        print("-----Trainers-----")
+
+                        for i in range(len(archivo["Trainers"])):
+                            print("---------------------------")
+                            print("Nombres",archivo["Trainers"][i]["nombres"])
+                            print("ID",archivo["Trainers"][i]["id"])
+                            print("---------------------------")
+
+                        confiRepoCoordi=input("Si quieres ver otro reporte escribe: si, de lo contrario presiona enter\n")
+                        system("clear")
+
+
+                    elif opcReporteCoordinador==4:
+
+                        system("clear")
+                        print("-----Modulos-----")
+                        for m in range(len(archivo["Campers"][0]["numeroModulo"])):#como todos los campers tiene la informacion de los modulos simplemente se escoge un estudiante y se usa el for para que muestre los modulos 
+                            print(m+1,archivo["Campers"][0]["numeroModulo"][m])
+
+                        bol46=True
+                        while bol46==True:
+                            try:
+                                moduloRendimiento=int(input("Ingresa el numero del modulo actual\n"))
+                                while moduloRendimiento<1 or moduloRendimiento>5:
+                                    moduloRendimiento=int(input("Ingresa un modulo de los que aparecen en pantalla\n"))
+
+                                bol46=False
+                            except ValueError:
+                                print("Ingresa un modulo valido (Numero)")
+                            
+                        system("clear")
+                            
+                        print("-----Campers que tienen bajo rendimiento-----")
+                        cont=0
+                        for t in range(len(archivo["Campers"])):
+
+                            if archivo["Campers"][t]["notaFiltro"][moduloRendimiento-1]<60.0:
+                                print("------------------------------")
+                                print("Estudiante:", archivo["Campers"][t]["nombres"])
+                                print("ID:", archivo["Campers"][t]["id"])
+                                print("------------------------------")
+                                cont=cont+1
+                            
+                        if cont==0:
+                            print("\nNo hay campers con bajo rendimiento\n")
+
+
+
+
+                        confiRepoCoordi=input("Si quieres ver otro reporte escribe: si, de lo contrario presiona enter\n")
+                        system("clear")
+                        
+                    elif opcReporteCoordinador==6: 
+
+                        system("clear")
+
+                        print("\n///////////////////Modulo 1///////////////////\n")
+                        print("-----Estudiantes que aprobaron-----")
+                        contm1=0
+                        for g in range(len(archivo["Campers"])):
+
+                            if archivo["Campers"][g]["notaFiltro"][0]>60.0:
+                                print("-------------------------")
+                                print("Nombres:", archivo["Campers"][g]["nombres"])
+                                print("ID:", archivo["Campers"][g]["id"])
+                                print("-------------------------")
+                                contm1=contm1+1
+                            
+                        if contm1==0:
+                        
+                            print("\nNingun estudiante aprobo este modulo\n")
+
+                        print("-----Estudiantes que reprobaron-----")
+                        contm1=0
+                        for q in range(len(archivo["Campers"])):
+                            if archivo["Campers"][q]["notaFiltro"][0]<60.0:
+                                print("-------------------------")
+                                print("Nombres:", archivo["Campers"][q]["nombres"])
+                                print("ID:", archivo["Campers"][q]["id"])
+                                print("-------------------------")
+                                contm1=contm1+1
+                            
+                        if contm1==0:
+                            print("\nNingun estudiante reprobo este modulo\n")
+
+                        #############################################################
+
+                        print("\n///////////////////Modulo 2///////////////////\n")
+                        print("-----Estudiantes que aprobaron-----")
+                        contm1=0
+                        for w in range(len(archivo["Campers"])):
+                            if archivo["Campers"][w]["notaFiltro"][1]>60.0:
+                                print("-------------------------")
+                                print("Nombres:", archivo["Campers"][w]["nombres"])
+                                print("ID:", archivo["Campers"][w]["id"])
+                                print("-------------------------")
+                                contm1=contm1+1
+                            
+                        if contm1==0:
+                            print("\nNingun estudiante aprobo este modulo\n")
+
+                        print("-----Estudiantes que reprobaron-----")
+                        contm1=0
+                        for e in range(len(archivo["Campers"])):
+                            if archivo["Campers"][e]["notaFiltro"][1]<60.0:
+                                print("-------------------------")
+                                print("Nombres:", archivo["Campers"][e]["nombres"])
+                                print("ID:", archivo["Campers"][e]["id"])
+                                print("-------------------------")
+                                contm1=contm1+1
+                            
+                        if contm1==0:
+                            print("\nNingun estudiante reprobo este modulo\n")
+
+                        #############################################################
+
+                        print("\n///////////////////Modulo 3///////////////////\n")
+                        print("-----Estudiantes que aprobaron-----")
+                        contm1=0
+                        for w in range(len(archivo["Campers"])):
+                            if archivo["Campers"][w]["notaFiltro"][2]>60.0:
+                                print("-------------------------")
+                                print("Nombres:", archivo["Campers"][w]["nombres"])
+                                print("ID:", archivo["Campers"][w]["id"])
+                                print("-------------------------")
+                                contm1=contm1+1
+                            
+                        if contm1==0:
+                            print("\nNingun estudiante aprobo este modulo\n")
+
+                        print("-----Estudiantes que reprobaron-----")
+                        contm1=0
+                        for e in range(len(archivo["Campers"])):
+                            if archivo["Campers"][e]["notaFiltro"][2]<60.0:
+                                print("-------------------------")
+                                print("Nombres:", archivo["Campers"][e]["nombres"])
+                                print("ID:", archivo["Campers"][e]["id"])
+                                print("-------------------------")
+                                contm1=contm1+1
+                            
+                        if contm1==0:
+                            print("\nNingun estudiante reprobo este modulo\n")
+
+                        #############################################################
+
+                        print("\n///////////////////Modulo 4///////////////////\n")
+                        print("-----Estudiantes que aprobaron-----")
+                        contm1=0
+                        for w in range(len(archivo["Campers"])):
+                            if archivo["Campers"][w]["notaFiltro"][3]>60.0:
+                                print("-------------------------")
+                                print("Nombres:", archivo["Campers"][w]["nombres"])
+                                print("ID:", archivo["Campers"][w]["id"])
+                                print("-------------------------")
+                                contm1=contm1+1
+                            
+                        if contm1==0:
+                            print("\nNingun estudiante aprobo este modulo\n")
+
+                        print("-----Estudiantes que reprobaron-----")
+                        contm1=0
+                        for e in range(len(archivo["Campers"])):
+                            if archivo["Campers"][e]["notaFiltro"][3]<60.0:
+                                print("-------------------------")
+                                print("Nombres:", archivo["Campers"][e]["nombres"])
+                                print("ID:", archivo["Campers"][e]["id"])
+                                print("-------------------------")
+                                contm1=contm1+1
+                            
+                        if contm1==0:
+                            print("\nNingun estudiante reprobo este modulo\n")
+
+                        #############################################################
+
+                        print("\n///////////////////Modulo 5///////////////////\n")
+                        print("-----Estudiantes que aprobaron-----")
+                        contm1=0
+                        for w in range(len(archivo["Campers"])):
+                            if archivo["Campers"][w]["notaFiltro"][4]>60.0:
+                                print("-------------------------")
+                                print("Nombres:", archivo["Campers"][w]["nombres"])
+                                print("ID:", archivo["Campers"][w]["id"])
+                                print("-------------------------")
+                                contm1=contm1+1
+                            
+                        if contm1==0:
+                            print("\nNingun estudiante aprobo este modulo\n")
+
+                        print("-----Estudiantes que reprobaron-----")
+                        contm1=0
+                        for e in range(len(archivo["Campers"])):
+                            if archivo["Campers"][e]["notaFiltro"][4]<60.0:
+                                print("-------------------------")
+                                print("Nombres:", archivo["Campers"][e]["nombres"])
+                                print("ID:", archivo["Campers"][e]["id"])
+                                print("-------------------------")
+                                contm1=contm1+1
+                            
+                        if contm1==0:
+                            print("\nNingun estudiante reprobo este modulo\n")
+
+                        confiRepoCoordi=input("Si quieres ver otro reporte escribe: si, de lo contrario presiona enter\n")
+                        system("clear")
+
+                    elif opcReporteCoordinador==7:
+
+                        
+                         
+
+                        confiRepoCoordi=""        
+                        system("clear")
 
                 menuCoordinador()
                 try:
