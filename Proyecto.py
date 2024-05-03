@@ -31,6 +31,7 @@ def menuCamperOpc3():
           1). Cambiar dirección.
           2). Cambiar telefono movil.
           3). Cambiar telefono fijo.
+          4). Salir. 
     --------------------------------------------------------
 """)
 
@@ -39,7 +40,7 @@ def menuTrainer():
           1). Cambiar usuario y contraseña
           2). Ruta de entrenamiento.
           3). Cambiar información.
-          4). Salir
+          
     ---------------------------------------------------
     ///////////////////////////////////////////////////
 """)
@@ -50,6 +51,7 @@ def menuTrainerOpc3():
           1). Cambiar dirección.
           2). Cambiar telefono movil.
           3). Cambiar telefono fijo 
+          4). Salir
     -----------------------------------------------------
 """)
 
@@ -83,20 +85,21 @@ with open("./Campusland.json", encoding="utf-8") as file:#con esto se abre el ar
     archivo=json.load(file)
 
 user=input("Ingrese su usuario:\n")#se pide que ingrese el usuario
-
+system("clear")
 x=0#esto es para saber si hay alguien con ese usuario ya que si hay alguien con ese usuario x se volvera 1 y se terminara el bucle de while 
 
 while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo tanto se repetira el bucle while (antes de repetir el bucle se pide que se ingrese de nuevo el usuario para poder ver si el ingresado nuevamente esta o no )
     for i in range(len(archivo["Campers"])):#se usa un bucle for para recorra cada una  de las pociciones de los campers
 
         if user==archivo["Campers"][i]["user"]["login"]:#se miran todas las pociciones de los campers y si el usuario (login) alguno de ellos coinciden con el ingresado x pasa a valer 1 y se rompe el bucle de while 
-
+        
             x+=1
             passwordCamper=input("Ingresa su contraseña:\n")#despues de saber cual es el camper con ese usuario se le pide la contraseña 
+            system("clear")
 
             while passwordCamper != archivo["Campers"][i]["user"]["contraseña"]:#se usa un bucle while porque mientras que la contraseña ingresada no este en archivo["Campers"][i]["user"]["contraseña"] (que es la direcion en donde esta la contraseña en el archivo) se repetira el bucle que lo que hace es volver a pedirle la contraseña 
                 passwordCamper=input("Contraseña incorrecta ingresela otra vez\n")
-
+            system("clear")
             menuCamper()#aca se llama al menu de las opciones de camper 
             bol2=True
             while bol2==True:
@@ -113,16 +116,15 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
             while campers==True:
                 #Si la opcion elegida del menu del camper es uno se hara lo siguiente
                 if opcMenuCamper==1:
-                    confirmacion="si"
+                    confirmacion="si"#Creamos un booleano donde sea si se hara
                     while confirmacion=="si":
                         #Le mostrara el camper el submenu de la opcion uno 
                         menuCamperOpc1()
-                        #El camper ingresara la opcion que desea observar 
-                        
+
                         bol13=True
                         while bol13 == True:
-                            try:
-                                newOpc1=int(input("Ingrese una opcion del menu anterior:\n"))
+                            try:#si el usuario ingresa una letra en las opciones se le indidara que debe ser numero y se le repetira el proceso hasta que lo ingrese bien, y si ingresa un numero que no esta en el menu se le dira que solo se le permitira las opciones que aparece en la pantalla
+                                newOpc1=int(input("Ingrese una opcion del menu anterior:\n"))#El camper ingresara la opcion que desea observar 
                                 while newOpc1<1 or newOpc1>5:
                                     newOpc1=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))
                                 bol13=False
@@ -132,47 +134,50 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                                         
                         #Si la opcion elegida es uno se mostrara 
                         if newOpc1==1:#toda la informacion que tiene el camper, llamar desde json cada informacion del camper para que se muestre de una forma ordenada en la pantalla
-                            print("Hola",archivo["Campers"][i]["nombres"],"estos son tus datos:\n")
-                            print("Numero de identificaion:",archivo["Campers"][i]["numeroIdentificacion"])
-                            print("Nombres:",archivo["Campers"][i]["nombres"])
-                            print("Apellidos:",archivo["Campers"][i]["apellidos"])
-                            print("Direccion:",archivo["Campers"][i]["direccion"])
-                            print("Acudiente:",archivo["Campers"][i]["acudiente"])
-                            print("Telefono celular:",archivo["Campers"][i]["telefonoCelular"])
-                            print("Telefono fijo:",archivo["Campers"][i]["telefonoFijo"])
-                            print("")
+                            print("--- Hola",archivo["Campers"][i]["nombres"],"estos son tus datos: -----------\n")
+                            print("    Numero de identificaion:",archivo["Campers"][i]["numeroIdentificacion"])
+                            print("    Nombres:",archivo["Campers"][i]["nombres"])
+                            print("    Apellidos:",archivo["Campers"][i]["apellidos"])
+                            print("    Direccion:",archivo["Campers"][i]["direccion"])
+                            print("    Acudiente:",archivo["Campers"][i]["acudiente"])
+                            print("    Telefono celular:",archivo["Campers"][i]["telefonoCelular"])
+                            print("    Telefono fijo:",archivo["Campers"][i]["telefonoFijo"])
+                            print("------------------------------------------------------")
                             
                             confirmacion=input("Si quieres ver otro reporte escribe: si, de lo contrario preciona enter\n")
-                            system("clear")
+                            system("clear")#este es el booleano de la linea 117, dodne se le preguntara al camper si desea ver otra opcion del menu del reporte si la respuesta es si, se le repetira el proceso, y si da enter le mostrara el menu principal del camper 
 
-                        elif newOpc1==2:
+                        elif newOpc1==2:#Si la opcion elegida es dos se hara:
+
+                        #si en el archivo del camper el estado es aprobado o esta cursado se le mostrara el riesgo que se encuentra
                             if archivo["Campers"][i]["estado"]=="Aprobado" or archivo["Campers"][i]["estado"]=="Cursando": 
                                 # Si en las posiciones del camper se encuentra el estado aprobado o cursando se le mstrata al camper.   
-                                print("Tu riesgo es:",archivo["Campers"][i]["riesgo"])#Se le mostrara al camper el riesgos que se encuentra
+                                print("Tu riesgo es:",archivo["Campers"][i]["riesgo"],"\n",)#Se le mostrara al camper el riesgos que se encuentra
                             else:#Si el camper no se encuentra en aprobado o cursando se le mostrara en que estado se encuentra y se le aclarará que no tienes riesgo por lo mismo.
-                                print("Tu estado es:",archivo["Campers"][i]["estado"],"por lo tanto no tienes riesgo")
+                                print("Tu estado es:",archivo["Campers"][i]["estado"],"por lo tanto no tienes riesgo""\n")
 
                             confirmacion=input("Si quieres ver otro reporte escribe: si, de lo contrario preciona enter\n")
-                            system("clear")
+                            system("clear")#este es el booleano de la linea 117, dodne se le preguntara al camper si desea ver otra opcion del menu del reporte si la respuesta es si, se le repetira el proceso, y si da enter le mostrara el menu principal del camper 
 
                         #Si la opcion elegida es tres se hara:
                         elif newOpc1==3:
-                            print("Tu ruta es:",archivo["Campers"][i]["ruta"])#Se le mostara la ruta en el que se encuentra el camper
+                            print("Tu ruta es:",archivo["Campers"][i]["ruta"],"\n")#Se le mostara la ruta en el que se encuentra el camper
 
                             confirmacion=input("Si quieres ver otro reporte escribe: si, de lo contrario preciona enter\n")
-                            system("clear")
+                            system("clear")#este es el booleano de la linea 117, dodne se le preguntara al camper si desea ver otra opcion del menu del reporte si la respuesta es si, se le repetira el proceso, y si da enter le mostrara el menu principal del camper 
                         #Si la opcion elegida del camper es cuatro se hara: 
                         elif newOpc1==4:
-                            print("Tu trainer es:",archivo["Campers"][i]["trainer"])#Se le mostrara el trainer del camper
+                            print("Tu trainer es:",archivo["Campers"][i]["trainer"],"\n") #Se le mostrara el trainer del camper
 
                             confirmacion=input("Si quieres ver otro reporte escribe: si, de lo contrario preciona enter\n")
-                            system("clear")
+                            system("clear")#este es el booleano de la linea 117, dodne se le preguntara al camper si desea ver otra opcion del menu del reporte si la respuesta es si, se le repetira el proceso, y si da enter le mostrara el menu principal del camper 
                         #Si la opcion elegida es cinco se hara:
                         elif newOpc1==5:
-                            print("El modulo que te encuentras actualmente es:",archivo["Campers"][i]["moduloActual"],archivo["Campers"][i]["numeroModulo"][archivo["Campers"][i]["moduloActual"]-1])#SSe mostrara el modulo que se encuentra actualmente el camper
+                            #Se le muestra el modulo que se encurntra siguiendo la ruta archivo["Campers"][i]["moduloActual"], y despues se le mostrara el nombre del modulo  archivo["Campers"][i]["numeroModulo"][archivo["Campers"][i]["moduloActual"]-1], como los modulos se enumeran de 0 a 4, le restamos 1 para que enumere desde uno hasta cinco 
+                            print("El modulo que te encuentras actualmente es:",archivo["Campers"][i]["moduloActual"],archivo["Campers"][i]["numeroModulo"][archivo["Campers"][i]["moduloActual"]-1],"\n")#SSe mostrara el modulo que se encuentra actualmente el camper
 
                             confirmacion=input("Si quieres ver otro reporte escribe: si, de lo contrario preciona enter\n")
-                            system("clear")
+                            system("clear")#este es el booleano de la linea 117, dodne se le preguntara al camper si desea ver otra opcion del menu del reporte si la respuesta es si, se le repetira el proceso, y si da enter le mostrara el menu principal del camper 
 
 
                     menuCamper()#aca se llama al menu de las opciones de camper 
@@ -191,9 +196,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                     newUser1=input("¿Cual es el nuevo usuario?\n")#Se le preguntara al camper cual va a ser el nuevo usuario
                     archivo["Campers"][i]["user"]["login"]=newUser1#ingresara las posiciones del camper donde esta el user y mira el login(usuario) del camper y lo cambia por el nuevo.
+                    system("clear")
 
                     newPass1=input("¿Ingrese la nueva contraseña?\n")#Se le preguntara al camper cual va a ser el nuevo usuario
                     archivo["Campers"][i]["user"]["contraseña"]=newPass1#ingresara las posiciones del camper donde esta el user y mira la contraseña del camper y lo cambia por el nuevo que ingreso.
+                    system("clear")
 
                     menuCamper()#aca se llama al menu de las opciones de camper 
                     bol4=True#Este booleano es por si el camper ingresa una letra en las opciones, no se le permitira seguir y se le recordara que solo puede ingresar numeros, hata que no lo haga bien el bucle no va a parar y se seguira repitiendo.
@@ -208,45 +215,58 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     system("clear")
 
                 elif opcMenuCamper==3:#Si la opcion elegida del camper se hara:
+                    confirmacion3="si"
+                    while confirmacion3=="si":
 
-                    menuCamperOpc3()#Se llamara la funcion del menu camper opcion tres donde se le mostrara las opciones disponibles del menu.
-                    
-                    bol14=True
-                    while bol14==True:
-                        try:
-                            numOpc=int(input("Ingrese una de las opciones del menu anterior\n"))#El ingresara la opcione que desee realizar del menu anterior 
-                            while numOpc<1 or numOpc>3:
-                                numOpc=int(input("Ingrese una opcion de la que aparece en la pantalla.\n"))
-                            bol14=False
-                        except ValueError:
-                            print("Ingresa una opcion valida (Numero)\n")
-                    system("clear")
-                    if numOpc==1:#Si la opcion del menu es uno se hara:
-                        newAdress=input("Ingrese la nueva direccion\n")#el camper ingresara la nueva direccion 
-                        archivo["Campers"][i]["direccion"]=newAdress#Ingresara en las posiciones del camper y ingresara  a la direccion y asi se guardara el cambio de la nueva direccion 
+                        menuCamperOpc3()#Se llamara la funcion del menu camper opcion tres donde se le mostrara las opciones disponibles del menu.
 
-                    elif numOpc==2:#Si la opcion del menu es dos se hara:
-                        bol7=True#este boleano es para que el valor a ingresar a pantalla sea numero si no es numero se volvera a repetir el bucle y no le permitira seguir.
-                        while bol7==True:
+                        bol14=True
+                        while bol14==True:
                             try:
-                                newPhone=int(input("Ingrese el nuevo telefono movil\n"))#el camper ingresara el nuevo telefono movil 
-                                bol7=False
-                            except ValueError:   
-                                print("Ingrese un telefono movil valido (solo numeros)\n")#el camper ingresara el nuevo telefono movil
-
-                        archivo["Campers"][i]["telefonoCelular"]=newPhone#Ingresara en las posiciones del camper y ingresara donde esta el telefono movil y asi se guardara el cambio del nuevo dato ingresado.
-
-                    elif numOpc==3:#Si la opcion elegida es tres se hara:
-                        bol8=True#este boleano es para que el valor a ingresar a pantalla sea numero si no es numero se volvera a repetir el bucle y no le permitira seguir.
-                        while bol8==True:
-                            try:
-                                newFijo=int(input("Ingrese el nuevo telefono fijo\n"))#el camper ingresara el nuevo telefono fijo
-                                bol8=False
+                                numOpc=int(input("Ingrese una de las opciones del menu anterior\n"))#El ingresara la opcione que desee realizar del menu anterior 
+                                while numOpc<1 or numOpc>3:
+                                    numOpc=int(input("Ingrese una opcion de la que aparece en la pantalla.\n"))
+                                bol14=False
                             except ValueError:
-                                print("Ingrese un telefono fijo valido(solo numeros)\n")#Si el camper ingresa alguna letra se le notificara y se le recordara que solo se acepta numero y se volvera a repetir 
+                                print("Ingresa una opcion valida (Numero)\n")
+                        system("clear")
+                        if numOpc==1:#Si la opcion del menu es uno se hara:
+                            newAdress=input("Ingrese la nueva direccion\n")#el camper ingresara la nueva direccion 
+                            archivo["Campers"][i]["direccion"]=newAdress#Ingresara en las posiciones del camper y ingresara  a la direccion y asi se guardara el cambio de la nueva direccion 
+                            print("")
+                            confirmacion=input("Si deseas cambiar otra información escribe: si, de lo contrario preciona enter\n")
+                            system("clear")
 
-                        archivo["Campers"][i]["telefonoFijo"]=newFijo#Ingresara en las posiciones del camper y ingresara donde se encuentra telefono fijo y asi se guardara el nuevo dato ingresado. 
+                        elif numOpc==2:#Si la opcion del menu es dos se hara:
+                            bol7=True#este boleano es para que el valor a ingresar a pantalla sea numero si no es numero se volvera a repetir el bucle y no le permitira seguir.
+                            while bol7==True:
+                                try:
+                                    newPhone=int(input("Ingrese el nuevo telefono movil\n"))#el camper ingresara el nuevo telefono movil 
+                                    bol7=False
+                                except ValueError:   
+                                    print("Ingrese un telefono movil valido (solo numeros)\n")#el camper ingresara el nuevo telefono movil
+                                    print("")
+                                confirmacion=input("Si deseas cambiar otra información escribe: si, de lo contrario preciona enter\n")
+                            system("clear")
+
+                            archivo["Campers"][i]["telefonoCelular"]=newPhone#Ingresara en las posiciones del camper y ingresara donde esta el telefono movil y asi se guardara el cambio del nuevo dato ingresado.
+
+                        elif numOpc==3:#Si la opcion elegida es tres se hara:
+                            bol8=True#este boleano es para que el valor a ingresar a pantalla sea numero si no es numero se volvera a repetir el bucle y no le permitira seguir.
+                            while bol8==True:
+                                try:
+                                    newFijo=int(input("Ingrese el nuevo telefono fijo\n"))#el camper ingresara el nuevo telefono fijo
+                                    bol8=False
+                                except ValueError:
+                                    print("Ingrese un telefono fijo valido(solo numeros)\n")#Si el camper ingresa alguna letra se le notificara y se le recordara que solo se acepta numero y se volvera a repetir 
+                                    print("")
+                                confirmacion=input("Si deseas cambiar otra información escribe: si, de lo contrario preciona enter\n")
+                            system("clear")
+
+                            archivo["Campers"][i]["telefonoFijo"]=newFijo#Ingresara en las posiciones del camper y ingresara donde se encuentra telefono fijo y asi se guardara el nuevo dato ingresado. 
+
                         
+
                     menuCamper()#aca se llama al menu de las opciones de camper 
                     bol5=True#Este booleano es por si el camper ingresa una letra en las opciones, no se le permitira seguir y se le recordara que solo puede ingresar numeros, hata que no lo haga bien el bucle no va a parar y se seguira repitiendo.
                     while bol5==True:
@@ -260,7 +280,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     system("clear")
 
                 elif opcMenuCamper==4:#Si la opcion del menu del camper es cuatro se finalizara la plataforma
-                     campers=False
+                    print("")
+                    campers=False
                     
 
     for q in range(len(archivo["Trainers"])):#se usa un bucle for para recorra cada una  de las pociciones de los trainers
