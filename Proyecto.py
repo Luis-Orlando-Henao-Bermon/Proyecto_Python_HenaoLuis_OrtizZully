@@ -37,9 +37,11 @@ def menuCamperOpc3():
 
 def menuTrainer():
     print("///////////////////////////////////////////////////\n----------- BIENVENIDO", archivo["Trainers"][q]["nombres"],"""--------------------
+          
           1). Cambiar usuario y contraseña
           2). Ruta de entrenamiento.
           3). Cambiar información.
+          4). Salir.
           
     ---------------------------------------------------
     ///////////////////////////////////////////////////
@@ -265,8 +267,9 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                             archivo["Campers"][i]["telefonoFijo"]=newFijo#Ingresara en las posiciones del camper y ingresara donde se encuentra telefono fijo y asi se guardara el nuevo dato ingresado. 
 
-                        
-
+                        elif numOpc==4:
+                            confirmacion3=False
+                            
                     menuCamper()#aca se llama al menu de las opciones de camper 
                     bol5=True#Este booleano es por si el camper ingresa una letra en las opciones, no se le permitira seguir y se le recordara que solo puede ingresar numeros, hata que no lo haga bien el bucle no va a parar y se seguira repitiendo.
                     while bol5==True:
@@ -290,10 +293,12 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
             x+=1
             passwordTrainer=input("Ingresa la contraseña\n")#despues de saber cual es el Trainer con ese usuario se le pide la contraseña 
+            system("clear")
             
             while passwordTrainer != archivo["Trainers"][q]["user"]["contraseña"]:#se usa un bucle while porque mientras que la contraseña ingresada no este en ["Trainers"][q]["user"]["contraseña"] (que es la direcion en donde esta la contraseña en el archivo) se repetira el bucle que lo que hace es volver a pedirle la contraseña 
                 passwordTrainer=input("Contraseña incorrecta ingresela otra vez\n")
-            
+            system("clear")
+
             menuTrainer()
             bol6=True#Este booleano es por si el camper ingresa una letra en las opciones, no se le permitira seguir y se le recordara que solo puede ingresar numeros, hata que no lo haga bien el bucle no va a parar y se seguira repitiendo.
             while bol6==True:
@@ -312,9 +317,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 if opcMenuTrainer == 1:
 
                     newUser2=input("¿Cual es el nuevo usuario?:\n")#El trainer ingresara el nuevo usuario 
+                    system("clear")
                     archivo["Trainers"][q]["user"]["login"]=newUser2 #en el archivo se posicionara donde estan los trainer e ingresara a user login(usuario) y se guardara el nuevo usuario que ingreso el trainer
                     newPass2=input("¿Cual es la nueva contraseña?:\n")#El trainer ingresara la nueva contraseña
                     archivo["Trainers"][q]["user"]["contraseña"]=newPass2#en el archivo se posicionara donde se encuantre los traines e ingresara a user contraseña y se guardara la nueva contraseña que ingreso el trainer 
+                    system("clear")
 
                     menuTrainer()
                     bol9=True
@@ -329,7 +336,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     system("clear")
                 #Si la opcion del menu del trainer es dos se hara:
                 elif opcMenuTrainer == 2:
-                    print("La ruta de entrenamiento es",archivo["Trainers"][q]["ruta"])
+
+                    print("La ruta de entrenamiento es",archivo["Trainers"][q]["ruta"],"\n")
                     
                     menuTrainer()
                     bol9=True
@@ -344,43 +352,55 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     system("clear")
                 #Si la opcion elegida es tres se hara:
                 elif opcMenuTrainer==3:
-                    #se le mostara el submenu de la opcion 3 al trainer 
-                    menuTrainerOpc3()
-                    bol15=True
-                    while bol15==True:
-                        try:
-                            newOpc=int(input("Ingrese unas de las opciones del menu anterior:\n"))#Ingresara una opcion del submenu anterior
-                            while newOpc<1 or newOpc>3:
-                                newOpc=int(input("Ingrese una opcion de las que aparecen en la pantalla:\n"))
-                            bol15=False
-                        except ValueError:
-                            print("Ingrese una opcion valida(Número)\n")
-                    system("clear")
+                    confirmacion1="si"
+                    while confirmacion1 == "si":
+                        #se le mostara el submenu de la opcion 3 al trainer 
+                        menuTrainerOpc3()
+                        bol15=True
+                        while bol15==True:
+                            try:
+                                newOpc=int(input("Ingrese unas de las opciones del menu anterior:\n"))#Ingresara una opcion del submenu anterior
+                                while newOpc<1 or newOpc>3:
+                                    newOpc=int(input("Ingrese una opcion de las que aparecen en la pantalla:\n"))
+                                bol15=False
+                            except ValueError:
+                                print("Ingrese una opcion valida(Número)\n")
+                        system("clear")
 
-                    
-                    if newOpc==1: #Si la opcion es uno se hara:
-                        newAdress1=input("Ingrese la nueva dirección:\n")#El trainer ingresara la direccion nueva 
-                        archivo["Trainers"][q]["direccion"]=newAdress1#en las pociciones del trainer en la posicion de direccion se le cambiara a la direccion nueva ingresada por el mismo.
-                    #si la opcion elegida es dos se hara:
-                    elif newOpc==2:
-                        bol10=True#este booleano es por que el dato a ingresar debe ser entero por ende si el trainer ingresa una letra no se le aceptara y se le volvera a repetir el valor a ingresar hasta que no lo ingrese bien el bucle no parará.
-                        while bol10==True:
-                            try:
-                                newPhone1=int(input("Ingrese el nuevo telefono movil:\n"))#El trainer ingresara el nuevo telefono movil
-                                bol10=False#
-                            except ValueError:
-                                print("Ingrese un telefono movil valido(solo numeros)\n")
-                        archivo["Trainers"][q]["telefonoCelular"]=newPhone1#En las posiciones del trainer en la posicion del telefono celular se guardara el dato que ingreso en trainer
-                    #Si la opcion elegida es tres se hara: 
-                    elif newOpc==3:
-                        bol11=True#este booleano es por que el dato a ingresar debe ser entero por ende si el trainer ingresa una letra no se le aceptara y se le volvera a repetir el valor a ingresar hasta que no lo ingrese bien el bucle no parará.
-                        while bol11==True:
-                            try:
-                                newFijo1=int(input("Ingrese el nuevo telefono fijo:\n"))#El trainer ingresara el nuevo telefono fijo
-                                bol11=False
-                            except ValueError:
-                                print("Ingrese un telefono fijo valido (solo numeros)\n")
-                        archivo["Trainers"][q]["telefonoFijo"]=newFijo1#En las posiciones del trainer en la posicion del telefono fijo se guardara el dato que ingreso en trainer
+                        
+                        if newOpc==1: #Si la opcion es uno se hara:
+                            newAdress1=input("Ingrese la nueva dirección:\n")#El trainer ingresara la direccion nueva 
+                            archivo["Trainers"][q]["direccion"]=newAdress1#en las pociciones del trainer en la posicion de direccion se le cambiara a la direccion nueva ingresada por el mismo.
+                        #si la opcion elegida es dos se hara:
+                            confirmacion1=input("Si deseas cambiar otra información escribe: si, de lo contrario preciona enter\n")
+                            system("clear")
+
+                            menuTrainerOpc3()
+                        elif newOpc==2:
+                            bol10=True#este booleano es por que el dato a ingresar debe ser entero por ende si el trainer ingresa una letra no se le aceptara y se le volvera a repetir el valor a ingresar hasta que no lo ingrese bien el bucle no parará.
+                            while bol10==True:
+                                try:
+                                    newPhone1=int(input("Ingrese el nuevo telefono movil:\n"))#El trainer ingresara el nuevo telefono movil
+                                    bol10=False#
+                                except ValueError:
+                                    print("Ingrese un telefono movil valido(solo numeros)\n")
+                            archivo["Trainers"][q]["telefonoCelular"]=newPhone1#En las posiciones del trainer en la posicion del telefono celular se guardara el dato que ingreso en trainer
+                            #Si la opcion elegida es tres se hara: 
+                            confirmacion1=input("Si deseas cambiar otra información escribe: si, de lo contrario preciona enter\n")
+                            system("clear")
+
+                            menuTrainerOpc3()
+                        elif newOpc==3:
+                            bol11=True#este booleano es por que el dato a ingresar debe ser entero por ende si el trainer ingresa una letra no se le aceptara y se le volvera a repetir el valor a ingresar hasta que no lo ingrese bien el bucle no parará.
+                            while bol11==True:
+                                try:
+                                    newFijo1=int(input("Ingrese el nuevo telefono fijo:\n"))#El trainer ingresara el nuevo telefono fijo
+                                    bol11=False
+                                except ValueError:
+                                    print("Ingrese un telefono fijo valido (solo numeros)\n")
+                            archivo["Trainers"][q]["telefonoFijo"]=newFijo1#En las posiciones del trainer en la posicion del telefono fijo se guardara el dato que ingreso en trainer
+                            confirmacion1=input("Si deseas cambiar otra información escribe: si, de lo contrario preciona enter\n")
+                            system("clear")
 
                         menuTrainer()#Se le volvera a mostrar el menu principal al trainer
                         bol12=True
