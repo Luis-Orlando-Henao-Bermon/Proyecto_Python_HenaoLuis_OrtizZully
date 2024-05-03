@@ -153,12 +153,15 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         elif newOpc1==2:#Si la opcion elegida es dos se hara:
 
                         #si en el archivo del camper el estado es aprobado o esta cursado se le mostrara el riesgo que se encuentra
+                            mod=archivo["Campers"][i]["moduloActual"]
+                            mod=mod-1
                             if archivo["Campers"][i]["estado"]=="Aprobado" or archivo["Campers"][i]["estado"]=="Cursando": 
                                 # Si en las posiciones del camper se encuentra el estado aprobado o cursando se le mstrata al camper.   
-                                print("Tu riesgo es:",archivo["Campers"][i]["riesgo"],"\n",)#Se le mostrara al camper el riesgos que se encuentra
+                                print("Tu riesgo es:",archivo["Campers"][i]["riesgo"][mod],"\n")
+                                #Se le mostrara al camper el riesgos que se encuentra
                             else:#Si el camper no se encuentra en aprobado o cursando se le mostrara en que estado se encuentra y se le aclarará que no tienes riesgo por lo mismo.
                                 print("Tu estado es:",archivo["Campers"][i]["estado"],"por lo tanto no tienes riesgo""\n")
-
+                            
                             confirmacion=input("Si quieres ver otro reporte escribe: si, de lo contrario preciona enter\n")
                             system("clear")#este es el booleano de la linea 117, dodne se le preguntara al camper si desea ver otra opcion del menu del reporte si la respuesta es si, se le repetira el proceso, y si da enter le mostrara el menu principal del camper 
 
@@ -366,7 +369,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         while bol15==True:
                             try:
                                 newOpc=int(input("Ingrese unas de las opciones del menu anterior:\n"))#Ingresara una opcion del submenu anterior
-                                while newOpc<1 or newOpc>3:
+                                while newOpc<1 or newOpc>4:
                                     newOpc=int(input("Ingrese una opcion de las que aparecen en la pantalla:\n"))
                                 bol15=False
                             except ValueError:
@@ -381,7 +384,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             confirmacion1=input("Si deseas cambiar otra información escribe: si, de lo contrario preciona enter\n")
                             system("clear")
 
-                            menuTrainerOpc3()
+                            
                         elif newOpc==2:
                             bol10=True#este booleano es por que el dato a ingresar debe ser entero por ende si el trainer ingresa una letra no se le aceptara y se le volvera a repetir el valor a ingresar hasta que no lo ingrese bien el bucle no parará.
                             while bol10==True:
@@ -395,7 +398,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             confirmacion1=input("Si deseas cambiar otra información escribe: si, de lo contrario preciona enter\n")
                             system("clear")
 
-                            menuTrainerOpc3()
+                            
                         elif newOpc==3:
                             bol11=True#este booleano es por que el dato a ingresar debe ser entero por ende si el trainer ingresa una letra no se le aceptara y se le volvera a repetir el valor a ingresar hasta que no lo ingrese bien el bucle no parará.
                             while bol11==True:
@@ -409,19 +412,34 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             system("clear")
 
                         
-                        bol12=True
-                        while bol12==True: 
-                            try:
-                                opcMenuTrainer=int(input("Ingresa tu opcion\n"))
-                                while opcMenuTrainer<1 or opcMenuTrainer>4:
-                                        opcMenuTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
-                                bol12=False
-                            except ValueError:
-                                print("Ingresa una opcion valida (Numero)\n")
-                        system("clear")
+                            bol12=True
+                            while bol12==True: 
+                                try:
+                                    opcMenuTrainer=int(input("Ingresa tu opcion\n"))
+                                    while opcMenuTrainer<1 or opcMenuTrainer>4:
+                                            opcMenuTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                                    bol12=False
+                                except ValueError:
+                                    print("Ingresa una opcion valida (Numero)\n")
+                            system("clear")
+
+                        elif newOpc==4:
+                            confirmacion1=""
                     
-                    menuTrainerOpc3()
-                #si la opcion del menu del trainer es cuatro se hara:
+                    menuTrainer()
+                    bol9=True
+                    while bol9==True: 
+                        try:
+                            opcMenuTrainer=int(input("Ingresa tu opcion\n"))
+                            while opcMenuTrainer<1 or opcMenuTrainer>4:
+                                    opcMenuTrainer=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                            bol9=False
+                        except ValueError:
+                            print("Ingresa una opcion valida (Numero)\n")
+                    system("clear")
+
+                    
+                
                 elif opcMenuTrainer == 4:
                     trainers=False#se finalizara la plataforma 
                     
