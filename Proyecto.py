@@ -1740,6 +1740,116 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
             elif opcMenuCoordinador==8:
                 system("clear")
 
+                bol54=True
+                while bol54==True:
+                    try:
+                        idCamper=int(input("Ingrese un id para este Camper\n"))
+                        bol54=False
+                    except ValueError:
+                        print("Ingrese un id valido (solo numeros)")
+
+
+                bol49=True
+                while bol49==True:
+                    cont6=0
+
+                    for v in range(len(archivo["Campers"])):
+                        if idCamper==archivo["Campers"][v]["id"]:
+                            cont6=cont6+1
+                    
+                    for q in range(len(archivo["Trainers"])):
+                        if idCamper==archivo["Trainers"][q]["id"]:
+                            cont6=cont6+1
+                    
+                    if idCamper==archivo["Coordinador"][0]["id"]:
+                        cont6=cont6+1
+                    
+                    if cont6==0:
+                        bol49=False
+                    else:
+                        
+                        bol55=True
+                        while bol55==True:
+                            try:
+                                idCamper=int(input("Ese id ya existe por favor ingresa uno nuevo\n"))
+                                bol55=False
+                            except ValueError:
+                                print("Ingrese un id valido (solo numeros)")
+                system("clear")
+
+                userLogin=input("Ingrese un usuario para este Camper\n")
+
+                bol50=True
+                while bol50==True:
+                    cont7=0
+
+                    for e in range(len(archivo["Campers"])):
+                        if userLogin==archivo["Campers"][v]["user"]["login"]:
+                            cont7=cont7+1
+                    
+                    for r in range(len(archivo["Trainers"])):
+                        if userLogin==archivo["Trainers"][q]["user"]["login"]:
+                            cont7=cont7+1
+                    
+                    if userLogin==archivo["Coordinador"][0]["user"]["login"]:
+                        cont7=cont7+1
+                    
+                    if cont7==0:
+                        bol50=False
+                    else:
+                        userLogin=input("Ese usuario ya existe por favor ingresa uno nuevo\n")
+                
+                system("clear")
+
+                contraseñaCamper=input("Ingresa una contraseña para ese usuario\n")
+                system("clear")
+                
+                bol51=True
+                while bol51==True:
+                    try:
+                        nIdentificacionCamper=int(input("Ingrese el numero de identificacion del nuevo camper\n"))
+                        bol51=False
+                    except ValueError:
+                        print("Ingrese un numero de id valido (Solo numeros)")
+                system("clear")
+
+                nombreCamper=input("Ingrese los nombres del nuevo Camper\n")
+                system("clear")
+
+                apellidoCamper=input("Ingrese los apellidos del nuevo Camper\n")
+                system("clear")
+
+                direccionCamper=input("Ingrese la direccion del nuevo camper\n")
+                system("clear")
+
+                acudienteCamper=input("Ingresa los nombres y apellidos del acudiente del camper\n")
+                system("clear")
+
+                bol52=True
+                while bol52==True:
+                    try:
+                        celularCamper=int(input("Ingrese el numero de telefono celular del nuevo camper\n"))
+                        bol52=False
+                    except ValueError:
+                        print("Ingrese un numero de telefono valido (Solo numeros)")
+                system("clear")
+
+                bol53=True
+                while bol53==True:
+                    try:
+                        fijoCamper=int(input("Ingrese el numero de telefono fijo del nuevo camper\n"))
+                        bol53=False
+                    except ValueError:
+                        print("Ingrese un numero de telefono valido (Solo numeros)")
+                system("clear")
+
+
+
+
+
+                archivo["Campers"].append({"id": idCamper,"user": {"login": userLogin,"contrase\u00f1a": contraseñaCamper},"numeroIdentificacion": nIdentificacionCamper,"nombres": nombreCamper,"apellidos": apellidoCamper,"direccion": direccionCamper,"acudiente": acudienteCamper,"telefonoCelular": celularCamper,"telefonoFijo": fijoCamper,"NotaI": 0,"tiposDeEstados": ["En proceso","Inscrito","Aprobado","Cursando","Graduado","Expulsado","Retirado"],"estado": "Inscrito","fechaInicio": "","fechaCierre": "","grupo": "","ruta": "","moduloActual": 1,"trainer": "","riesgo": ["","","","",""],"notaFiltro": [0,0,0,0,0]})#aca se agregan losdatos que va atener un estudiante cuando recien es ingresado
+
+                print("Camper agregado con exito")
                 menuCoordinador()
                 try:
                     opcMenuCoordinador=int(input("Ingresa tu opcion\n"))

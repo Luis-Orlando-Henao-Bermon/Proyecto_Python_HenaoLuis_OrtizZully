@@ -88,6 +88,51 @@
                 46.0,
                 74.0
             ]
+        },
+        {
+            "id": 333,
+            "user": {
+                "login": "jhoan37",
+                "contrase\u00f1a": "jhoan372"
+            },
+            "numeroIdentificacion": 1502065,
+            "nombres": "jhoan stiven",
+            "apellidos": "Bermon Garay",
+            "direccion": "Camilo torres",
+            "acudiente": "Blanca Smith Bermon Garay",
+            "telefonoCelular": 56523506,
+            "telefonoFijo": 846846541,
+            "NotaI": 0,
+            "tiposDeEstados": [
+                "En proceso",
+                "Inscrito",
+                "Aprobado",
+                "Cursando",
+                "Graduado",
+                "Expulsado",
+                "Retirado"
+            ],
+            "estado": "Inscrito",
+            "fechaInicio": "",
+            "fechaCierre": "",
+            "grupo": "",
+            "ruta": "",
+            "moduloActual": 1,
+            "trainer": "",
+            "riesgo": [
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "notaFiltro": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     ],
     "Trainers": [
