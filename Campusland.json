@@ -4,10 +4,10 @@
             "id": 5708,
             "user": {
                 "login": "luorheber",
-                "contrase\u00f1a": "Luis123"
+                "contrase\u00f1a": "JavaScript123"
             },
             "numeroIdentificacion": 10939352265,
-            "nombres": "Luis Jose",
+            "nombres": "JavaScript Jose",
             "apellidos": "Bemon Henao",
             "direccion": "Pachelli",
             "acudiente": "Franklin Henao",
@@ -25,23 +25,23 @@
             "estado": "Cursando",
             "fechaInicio": "19-03-2024",
             "fechaCierre": "19-03-2025",
-            "grupo": "T1",
-            "ruta": "Nodejs",
+            "grupo": "T2",
+            "ruta": "Java",
             "moduloActual": 1,
             "trainer": "Michael Andres",
             "riesgo": [
+                "Bajo",
                 "Alto",
                 "Bajo",
                 "Bajo",
-                "Alto",
-                "Alto"
+                "Bajo"
             ],
             "notaFiltro": [
-                69.0,
-                54.0,
-                65.5,
-                20.0,
-                42.0
+                75.0,
+                43.0,
+                71.5,
+                69.5,
+                68.5
             ]
         },
         {
@@ -102,7 +102,10 @@
             "direccion": "Bogota",
             "telefonoCelular": 3266598821,
             "telefonoFijo": 9862656518,
-            "ruta": "Java"
+            "ruta": "Nodejs",
+            "grupo": [
+                "T1"
+            ]
         },
         {
             "id": 1523,
@@ -116,7 +119,27 @@
             "direccion": "Bucaramanga",
             "telefonoCelular": 3285313513,
             "telefonoFijo": 58416543521,
-            "ruta": "Nodejs"
+            "ruta": "Java",
+            "grupo": [
+                "T2"
+            ]
+        },
+        {
+            "id": 1222,
+            "user": {
+                "login": "laura03",
+                "contrase\u00f1a": "laura031"
+            },
+            "numeroIdentificacion": 88563265,
+            "nombres": "Laura Sofia",
+            "apellidos": "Salamanca Zuleta",
+            "direccion": "Tibu",
+            "telefonoCelular": 5641651,
+            "telefonoFijo": 8541651561,
+            "ruta": "Netcore",
+            "grupo": [
+                "T3"
+            ]
         }
     ],
     "Coordinador": [
@@ -127,7 +150,7 @@
                 "contrase\u00f1a": "stiv12"
             },
             "numeroIdentificacion": 1586516131,
-            "nombres": "Luis Orlando",
+            "nombres": "JavaScript Orlando",
             "apellidos": "Henao Bermon",
             "direccion": "Tibu",
             "telefonoCelular": 3003526653,
@@ -160,7 +183,8 @@
             "rutas": [
                 "Nodejs",
                 "Java",
-                "Netcore"
+                "Netcore",
+                "JavaScript"
             ],
             "tiposDeRutas": [
                 {
@@ -252,27 +276,44 @@
                             "Express"
                         ]
                     ]
+                },
+                {
+                    "nombreRuta": "JavaScript",
+                    "grupos": [
+                        "M1"
+                    ],
+                    "modulos": [
+                        [
+                            "Introduccion a la algoritmo",
+                            "Pseint",
+                            "Python"
+                        ],
+                        [
+                            "HTML",
+                            "CSS",
+                            "Bootstrap"
+                        ],
+                        [
+                            "Java"
+                        ],
+                        [
+                            "Mysql",
+                            "MongoDb"
+                        ],
+                        [
+                            "Netcore"
+                        ]
+                    ]
                 }
             ],
-            "trainers": {
-                "nombres": [
-                    "Pedro jose",
-                    "Michael Andres"
-                ],
-                "id": [
-                    75458546,
-                    1523
-                ],
-                "grupos": [
-                    [
-                        "T1",
-                        "T2"
-                    ],
-                    [
-                        "T3"
-                    ]
-                ]
-            }
+            "grupos": [
+                "T1",
+                "T2",
+                "T3",
+                "M1",
+                "M2",
+                "M3"
+            ]
         }
     ]
 }
