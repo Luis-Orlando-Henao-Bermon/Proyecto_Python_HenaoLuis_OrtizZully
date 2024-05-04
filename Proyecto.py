@@ -721,42 +721,42 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 system("clear")
 
                                 grupos=[]
-                                for q in range(len(archivo["Coordinador"][1]["rutas"])):
+                                for q in range(len(archivo["Coordinador"][1]["rutas"])):#con este bucle for se muestran todas las rutas que hay 
                                     print("-----------------------------------")
                                     print("Ruta:",archivo["Coordinador"][1]["rutas"][q])
-                                    for t in range(len(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"])):
+                                    for t in range(len(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"])):#despues de que el bucle anterior haya mosstrado la primera tuta este bucle muestra los salones que hay en esa ruta 
                                         print("-----Grupos-----")
                                         print(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t])
-                                        if archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t] not in grupos:
+                                        if archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t] not in grupos:#este if mira si el grupo esta en la lista grupos si no esta lo añade ahi 
                                             grupos.append(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t])
                                     
                                 
                                 grupoCambiar=input("Ingrese un grupo (Escogelo dependiendo de la ruta que Quieras)\n")
                                 
-                                while grupoCambiar not in grupos:
-                                    grupoCambiar=input("Ingresa un grupo de los que hay en pantalla \n")
+                                while grupoCambiar not in grupos:#mienta que el grupo ingresado no este en la lista gupos le va apedir que ingrese otro grupo
+                                    grupoCambiar=input("Grupo no encontrado ingresa un grupo de los que hay en pantalla \n")
 
-                                estudiantesG=0
+                                estudiantesG=0#este es un contador para mirar cuantos estudiantes tienen el mismo grupo
                                 for y in range(len(archivo["Campers"])):
-                                    if grupoCambiar==archivo["Campers"][y]["grupo"]:
+                                    if grupoCambiar==archivo["Campers"][y]["grupo"]:#si el estudiante tiene el mismo grupo al ingresado suma uno al contador
                                         estudiantesG=estudiantesG+1
 
-                                while estudiantesG==1:
+                                while estudiantesG==33:#mientras que el contadopr de estudiantes en un grupo sea 33 (es la cantidad maxima de estudiantes) le va a decir que el grupo esta lleno y que tiene que ingresar otro
                                     grupoCambiar=input("Grupo con limites de estudiantes por favor ingresa otro\n")
 
-                                    while grupoCambiar not in grupos:
+                                    while grupoCambiar not in grupos:#mienta que el grupo ingresado no este en la lista gupos le va apedir que ingrese otro grupo
                                         grupoCambiar=input("Ingresa un grupo de los que hay en pantalla \n")
 
                                     estudiantesG=0
-                                    for y in range(len(archivo["Campers"])):
-                                        if grupoCambiar==archivo["Campers"][y]["grupo"]:
+                                    for y in range(len(archivo["Campers"])):#este es un contador para mirar cuantos estudiantes tienen el mismo grupo
+                                        if grupoCambiar==archivo["Campers"][y]["grupo"]:#si el estudiante tiene el mismo grupo al ingresado suma uno al contador
                                             estudiantesG=estudiantesG+1
 
 
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["grupo"]=grupoCambiar
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["grupo"]=grupoCambiar #despues de saber cual es el grupo simplemente lo agrega al grupo del estudiante
 
-                                for u in range(len(archivo["Coordinador"][1]["rutas"])):
-                                    if grupoCambiar in archivo["Coordinador"][1]["tiposDeRutas"][u]["grupos"]:
+                                for u in range(len(archivo["Coordinador"][1]["rutas"])):#este es un for para mirar todas las rutas 
+                                    if grupoCambiar in archivo["Coordinador"][1]["tiposDeRutas"][u]["grupos"]:#si una ruta tiene el grupo ingresado le va a poner esa ruta al camper 
                                         archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=archivo["Coordinador"][1]["rutas"][u]
 
                             confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
@@ -796,42 +796,42 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 system("clear")
 
                                 grupos=[]
-                                for q in range(len(archivo["Coordinador"][1]["rutas"])):
+                                for q in range(len(archivo["Coordinador"][1]["rutas"])):#con este bucle for se muestran todas las rutas que hay 
                                     print("-----------------------------------")
                                     print("Ruta:",archivo["Coordinador"][1]["rutas"][q])
-                                    for t in range(len(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"])):
+                                    for t in range(len(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"])):#despues de que el bucle anterior haya mosstrado la primera tuta este bucle muestra los salones que hay en esa ruta 
                                         print("-----Grupos-----")
                                         print(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t])
-                                        if archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t] not in grupos:
+                                        if archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t] not in grupos:#este if mira si el grupo esta en la lista grupos si no esta lo añade ahi 
                                             grupos.append(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t])
                                     
                                 
                                 grupoCambiar=input("Ingrese un grupo (Escogelo dependiendo de la ruta que Quieras)\n")
                                 
-                                while grupoCambiar not in grupos:
-                                    grupoCambiar=input("Ingresa un grupo de los que hay en pantalla \n")
+                                while grupoCambiar not in grupos:#mienta que el grupo ingresado no este en la lista gupos le va apedir que ingrese otro grupo
+                                    grupoCambiar=input("Grupo no encontrado ingresa un grupo de los que hay en pantalla \n")
 
-                                estudiantesG=0
+                                estudiantesG=0#este es un contador para mirar cuantos estudiantes tienen el mismo grupo
                                 for y in range(len(archivo["Campers"])):
-                                    if grupoCambiar==archivo["Campers"][y]["grupo"]:
+                                    if grupoCambiar==archivo["Campers"][y]["grupo"]:#si el estudiante tiene el mismo grupo al ingresado suma uno al contador
                                         estudiantesG=estudiantesG+1
 
-                                while estudiantesG==1:
+                                while estudiantesG==33:#mientras que el contadopr de estudiantes en un grupo sea 33 (es la cantidad maxima de estudiantes) le va a decir que el grupo esta lleno y que tiene que ingresar otro
                                     grupoCambiar=input("Grupo con limites de estudiantes por favor ingresa otro\n")
 
-                                    while grupoCambiar not in grupos:
+                                    while grupoCambiar not in grupos:#mienta que el grupo ingresado no este en la lista gupos le va apedir que ingrese otro grupo
                                         grupoCambiar=input("Ingresa un grupo de los que hay en pantalla \n")
 
                                     estudiantesG=0
-                                    for y in range(len(archivo["Campers"])):
-                                        if grupoCambiar==archivo["Campers"][y]["grupo"]:
+                                    for y in range(len(archivo["Campers"])):#este es un contador para mirar cuantos estudiantes tienen el mismo grupo
+                                        if grupoCambiar==archivo["Campers"][y]["grupo"]:#si el estudiante tiene el mismo grupo al ingresado suma uno al contador
                                             estudiantesG=estudiantesG+1
 
 
-                                archivo[personaCambiarInfo][posicionCamperCambiar]["grupo"]=grupoCambiar
+                                archivo[personaCambiarInfo][posicionCamperCambiar]["grupo"]=grupoCambiar #despues de saber cual es el grupo simplemente lo agrega al grupo del estudiante
 
-                                for u in range(len(archivo["Coordinador"][1]["rutas"])):
-                                    if grupoCambiar in archivo["Coordinador"][1]["tiposDeRutas"][u]["grupos"]:
+                                for u in range(len(archivo["Coordinador"][1]["rutas"])):#este es un for para mirar todas las rutas 
+                                    if grupoCambiar in archivo["Coordinador"][1]["tiposDeRutas"][u]["grupos"]:#si una ruta tiene el grupo ingresado le va a poner esa ruta al camper 
                                         archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=archivo["Coordinador"][1]["rutas"][u]
 
                             else:
@@ -1032,6 +1032,29 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                             archivo[personaCambiarInfo][posicionTrainerCambiar]["ruta"]=rutaTrainerCambiar
 
+                            for o in range(len(archivo["Coordinador"][1]["rutas"])):#despues de reemplazar la ruta se usa este bucle para saber la pocicion de la ruta que se escogio
+                                if rutaTrainerCambiar==archivo["Coordinador"][1]["rutas"][o]:
+                                    posicionRutaTrainer=o
+
+                            print("-----Grupos de esta ruta-----")
+                            gruposRuta=[]#en esta lista se guardaran los grupos que hay para esta ruta
+                            for t in range(len(archivo["Coordinador"][1]["tiposDeRutas"][posicionRutaTrainer]["grupos"])):
+                                print(archivo["Coordinador"][1]["tiposDeRutas"][posicionRutaTrainer]["grupos"][t])
+                                if archivo["Coordinador"][1]["tiposDeRutas"][posicionRutaTrainer]["grupos"][t] not in gruposRuta:
+                                    gruposRuta.append(archivo["Coordinador"][1]["tiposDeRutas"][posicionRutaTrainer]["grupos"][t])
+
+                            grupoAgregar=input("Escoja un grupo\n")
+
+                            while grupoAgregar not in gruposRuta:
+                                grupoAgregar=input("Escoja un grupo de los que hay en pantalla (tienes que escribirlo como esta ahi)\n")
+                            
+                            for y in range(len(archivo["Campers"])):#se usa un bucle while para mirar todos los campers y los campers que tengan ese grupo se le agrega ese trainer 
+
+                                if grupoAgregar==archivo["Campers"][y]["grupo"]:
+                                    archivo["Campers"][y]["trainer"]=archivo[personaCambiarInfo][posicionTrainerCambiar]["nombres"]
+
+
+                            
                             confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#aca es donde se pregunta si quiere cambiar algo mas para saber si se repite el bucle o no
                             system("clear")
                         
