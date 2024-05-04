@@ -50,15 +50,16 @@ def munuTrainerOpc3():
 """)
 
 def menuCoordinador():
-    print("""
-    //////////////////////////////////////////////////////////////////////
-    -------------------- BIENVENIDO COORDINADOR --------------------------
+    print("//////////////////////////////////////////////////////////////////////\n    ---------------- Bienvenido""""----------------------------
           1). Cambiar usuarios y contraseñas de todo el sistema educativo.
           2). Cambiar informacion de todo el sistema educativo.
           3). Agregar nota de examen de aprobación.
           4). Agregar nota de filtro. 
-          5). Consultar cuales campers se encuentra en riego.
+          5). Consultar cuales campers se encuentra en riesgo alto.
           6). Reporte.
+          7). Crear nuevas rutas.
+          8). Crear nuevos campers.
+          9). Salir.
     -----------------------------------------------------------------------
     ///////////////////////////////////////////////////////////////////////
 """)

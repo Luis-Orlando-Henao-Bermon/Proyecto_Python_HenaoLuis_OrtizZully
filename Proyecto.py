@@ -65,7 +65,9 @@ def menuCoordinador():
           4). Agregar nota de filtro. 
           5). Consultar cuales campers se encuentra en riesgo alto.
           6). Reporte.
-          7). Salir
+          7). Crear nuevas rutas.
+          8). Crear nuevos campers.
+          9). Salir.
     -----------------------------------------------------------------------
     ///////////////////////////////////////////////////////////////////////
 """)
@@ -86,6 +88,7 @@ def menuCoordinadorOpc6():
 
 with open("./Campusland.json", encoding="utf-8") as file:#con esto se abre el archivo de campusland.json que es donde esta toda la informacion
     archivo=json.load(file)
+
 
 user=input("Ingrese su usuario:\n")#se pide que ingrese el usuario
 system("clear")
@@ -459,7 +462,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
         while bol21==True:
             try:
                 opcMenuCoordinador=int(input("Ingresa tu opcion:\n"))
-                while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                         opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 6 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
                 bol21=False
             except ValueError:
@@ -521,11 +524,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 menuCoordinador()
                 try:
                     opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
-                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
                 except ValueError:
                     opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
-                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
 
             elif opcMenuCoordinador==2:
@@ -744,7 +747,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 while estudiantesG==1:
                                     grupoCambiar=input("Grupo con limites de estudiantes por favor ingresa otro\n")
 
-                                    while grupoCambiar not in grupos:#mienta que el grupo ingresado no este en la lista gupos le va apedir que ingrese otro grupo
+                                    while grupoCambiar not in grupos:#mientras que el grupo ingresado no este en la lista gupos le va apedir que ingrese otro grupo
                                         grupoCambiar=input("Ingresa un grupo de los que hay en pantalla \n")
 
                                     estudiantesG=0
@@ -758,6 +761,10 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 for u in range(len(archivo["Coordinador"][1]["rutas"])):#este es un for para mirar todas las rutas 
                                     if grupoCambiar in archivo["Coordinador"][1]["tiposDeRutas"][u]["grupos"]:#si una ruta tiene el grupo ingresado le va a poner esa ruta al camper 
                                         archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=archivo["Coordinador"][1]["rutas"][u]
+
+                                for o in range(len(archivo["Trainers"])):#este es un bucle for que mira todos los trainers
+                                    if grupoCambiar in archivo["Trainers"][o]["grupo"]:#se mira que trainer tiene el grupo que se escogio
+                                        archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=archivo["Trainers"][o]["nombres"]#despues de ver que trainer tiene ese grupo soplo se le agrega el nombre de ese trainer al trainer del estudiante 
 
                             confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
@@ -833,6 +840,10 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 for u in range(len(archivo["Coordinador"][1]["rutas"])):#este es un for para mirar todas las rutas 
                                     if grupoCambiar in archivo["Coordinador"][1]["tiposDeRutas"][u]["grupos"]:#si una ruta tiene el grupo ingresado le va a poner esa ruta al camper 
                                         archivo[personaCambiarInfo][posicionCamperCambiar]["ruta"]=archivo["Coordinador"][1]["rutas"][u]
+                                
+                                for o in range(len(archivo["Trainers"])):#este es un bucle for que mira todos los trainers
+                                    if grupoCambiar in archivo["Trainers"][o]["grupo"]:#se mira que trainer tiene el grupo que se escogio
+                                        archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=archivo["Trainers"][o]["nombres"]#despues de ver que trainer tiene ese grupo soplo se le agrega el nombre de ese trainer al trainer del estudiante
 
                             else:
                                 print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene grupo")
@@ -1030,6 +1041,12 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 
                                 rutaTrainerCambiar=input("Ingrese una ruta valida (Tienes que escibirla como aparece en pantalla)\n")
 
+                            rutaC=archivo[personaCambiarInfo][posicionTrainerCambiar]["ruta"]#se guarda la ruta que tenia ese trainer en rutaC
+
+                            for w in range(len(archivo["Trainers"])):
+                                if archivo["Trainers"][w]["ruta"]==rutaTrainerCambiar:#se mira que trainer tiene la ruta que quieren poner ahora y el trainer que tenga esa ruta se cambia por la que anteriormente tenia el trainer al que le estan cambiando la ruta
+                                    archivo["Trainers"][w]["ruta"]=rutaC
+
                             archivo[personaCambiarInfo][posicionTrainerCambiar]["ruta"]=rutaTrainerCambiar
 
                             for o in range(len(archivo["Coordinador"][1]["rutas"])):#despues de reemplazar la ruta se usa este bucle para saber la pocicion de la ruta que se escogio
@@ -1047,13 +1064,20 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                             while grupoAgregar not in gruposRuta:
                                 grupoAgregar=input("Escoja un grupo de los que hay en pantalla (tienes que escribirlo como esta ahi)\n")
+
+                            grupoC=archivo[personaCambiarInfo][posicionTrainerCambiar]["grupo"][0]#es la variable de grupo se se guarda el grupo que tenia ese trainer para posteriormente ponerselo al trainer que tiene el grupo que quieren cambiar
+
+                            for n in range(len(archivo["Trainers"])):
+                                if archivo["Trainers"][n]["grupo"][0]==grupoAgregar:#se mira que trainer tiene el grupo que quieren poner ahora y el trainer que tenga ese grupo se cambia por la que anteriormente tenia el trainer al que le estan cambiando el grupo
+                                    archivo["Trainers"][n]["grupo"][0]=grupoC
+
+                            archivo[personaCambiarInfo][posicionTrainerCambiar]["grupo"][0]=grupoAgregar
                             
-                            for y in range(len(archivo["Campers"])):#se usa un bucle while para mirar todos los campers y los campers que tengan ese grupo se le agrega ese trainer 
+                            for y in range(len(archivo["Campers"])):#se usa un bucle while para mirar todos los campers que tengan ese grupo y se le agrega ese trainer 
 
                                 if grupoAgregar==archivo["Campers"][y]["grupo"]:
                                     archivo["Campers"][y]["trainer"]=archivo[personaCambiarInfo][posicionTrainerCambiar]["nombres"]
-
-
+                            
                             
                             confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#aca es donde se pregunta si quiere cambiar algo mas para saber si se repite el bucle o no
                             system("clear")
@@ -1195,11 +1219,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 menuCoordinador()
                 try:
                     opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
-                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
                 except ValueError:
                     opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
-                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
 
             elif opcMenuCoordinador==3:
@@ -1324,11 +1348,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 menuCoordinador()
                 try:
                     opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
-                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
                 except ValueError:
                     opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
-                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
 
             elif opcMenuCoordinador==4:
@@ -1366,8 +1390,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 confiAgregarNota="si"
                 while confiAgregarNota=="si":
                     print("-----Modulos-----")#se muestran los modulos que hay (esa informacion la tiene cada uno de los campers)
-                    for g in range(len(archivo["Campers"][posicionCamperNota]["numeroModulo"])):
-                        print(g+1,archivo["Campers"][posicionCamperNota]["numeroModulo"][g])
+                    for g in range(len(archivo["Coordinador"][1]["numeroModulo"])):
+                        print(g+1,archivo["Coordinador"][1]["numeroModulo"][g])
 
                     bol42=True
                     while bol42==True:
@@ -1380,9 +1404,9 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             print("Ingrese el numero del modulo")
 
                     
-                    #dependiendo de la opcion que escoja se le pide la nota eorica y la practica luego se saca el promedio de esas 2 y esa es la nota que se agrega a cada modulo (cada camper tiene un lugar para cada nota)
+                    #dependiendo de la opcion que escoja se le pide la nota teorica y la practica luego se saca el promedio de esas 2 y esa es la nota que se agrega a cada modulo (cada camper tiene un lugar para cada nota)
 
-                    if moduloAgregarNota==1:
+                    
                         system("clear")
                         
                         bol43=True
@@ -1412,196 +1436,32 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         
                         notaFiltroM1=(notaPracticaM1+notaTeoricaM1)/2
 
-                        if notaFiltroM1<60:
+                        bol47=True
+                        while bol47==True:
+                            
+                            try:
+                                notaTrabajosM1=int(input("Ingrese la nota del promedio en los trabajos y quizes en clase\n"))
+                                while notaTrabajosM1<0 or notaTrabajosM1>100:
+                                    notaTrabajosM1=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
+                                bol44=False
+                            except ValueError:
+                                print("Ingresa una nota valida (Numero)")
+
+                        practica=notaPracticaM1*0.6
+                        teorica=notaTeoricaM1*0.3
+                        trabajos=notaTrabajosM1*0.1
+                        total=practica+teorica+trabajos
+
+                        if total<60:
                             riesgoM1="Alto"
                         
-                        elif notaFiltroM1>60:
+                        elif total>60:
                             riesgoM1="Bajo"
 
 
-                        archivo["Campers"][posicionCamperNota]["riesgo"][0]=riesgoM1#aca se agrega el riesgo de este modulo
+                        archivo["Campers"][posicionCamperNota]["riesgo"][moduloAgregarNota-1]=riesgoM1#aca se agrega el riesgo de este modulo
                         
-                        archivo["Campers"][posicionCamperNota]["notaFiltro"][0]=notaFiltroM1
-
-                        confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
-                        system("clear")
-
-                    elif moduloAgregarNota==2:
-                        system("clear")
-                        
-                        bol43=True
-                        while bol43==True:
-                            
-                            try:
-                                notaTeoricaM2=int(input("Ingrese la nota del filtro teorico\n"))
-                                while notaTeoricaM2<0 or notaTeoricaM2>100:
-                                    notaTeoricaM2=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
-                                bol43=False
-                            except ValueError:
-                                print("Ingresa una nota valida (Numero)")
-                        
-                        system("clear")
-                        
-                        bol44=True
-                        while bol44==True:
-                            
-                            try:
-                                notaPracticaM2=int(input("Ingrese la nota del filtro practico\n"))
-                                while notaPracticaM2<0 or notaPracticaM2>100:
-                                    notaPracticaM2=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
-                                bol44=False
-                            except ValueError:
-                                print("Ingresa una nota valida (Numero)")
-                        
-                        
-                        notaFiltroM2=(notaPracticaM2+notaTeoricaM2)/2
-
-                        if notaFiltroM2<60:
-                            riesgoM2="Alto"
-                        
-                        elif notaFiltroM2>60:
-                            riesgoM2="Bajo"
-
-
-                        archivo["Campers"][posicionCamperNota]["riesgo"][1]=riesgoM2#aca se agrega el riesgo de este modulo
-                        
-                        
-                        archivo["Campers"][posicionCamperNota]["notaFiltro"][1]=notaFiltroM2
-
-                        confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
-                        system("clear")
-
-                    elif moduloAgregarNota==3:
-                        system("clear")
-                        
-                        bol43=True
-                        while bol43==True:
-                            
-                            try:
-                                notaTeoricaM3=int(input("Ingrese la nota del filtro teorico\n"))
-                                while notaTeoricaM3<0 or notaTeoricaM3>100:
-                                    notaTeoricaM3=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
-                                bol43=False
-                            except ValueError:
-                                print("Ingresa una nota valida (Numero)")
-                        
-                        system("clear")
-                        
-                        bol44=True
-                        while bol44==True:
-                            
-                            try:
-                                notaPracticaM3=int(input("Ingrese la nota del filtro practico\n"))
-                                while notaPracticaM3<0 or notaPracticaM3>100:
-                                    notaPracticaM3=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
-                                bol44=False
-                            except ValueError:
-                                print("Ingresa una nota valida (Numero)")
-                        
-                        
-                        notaFiltroM3=(notaPracticaM3+notaTeoricaM3)/2
-
-                        if notaFiltroM3<60:
-                            riesgoM3="Alto"
-                        
-                        elif notaFiltroM3>60:
-                            riesgoM3="Bajo"
-
-
-                        archivo["Campers"][posicionCamperNota]["riesgo"][2]=riesgoM3#aca se agrega el riesgo de este modulo
-                        
-                        
-                        archivo["Campers"][posicionCamperNota]["notaFiltro"][2]=notaFiltroM3
-
-                        confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
-                        system("clear")
-
-                    elif moduloAgregarNota==4:
-                        system("clear")
-                        
-                        bol43=True
-                        while bol43==True:
-                            
-                            try:
-                                notaTeoricaM4=int(input("Ingrese la nota del filtro teorico\n"))
-                                while notaTeoricaM4<0 or notaTeoricaM4>100:
-                                    notaTeoricaM4=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
-                                bol43=False
-                            except ValueError:
-                                print("Ingresa una nota valida (Numero)")
-                        
-                        system("clear")
-                        
-                        bol44=True
-                        while bol44==True:
-                            
-                            try:
-                                notaPracticaM4=int(input("Ingrese la nota del filtro practico\n"))
-                                while notaPracticaM4<0 or notaPracticaM4>100:
-                                    notaPracticaM4=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
-                                bol44=False
-                            except ValueError:
-                                print("Ingresa una nota valida (Numero)")
-                        
-                        
-                        notaFiltroM4=(notaPracticaM4+notaTeoricaM4)/2
-
-                        if notaFiltroM4<60:
-                            riesgoM4="Alto"
-                        
-                        elif notaFiltroM4>60:
-                            riesgoM4="Bajo"
-
-
-                        archivo["Campers"][posicionCamperNota]["riesgo"][3]=riesgoM4#aca se agrega el riesgo de este modulo
-                        
-                        
-                        archivo["Campers"][posicionCamperNota]["notaFiltro"][3]=notaFiltroM4
-
-                        confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
-                        system("clear")
-                    
-                    elif moduloAgregarNota==5:
-                        system("clear")
-                        
-                        bol43=True
-                        while bol43==True:
-                            
-                            try:
-                                notaTeoricaM5=int(input("Ingrese la nota del filtro teorico\n"))
-                                while notaTeoricaM5<0 or notaTeoricaM5>100:
-                                    notaTeoricaM5=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
-                                bol43=False
-                            except ValueError:
-                                print("Ingresa una nota valida (Numero)")
-                        
-                        system("clear")
-                        
-                        bol44=True
-                        while bol44==True:
-                            
-                            try:
-                                notaPracticaM5=int(input("Ingrese la nota del filtro practico\n"))
-                                while notaPracticaM5<0 or notaPracticaM5>100:
-                                    notaPracticaM5=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
-                                bol44=False
-                            except ValueError:
-                                print("Ingresa una nota valida (Numero)")
-                        
-                        
-                        notaFiltroM5=(notaPracticaM5+notaTeoricaM5)/2
-
-                        if notaFiltroM5<60:
-                            riesgoM5="Alto"
-                        
-                        elif notaFiltroM5>60:
-                            riesgoM5="Bajo"
-
-
-                        archivo["Campers"][posicionCamperNota]["riesgo"][4]=riesgoM5#aca se agrega el riesgo de este modulo
-                        
-                        
-                        archivo["Campers"][posicionCamperNota]["notaFiltro"][4]=notaFiltroM5
+                        archivo["Campers"][posicionCamperNota]["notaFiltro"][moduloAgregarNota-1]=notaFiltroM1
 
                         confiAgregarNota=input("Si quieres agregar otra nota de filtro escribe: si, de lo contrario preciona enter\n")
                         system("clear")
@@ -1610,11 +1470,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 menuCoordinador()
                 try:
                     opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
-                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
                 except ValueError:
                     opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
-                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
 
 
@@ -1629,11 +1489,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 menuCoordinador()
                 try:
                     opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
-                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
                 except ValueError:
                     opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
-                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
 
             elif opcMenuCoordinador==6:
@@ -1708,6 +1568,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         if cont1==0:
                             print("\nNingun camper aprobo este modulo\n")
 
+                    
+
 
 
 
@@ -1735,8 +1597,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                         system("clear")
                         print("-----Modulos-----")
-                        for m in range(len(archivo["Campers"][0]["numeroModulo"])):#como todos los campers tiene la informacion de los modulos simplemente se escoge un estudiante y se usa el for para que muestre los modulos 
-                            print(m+1,archivo["Campers"][0]["numeroModulo"][m])
+                        for m in range(len(archivo["Coordinador"][1]["numeroModulo"])):#se usa el for para que muestre los modulos 
+                            print(m+1,archivo["Coordinador"][0]["numeroModulo"][m])
 
                         bol46=True
                         while bol46==True:
@@ -1755,7 +1617,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         cont=0
                         for t in range(len(archivo["Campers"])):
 
-                            if archivo["Campers"][t]["notaFiltro"][moduloRendimiento-1]<60.0:
+                            if archivo["Campers"][t]["riesgo"][moduloRendimiento-1]=="Alto":
                                 print("------------------------------")
                                 print("Estudiante:", archivo["Campers"][t]["nombres"])
                                 print("ID:", archivo["Campers"][t]["id"])
@@ -1771,154 +1633,94 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         confiRepoCoordi=input("Si quieres ver otro reporte escribe: si, de lo contrario presiona enter\n")
                         system("clear")
                         
+                    elif opcReporteCoordinador==5:
+
+                        system("clear")
+
+                        verRuta="si"
+                        while verRuta=="si":
+                            system("clear")
+                            print("-----Rutas-----")
+                            for r in range(len(archivo["Coordinador"][1]["rutas"])):
+
+                                print (archivo["Coordinador"][1]["rutas"][r])
+                            
+                            rutaAsociada=input("Ingresa la ruta en la que quieres ver a los trainer y campers asociados\n")
+                            while rutaAsociada not in archivo["Coordinador"][1]["rutas"]:
+                                
+                                rutaAsociada=input("Ingresa una ruta de las que aparecen en pantalla\n")
+                            
+                            print("-----Trainers------")
+                            cont2=0
+                            for x in range(len(archivo["Trainers"])):
+                                
+                                if rutaAsociada in archivo["Trainers"][x]["ruta"]:
+                                    print("Nombres:",archivo["Trainers"][x]["nombres"])
+
+                                    print("ID:",archivo["Trainers"][x]["id"])
+                
+                                    cont2=cont2+1
+                            
+                            if cont2==0:
+                                print("No hay trainers con esa ruta")
+
+                            print("-----Campers-----")
+
+                            cont3=0
+                            for x in range(len(archivo["Campers"])):
+                                
+                                if rutaAsociada in archivo["Campers"][x]["ruta"]:
+                                    print("Nombres:",archivo["Campers"][x]["nombres"])
+
+                                    print("ID:",archivo["Campers"][x]["id"])
+                                
+                                    cont3=cont3+1
+                            
+                            if cont3==0:
+                                print("No hay campers con esa ruta")
+
+                            verRuta=input("Si quieres ver otra ruta escribe: si, de lo contrario presiona enter\n")
+
+
+                        confiRepoCoordi=input("Si quieres ver otro reporte escribe: si, de lo contrario presiona enter\n")
+                        system("clear")
+                    
                     elif opcReporteCoordinador==6: 
 
                         system("clear")
 
-                        print("\n///////////////////Modulo 1///////////////////\n")
-                        print("-----Estudiantes que aprobaron-----")
-                        contm1=0
-                        for g in range(len(archivo["Campers"])):
+                        for k in range(len(archivo["Coordinador"][1]["numeroModulo"])):
 
-                            if archivo["Campers"][g]["notaFiltro"][0]>60.0:
-                                print("-------------------------")
-                                print("Nombres:", archivo["Campers"][g]["nombres"])
-                                print("ID:", archivo["Campers"][g]["id"])
-                                print("-------------------------")
-                                contm1=contm1+1
+                            print("\n///////////////////Modulo",k+1,"///////////////////\n")
+                            print("-----Estudiantes que aprobaron-----")
+                            contm1=0
+                            for g in range(len(archivo["Campers"])):
+
+                                if archivo["Campers"][g]["riesgo"][k]=="Bajo":
+                                    print("-------------------------")
+                                    print("Nombres:", archivo["Campers"][g]["nombres"])
+                                    print("ID:", archivo["Campers"][g]["id"])
+                                    print("-------------------------")
+                                    contm1=contm1+1
+                                
+                            if contm1==0:
                             
-                        if contm1==0:
+                                print("\nNingun estudiante aprobo este modulo\n")
+
+                            print("-----Estudiantes que reprobaron-----")
+                            contm1=0
+                            for q in range(len(archivo["Campers"])):
+                                if archivo["Campers"][q]["riesgo"][k]=="Alto":
+                                    print("-------------------------")
+                                    print("Nombres:", archivo["Campers"][q]["nombres"])
+                                    print("ID:", archivo["Campers"][q]["id"])
+                                    print("-------------------------")
+                                    contm1=contm1+1
+                                
+                            if contm1==0:
+                                print("\nNingun estudiante reprobo este modulo\n")
+
                         
-                            print("\nNingun estudiante aprobo este modulo\n")
-
-                        print("-----Estudiantes que reprobaron-----")
-                        contm1=0
-                        for q in range(len(archivo["Campers"])):
-                            if archivo["Campers"][q]["notaFiltro"][0]<60.0:
-                                print("-------------------------")
-                                print("Nombres:", archivo["Campers"][q]["nombres"])
-                                print("ID:", archivo["Campers"][q]["id"])
-                                print("-------------------------")
-                                contm1=contm1+1
-                            
-                        if contm1==0:
-                            print("\nNingun estudiante reprobo este modulo\n")
-
-                        #############################################################
-
-                        print("\n///////////////////Modulo 2///////////////////\n")
-                        print("-----Estudiantes que aprobaron-----")
-                        contm1=0
-                        for w in range(len(archivo["Campers"])):
-                            if archivo["Campers"][w]["notaFiltro"][1]>60.0:
-                                print("-------------------------")
-                                print("Nombres:", archivo["Campers"][w]["nombres"])
-                                print("ID:", archivo["Campers"][w]["id"])
-                                print("-------------------------")
-                                contm1=contm1+1
-                            
-                        if contm1==0:
-                            print("\nNingun estudiante aprobo este modulo\n")
-
-                        print("-----Estudiantes que reprobaron-----")
-                        contm1=0
-                        for e in range(len(archivo["Campers"])):
-                            if archivo["Campers"][e]["notaFiltro"][1]<60.0:
-                                print("-------------------------")
-                                print("Nombres:", archivo["Campers"][e]["nombres"])
-                                print("ID:", archivo["Campers"][e]["id"])
-                                print("-------------------------")
-                                contm1=contm1+1
-                            
-                        if contm1==0:
-                            print("\nNingun estudiante reprobo este modulo\n")
-
-                        #############################################################
-
-                        print("\n///////////////////Modulo 3///////////////////\n")
-                        print("-----Estudiantes que aprobaron-----")
-                        contm1=0
-                        for w in range(len(archivo["Campers"])):
-                            if archivo["Campers"][w]["notaFiltro"][2]>60.0:
-                                print("-------------------------")
-                                print("Nombres:", archivo["Campers"][w]["nombres"])
-                                print("ID:", archivo["Campers"][w]["id"])
-                                print("-------------------------")
-                                contm1=contm1+1
-                            
-                        if contm1==0:
-                            print("\nNingun estudiante aprobo este modulo\n")
-
-                        print("-----Estudiantes que reprobaron-----")
-                        contm1=0
-                        for e in range(len(archivo["Campers"])):
-                            if archivo["Campers"][e]["notaFiltro"][2]<60.0:
-                                print("-------------------------")
-                                print("Nombres:", archivo["Campers"][e]["nombres"])
-                                print("ID:", archivo["Campers"][e]["id"])
-                                print("-------------------------")
-                                contm1=contm1+1
-                            
-                        if contm1==0:
-                            print("\nNingun estudiante reprobo este modulo\n")
-
-                        #############################################################
-
-                        print("\n///////////////////Modulo 4///////////////////\n")
-                        print("-----Estudiantes que aprobaron-----")
-                        contm1=0
-                        for w in range(len(archivo["Campers"])):
-                            if archivo["Campers"][w]["notaFiltro"][3]>60.0:
-                                print("-------------------------")
-                                print("Nombres:", archivo["Campers"][w]["nombres"])
-                                print("ID:", archivo["Campers"][w]["id"])
-                                print("-------------------------")
-                                contm1=contm1+1
-                            
-                        if contm1==0:
-                            print("\nNingun estudiante aprobo este modulo\n")
-
-                        print("-----Estudiantes que reprobaron-----")
-                        contm1=0
-                        for e in range(len(archivo["Campers"])):
-                            if archivo["Campers"][e]["notaFiltro"][3]<60.0:
-                                print("-------------------------")
-                                print("Nombres:", archivo["Campers"][e]["nombres"])
-                                print("ID:", archivo["Campers"][e]["id"])
-                                print("-------------------------")
-                                contm1=contm1+1
-                            
-                        if contm1==0:
-                            print("\nNingun estudiante reprobo este modulo\n")
-
-                        #############################################################
-
-                        print("\n///////////////////Modulo 5///////////////////\n")
-                        print("-----Estudiantes que aprobaron-----")
-                        contm1=0
-                        for w in range(len(archivo["Campers"])):
-                            if archivo["Campers"][w]["notaFiltro"][4]>60.0:
-                                print("-------------------------")
-                                print("Nombres:", archivo["Campers"][w]["nombres"])
-                                print("ID:", archivo["Campers"][w]["id"])
-                                print("-------------------------")
-                                contm1=contm1+1
-                            
-                        if contm1==0:
-                            print("\nNingun estudiante aprobo este modulo\n")
-
-                        print("-----Estudiantes que reprobaron-----")
-                        contm1=0
-                        for e in range(len(archivo["Campers"])):
-                            if archivo["Campers"][e]["notaFiltro"][4]<60.0:
-                                print("-------------------------")
-                                print("Nombres:", archivo["Campers"][e]["nombres"])
-                                print("ID:", archivo["Campers"][e]["id"])
-                                print("-------------------------")
-                                contm1=contm1+1
-                            
-                        if contm1==0:
-                            print("\nNingun estudiante reprobo este modulo\n")
 
                         confiRepoCoordi=input("Si quieres ver otro reporte escribe: si, de lo contrario presiona enter\n")
                         system("clear")
@@ -1934,14 +1736,237 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 menuCoordinador()
                 try:
                     opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
-                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
                 except ValueError:
                     opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
-                    while opcMenuCoordinador<1 or opcMenuCoordinador>7:
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
             
-            elif opcMenuCoordinador==7:
+            elif opcMenuCoordinador==7:#opcion de trainer para crear rutas 
+                system("clear")
+                if len(archivo["Coordinador"][1]["tiposDeRutas"])<12:
+                    nuevaRuta=input("Ingrese el nombre de la nueva ruta\n")
+
+                    while nuevaRuta in archivo["Coordinador"][1]["rutas"]:
+                        nuevaRuta=input("Ya existe una ruta con ese nombre por favor ingresa otro\n")
+                    
+                    archivo["Coordinador"][1]["rutas"].append(nuevaRuta)
+
+                    archivo["Coordinador"][1]["tiposDeRutas"].append({"nombreRuta": nuevaRuta,"grupos": [],"modulos": [["Introduccion a la algoritmo","Pseint","Python"],["HTML","CSS","Bootstrap"],[],[],[]]})#con esto se agregan todas las cosas que debe tener una ruta y directamente se le pone el nombre de la ruta 
+
+                    system("clear")
+                    print("-----Grupos-----")
+                    for m in range(len(archivo["Coordinador"][1]["grupos"])):
+                        print(archivo["Coordinador"][1]["grupos"][m])
+
+                    grupoRutaAgregar=input("Ingresa un grupo para esta ruta\n")
+
+                    while grupoRutaAgregar not in archivo["Coordinador"][1]["grupos"]:
+                        grupoRutaAgregar=input("Ingresa un grupo de los que hay en pantalla (Tienes que escribirlo como se ve ahi)\n")
+                    
+                    bol48=True
+                    while bol48==True:
+                        cont4=0
+                        for p in range(len(archivo["Coordinador"][1]["tiposDeRutas"])):
+                            if grupoRutaAgregar in archivo["Coordinador"][1]["tiposDeRutas"][p]["grupos"]:
+                                cont4=cont4+1
+
+                        if cont4==0:
+                            bol48=False
+                        else: 
+                            grupoRutaAgregar=input("Ese grupo ya tiene ruta por favor ingresa otro\n")
+
+                            while grupoRutaAgregar not in archivo["Coordinador"][1]["grupos"]:
+                                grupoRutaAgregar=input("Ingresa un grupo de los que hay en pantalla (Tienes que escribirlo como se ve ahi)\n")
+                    
+                    archivo["Coordinador"][1]["tiposDeRutas"][len(archivo["Coordinador"][1]["rutas"])-1]["grupos"].append(grupoRutaAgregar)
+
+                    print("-----Materias del modulo 3-----")#se muestran las materias que hay para el modulo 3
+                    for i in range(len(archivo["Coordinador"][1]["materiasM3"])):
+                        print(archivo["Coordinador"][1]["materiasM3"][i])
+
+                    #como se puede agregar 1 materia se pide solo 1
+                    modulo3Agregar1=input("Ingresa la materia principal que quieres agregar\n")#se pide la primera materia del modulo tres 
+
+                    while modulo3Agregar1 not in archivo["Coordinador"][1]["materiasM3"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
+                        modulo3Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
+
+                    archivo["Coordinador"][1]["tiposDeRutas"][len(archivo["Coordinador"][1]["rutas"])-1]["modulos"][2].append(modulo3Agregar1)
+
+
+                    system("clear")
+
+                    #como se pueden agregar 2 materias se piden solo 2
+                    print("-----Materias del modulo 4-----")#se muestran las materias que hay para el modulo 4
+                    for i in range(len(archivo["Coordinador"][1]["materiasM4"])):
+                        print(archivo["Coordinador"][1]["materiasM4"][i])
+
+                    modulo4Agregar1=input("Ingresa la materia principal que quieres agregar\n")#se pide la primera materia del modulo 4
+                    while modulo4Agregar1 not in archivo["Coordinador"][1]["materiasM4"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
+                        modulo4Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
+
+                    archivo["Coordinador"][1]["tiposDeRutas"][len(archivo["Coordinador"][1]["rutas"])-1]["modulos"][3].append(modulo4Agregar1)
+
+                    modulo4Agregar2=input("Ingresa las materia secundaria que quieres agregar\n")#se pide la segunda materia del modulo 4
+                    while modulo4Agregar2 not in archivo["Coordinador"][1]["materiasM4"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
+                        modulo4Agregar2=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
+
+                    archivo["Coordinador"][1]["tiposDeRutas"][len(archivo["Coordinador"][1]["rutas"])-1]["modulos"][3].append(modulo4Agregar2)
+
+
+                    system("clear")
+
+                    #como se puede agregar 1 materia se pide solo 1
+                    print("-----Materias del modulo 5-----")#se muestran las materias que hay para el modulo 5
+                    for i in range(len(archivo["Coordinador"][1]["materiasM5"])):
+                        print(archivo["Coordinador"][1]["materiasM5"][i])
+
+                    modulo5Agregar1=input("Ingresa las materia primaria que quieres agregar\n")#se pide la primera materia del modulo 5
+                    while modulo5Agregar1 not in archivo["Coordinador"][1]["materiasM5"]:# mientras la materia ingresada no se encuentre en materiasM3 se le pedire que ingrese una materia valida  
+                        modulo5Agregar1=input("Ingresa una materia valida (Tienes que escribirla como aparece en Materias del modulo 3)\n")
+
+                    archivo["Coordinador"][1]["tiposDeRutas"][len(archivo["Coordinador"][1]["rutas"])-1]["modulos"][4].append(modulo5Agregar1)
+
+                else:
+                    print("No se puden agregar mas rutas\n\n")
+            
+
+                menuCoordinador()
+                try:
+                    opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                except ValueError:
+                    opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+            
+            
+            elif opcMenuCoordinador==8:
+                system("clear")
+
+                bol54=True
+                while bol54==True:
+                    try:
+                        idCamper=int(input("Ingrese un id para este Camper\n"))
+                        bol54=False
+                    except ValueError:
+                        print("Ingrese un id valido (solo numeros)")
+
+
+                bol49=True
+                while bol49==True:
+                    cont6=0
+
+                    for v in range(len(archivo["Campers"])):
+                        if idCamper==archivo["Campers"][v]["id"]:
+                            cont6=cont6+1
+                    
+                    for q in range(len(archivo["Trainers"])):
+                        if idCamper==archivo["Trainers"][q]["id"]:
+                            cont6=cont6+1
+                    
+                    if idCamper==archivo["Coordinador"][0]["id"]:
+                        cont6=cont6+1
+                    
+                    if cont6==0:
+                        bol49=False
+                    else:
+                        
+                        bol55=True
+                        while bol55==True:
+                            try:
+                                idCamper=int(input("Ese id ya existe por favor ingresa uno nuevo\n"))
+                                bol55=False
+                            except ValueError:
+                                print("Ingrese un id valido (solo numeros)")
+                system("clear")
+
+                userLogin=input("Ingrese un usuario para este Camper\n")
+
+                bol50=True
+                while bol50==True:
+                    cont7=0
+
+                    for e in range(len(archivo["Campers"])):
+                        if userLogin==archivo["Campers"][v]["user"]["login"]:
+                            cont7=cont7+1
+                    
+                    for r in range(len(archivo["Trainers"])):
+                        if userLogin==archivo["Trainers"][q]["user"]["login"]:
+                            cont7=cont7+1
+                    
+                    if userLogin==archivo["Coordinador"][0]["user"]["login"]:
+                        cont7=cont7+1
+                    
+                    if cont7==0:
+                        bol50=False
+                    else:
+                        userLogin=input("Ese usuario ya existe por favor ingresa uno nuevo\n")
+                
+                system("clear")
+
+                contraseñaCamper=input("Ingresa una contraseña para ese usuario\n")
+                system("clear")
+                
+                bol51=True
+                while bol51==True:
+                    try:
+                        nIdentificacionCamper=int(input("Ingrese el numero de identificacion del nuevo camper\n"))
+                        bol51=False
+                    except ValueError:
+                        print("Ingrese un numero de id valido (Solo numeros)")
+                system("clear")
+
+                nombreCamper=input("Ingrese los nombres del nuevo Camper\n")
+                system("clear")
+
+                apellidoCamper=input("Ingrese los apellidos del nuevo Camper\n")
+                system("clear")
+
+                direccionCamper=input("Ingrese la direccion del nuevo camper\n")
+                system("clear")
+
+                acudienteCamper=input("Ingresa los nombres y apellidos del acudiente del camper\n")
+                system("clear")
+
+                bol52=True
+                while bol52==True:
+                    try:
+                        celularCamper=int(input("Ingrese el numero de telefono celular del nuevo camper\n"))
+                        bol52=False
+                    except ValueError:
+                        print("Ingrese un numero de telefono valido (Solo numeros)")
+                system("clear")
+
+                bol53=True
+                while bol53==True:
+                    try:
+                        fijoCamper=int(input("Ingrese el numero de telefono fijo del nuevo camper\n"))
+                        bol53=False
+                    except ValueError:
+                        print("Ingrese un numero de telefono valido (Solo numeros)")
+                system("clear")
+
+
+
+
+
+                archivo["Campers"].append({"id": idCamper,"user": {"login": userLogin,"contrase\u00f1a": contraseñaCamper},"numeroIdentificacion": nIdentificacionCamper,"nombres": nombreCamper,"apellidos": apellidoCamper,"direccion": direccionCamper,"acudiente": acudienteCamper,"telefonoCelular": celularCamper,"telefonoFijo": fijoCamper,"NotaI": 0,"tiposDeEstados": ["En proceso","Inscrito","Aprobado","Cursando","Graduado","Expulsado","Retirado"],"estado": "Inscrito","fechaInicio": "","fechaCierre": "","grupo": "","ruta": "","moduloActual": 1,"trainer": "","riesgo": ["","","","",""],"notaFiltro": [0,0,0,0,0]})#aca se agregan losdatos que va atener un estudiante cuando recien es ingresado
+
+                print("Camper agregado con exito")
+                menuCoordinador()
+                try:
+                    opcMenuCoordinador=int(input("Ingresa tu opcion\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+                except ValueError:
+                    opcMenuCoordinador=int(input("Ingresa una opcion valida (Numero)\n"))
+                    while opcMenuCoordinador<1 or opcMenuCoordinador>9:
+                            opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
+            
+            elif opcMenuCoordinador==9:
 
                 system("clear")
                 print ("Gracias por usar el programa")
