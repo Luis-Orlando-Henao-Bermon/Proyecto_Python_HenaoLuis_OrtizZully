@@ -744,7 +744,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                     if grupoCambiar==archivo["Campers"][y]["grupo"]:#si el estudiante tiene el mismo grupo al ingresado suma uno al contador
                                         estudiantesG=estudiantesG+1
 
-                                while estudiantesG==33:#mientras que el contadopr de estudiantes en un grupo sea 33 (es la cantidad maxima de estudiantes) le va a decir que el grupo esta lleno y que tiene que ingresar otro
+                                while estudiantesG==1:
                                     grupoCambiar=input("Grupo con limites de estudiantes por favor ingresa otro\n")
 
                                     while grupoCambiar not in grupos:#mientras que el grupo ingresado no este en la lista gupos le va apedir que ingrese otro grupo
@@ -1227,7 +1227,17 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
 
             elif opcMenuCoordinador==3:
+                Iden=int(input("Ingrese identificacion\n"))
+                for i in range(0,len(archivo["Campers"])):
+                    if Iden==archivo["Campers"][i]["numeroIdentificacion"]:
+                        if archivo["Campers"][i]["estado"]=="Inscrito":
+                            Nota=int(input("Ingrese la nota del estudiante\n"))
+                            archivo["Campers"][i]["NotaI"]=Nota
+                        else:
+                            archivo["Campers"][i]["estado"]=="Cursando"
+                            print("No tienes nota de inscripcion por que estas",archivo["Campers"][i]["estado"],"\n")
 
+                input("")
 
                 menuCoordinador()
                 try:
@@ -1363,6 +1373,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
 
             elif opcMenuCoordinador==5:
+                
+                for i in range(0,len(archivo["Campers"])):
+                    if archivo["Campers"][i]["riesgo"]=="Alto":
+                        print("Los riegos altos son",archivo["Campers"][i]["riesgo"],"\n")
+
 
 
                 menuCoordinador()
