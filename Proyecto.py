@@ -2200,4 +2200,4 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 json_archivo=json.dumps(archivo)
 with open("./Campusland.json","w") as files:
     files.write(json_archivo)
-#Desarrollado por Luis Henao c.c. 1093904929 y Zully Ortiz c.c.1092528097 
+#Desarrollado por Luis Henao c.c. 1093904929 y Zully Ortiz c.c.1092528097
