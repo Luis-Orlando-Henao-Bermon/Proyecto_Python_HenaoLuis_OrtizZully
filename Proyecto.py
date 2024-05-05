@@ -686,11 +686,12 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             try:
 
                                 opcCambioCamper=int(input("¿Que dato quieres cambiar?:\n"))
-                                while opcCambioCamper<1 or opcCambioCamper>17:#este while es para que ingrese una opcion de las que hay en pantalla 
+                                while opcCambioCamper<1 or opcCambioCamper>14:#este while es para que ingrese una opcion de las que hay en pantalla 
                                     opcCambioCamper=int(input("ingresa una opcion de las que hay en pantalla\n"))
                                 bol24=False
                             except ValueError:
                                    print("Ingresa una opcion valida (Numeros)")
+                            
 
                         if opcCambioCamper==1:
 
@@ -702,8 +703,38 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                     bol25=False
                                 except ValueError:
                                     print("Ingresa un ID valido (Solo numeros)")
+
+                            bol50=True
+                            while bol50==True:
+                                cont7=0
+
+                                for e in range(len(archivo["Campers"])):
+                                    if idCambiar==archivo["Campers"][e]["id"]:
+                                        cont7=cont7+1
+                                
+                                for r in range(len(archivo["Trainers"])):
+                                    if idCambiar==archivo["Trainers"][r]["id"]:
+                                        cont7=cont7+1
+                                
+                                if idCambiar==archivo["Coordinador"][0]["id"]:
+                                    cont7=cont7+1
+                                
+                                if cont7==0:
+                                    bol50=False
+                                else:
+                                    bol25=True
+                                    while bol25==True:
+                                        try:
+                                            idCambiar=int(input("Ese id ya existe por favor ingresauno nuevo\n"))
+                                            bol25=False
+                                        except ValueError:
+                                            print("Ingresa un ID valido (Solo numeros)")
+                            
+                            system("clear")
                             
                             archivo[personaCambiarInfo][posicionCamperCambiar]["id"]=idCambiar#despues de haber pedido el nuevo id solo remplaza el que ya esta por el nuevo
+
+                            
 
                             confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
@@ -1035,16 +1066,44 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         
                         if opcCambioTrainer==1:
                             #si escoge la opcion 1 le pide el nuevo id y lo remplaza por el que ya estaba
-                            bol33=True
-                            while bol33==True:
-                                
+                           #esta es la manera en la que se puede hacer repetir un error 
+                            bol25=True
+                            while bol25==True:
                                 try:
-                                    idCambioTrainer=int(input("Ingresa el nuevo ID\n"))
-                                    bol33=False
+                                    idTrainerCambiar=int(input("Ingresa el nuevo ID\n"))
+                                    bol25=False
                                 except ValueError:
                                     print("Ingresa un ID valido (Solo numeros)")
+
+                            bol50=True
+                            while bol50==True:
+                                cont7=0
+
+                                for e in range(len(archivo["Campers"])):
+                                    if idTrainerCambiar==archivo["Campers"][e]["id"]:
+                                        cont7=cont7+1
+                                
+                                for r in range(len(archivo["Trainers"])):
+                                    if idTrainerCambiar==archivo["Trainers"][r]["id"]:
+                                        cont7=cont7+1
+                                
+                                if idTrainerCambiar==archivo["Coordinador"][0]["id"]:
+                                    cont7=cont7+1
+                                
+                                if cont7==0:
+                                    bol50=False
+                                else:
+                                    bol25=True
+                                    while bol25==True:
+                                        try:
+                                            idTrainerCambiar=int(input("Ese id ya existe por favor ingresauno nuevo\n"))
+                                            bol25=False
+                                        except ValueError:
+                                            print("Ingresa un ID valido (Solo numeros)")
                             
-                            archivo[personaCambiarInfo][posicionTrainerCambiar]["id"]=idCambioTrainer
+                            system("clear")
+                            
+                            archivo[personaCambiarInfo][posicionTrainerCambiar]["id"]=idTrainerCambiar#despues de haber pedido el nuevo id solo remplaza el que ya esta por el nuevo
                                 
                             confiInforTrainer=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#aca es donde se pregunta si quiere cambiar algo mas para saber si se repite el bucle o no
                             system("clear")
@@ -1208,18 +1267,44 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                             #si escoge la opcion 1 le pide el nuevo id y lo remplaza por el que ya estaba
 
-                            bol37=True
-                            while bol37==True:
+                            #esta es la manera en la que se puede hacer repetir un error 
+                            bol25=True
+                            while bol25==True:
                                 try:
-                                    idCambioCoordinador=int(input("Ingresa el nuevo ID\n"))
-                                    bol37=False
+                                    idCambioTrainer=int(input("Ingresa el nuevo ID\n"))
+                                    bol25=False
                                 except ValueError:
                                     print("Ingresa un ID valido (Solo numeros)")
-                                
-                            archivo["Coordinador"][0]["id"]=idCambioCoordinador
 
-                            confiInforCoordinador=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")
+                            bol50=True
+                            while bol50==True:
+                                cont7=0
+
+                                for e in range(len(archivo["Campers"])):
+                                    if idCambioTrainer==archivo["Campers"][e]["id"]:
+                                        cont7=cont7+1
+                                
+                                for r in range(len(archivo["Trainers"])):
+                                    if idCambioTrainer==archivo["Trainers"][r]["id"]:
+                                        cont7=cont7+1
+                                
+                                if idCambioTrainer==archivo["Coordinador"][0]["id"]:
+                                    cont7=cont7+1
+                                
+                                if cont7==0:
+                                    bol50=False
+                                else:
+                                    bol25=True
+                                    while bol25==True:
+                                        try:
+                                            idCambioTrainer=int(input("Ese id ya existe por favor ingresauno nuevo\n"))
+                                            bol25=False
+                                        except ValueError:
+                                            print("Ingresa un ID valido (Solo numeros)")
+                            
                             system("clear")
+                            
+                            archivo["Coordinador"][0]["id"]=idCambioTrainer#despues de haber pedido el nuevo id solo remplaza el que ya esta por el nuevo
                         
                         elif opcCambioCoordinador==2:
 
