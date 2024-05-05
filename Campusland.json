@@ -186,6 +186,58 @@
             "grupo": [
                 "T3"
             ]
+        },
+        {
+            "id": 98219389,
+            "user": {
+                "login": "blanca03",
+                "contrase\u00f1a": "blanquita"
+            },
+            "numeroIdentificacion": 1298391823,
+            "nombres": "Blanca Smith",
+            "apellidos": "Bermon Garay",
+            "direccion": "Camilo torres",
+            "telefonoCelular": 983102938,
+            "telefonoFijo": 8129389123,
+            "ruta": "",
+            "grupo": [
+                ""
+            ]
+        },
+        
+        {
+            "id": 839012930,
+            "user": {
+                "login": "orbin897",
+                "contrase\u00f1a": "0r4289"
+            },
+            "numeroIdentificacion": 82387239,
+            "nombres": "Orbin jose",
+            "apellidos": "Sanchez Ramirez",
+            "direccion": "Cucuta",
+            "telefonoCelular": 983108972938,
+            "telefonoFijo": 1239809132,
+            "ruta": "",
+            "grupo": [
+                ""
+            ]
+        },
+        {
+            "id": 23918023,
+            "user": {
+                "login": "elianita98",
+                "contrase\u00f1a": "eliana2000"
+            },
+            "numeroIdentificacion": 2139802893,
+            "nombres": "Elian Jose",
+            "apellidos": "Bermon Garay",
+            "direccion": "Las minas",
+            "telefonoCelular": 839208192,
+            "telefonoFijo":9872193721 ,
+            "ruta": "",
+            "grupo": [
+                ""
+            ]
         }
     ],
     "Coordinador": [

@@ -768,7 +768,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                                 for o in range(len(archivo["Trainers"])):#este es un bucle for que mira todos los trainers
                                     if grupoCambiar in archivo["Trainers"][o]["grupo"]:#se mira que trainer tiene el grupo que se escogio
-                                        archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=archivo["Trainers"][o]["nombres"]#despues de ver que trainer tiene ese grupo soplo se le agrega el nombre de ese trainer al trainer del estudiante 
+                                        archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=archivo["Trainers"][o]["nombres"]#despues de ver que trainer tiene ese grupo solo se le agrega el nombre de ese trainer al trainer del estudiante 
 
                             confiInfor=input("Si quieres cambiar algo mas escribe: si, de lo contraio preciona enter\n")#se pregunta si quiere cambiar algo mas y si dice que si se mostrara el menu anterior ya que mientras que confiInfor sea si se repetira el bucle while que contiene el menu de opciones de cambio
                             system("clear")
@@ -1045,12 +1045,6 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 
                                 rutaTrainerCambiar=input("Ingrese una ruta valida (Tienes que escibirla como aparece en pantalla)\n")
 
-                            rutaC=archivo[personaCambiarInfo][posicionTrainerCambiar]["ruta"]#se guarda la ruta que tenia ese trainer en rutaC
-
-                            for w in range(len(archivo["Trainers"])):
-                                if archivo["Trainers"][w]["ruta"]==rutaTrainerCambiar:#se mira que trainer tiene la ruta que quieren poner ahora y el trainer que tenga esa ruta se cambia por la que anteriormente tenia el trainer al que le estan cambiando la ruta
-                                    archivo["Trainers"][w]["ruta"]=rutaC
-
                             archivo[personaCambiarInfo][posicionTrainerCambiar]["ruta"]=rutaTrainerCambiar
 
                             for o in range(len(archivo["Coordinador"][1]["rutas"])):#despues de reemplazar la ruta se usa este bucle para saber la pocicion de la ruta que se escogio
@@ -1058,15 +1052,16 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                     posicionRutaTrainer=o
 
                             print("-----Grupos de esta ruta-----")
-                            gruposRuta=[]#en esta lista se guardaran los grupos que hay para esta ruta
-                            for t in range(len(archivo["Coordinador"][1]["tiposDeRutas"][posicionRutaTrainer]["grupos"])):
-                                print(archivo["Coordinador"][1]["tiposDeRutas"][posicionRutaTrainer]["grupos"][t])
-                                if archivo["Coordinador"][1]["tiposDeRutas"][posicionRutaTrainer]["grupos"][t] not in gruposRuta:
-                                    gruposRuta.append(archivo["Coordinador"][1]["tiposDeRutas"][posicionRutaTrainer]["grupos"][t])
+                            grupoRuta=[]
+                            for t in range(len(archivo["Coordinador"][1]["tiposDeRutas"][posicionRutaTrainer])):
+                                print(archivo["Coordinador"][1]["tiposDeRutas"][posicionRutaTrainer][t])
+                                if archivo["Coordinador"][1]["tiposDeRutas"][posicionRutaTrainer][t] not in grupoRuta:
+                                    grupoRuta.append(archivo["Coordinador"][1]["tiposDeRutas"][posicionRutaTrainer][t])
+                            
 
                             grupoAgregar=input("Escoja un grupo\n")
 
-                            while grupoAgregar not in gruposRuta:
+                            while grupoAgregar not in grupoRuta:
                                 grupoAgregar=input("Escoja un grupo de los que hay en pantalla (tienes que escribirlo como esta ahi)\n")
 
                             grupoC=archivo[personaCambiarInfo][posicionTrainerCambiar]["grupo"][0]#es la variable de grupo se se guarda el grupo que tenia ese trainer para posteriormente ponerselo al trainer que tiene el grupo que quieren cambiar
@@ -1790,7 +1785,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                     system("clear")
                     print("-----Grupos-----")
-                    for m in range(len(archivo["Coordinador"][1]["grupos"])):
+                    for m in range(len(archivo["Coordinador"][1]["grupos"])):#con esto imprime cada uno de los grupos que hay 
                         print(archivo["Coordinador"][1]["grupos"][m])
 
                     grupoRutaAgregar=input("Ingresa un grupo para esta ruta\n")
