@@ -25,22 +25,22 @@
             "estado": "Cursando",
             "fechaInicio": "19-03-2024",
             "fechaCierre": "19-03-2025",
-            "grupo": "T2",
-            "ruta": "Java",
+            "grupo": "M1",
+            "ruta": "JavaScript",
             "moduloActual": 1,
-            "trainer": "Michael Andres",
+            "trainer": "",
             "riesgo": [
                 "Bajo",
                 "Alto",
                 "Bajo",
-                "Bajo",
+                "Alto",
                 "Bajo"
             ],
             "notaFiltro": [
                 75.0,
                 43.0,
                 71.5,
-                69.5,
+                49.5,
                 68.5
             ]
         },
@@ -112,22 +112,22 @@
                 "Expulsado",
                 "Retirado"
             ],
-            "estado": "Inscrito",
-            "fechaInicio": "",
-            "fechaCierre": "",
-            "grupo": "",
-            "ruta": "",
+            "estado": "Aprobado",
+            "fechaInicio": "14-02-2024",
+            "fechaCierre": "14-12-2024",
+            "grupo": "T3",
+            "ruta": "Netcore",
             "moduloActual": 1,
-            "trainer": "",
+            "trainer": "Laura Sofia",
             "riesgo": [
-                "",
+                "Bajo",
                 "",
                 "",
                 "",
                 ""
             ],
             "notaFiltro": [
-                0,
+                64.5,
                 0,
                 0,
                 0,
@@ -204,7 +204,6 @@
                 ""
             ]
         },
-        
         {
             "id": 839012930,
             "user": {
@@ -233,7 +232,7 @@
             "apellidos": "Bermon Garay",
             "direccion": "Las minas",
             "telefonoCelular": 839208192,
-            "telefonoFijo":9872193721 ,
+            "telefonoFijo": 9872193721,
             "ruta": "",
             "grupo": [
                 ""
@@ -242,17 +241,17 @@
     ],
     "Coordinador": [
         {
-            "id": 3704,
+            "id": 12347,
             "user": {
                 "login": "stiv1",
                 "contrase\u00f1a": "stiv12"
             },
-            "numeroIdentificacion": 1586516131,
-            "nombres": "Luis Orlando",
-            "apellidos": "Henao Bermon",
-            "direccion": "Tibu",
-            "telefonoCelular": 3003526653,
-            "telefonoFijo": 5131151813
+            "numeroIdentificacion": 9128371287,
+            "nombres": "Brayan Stiven",
+            "apellidos": "Carvajal Romero",
+            "direccion": "Bucaramanga",
+            "telefonoCelular": 32782938,
+            "telefonoFijo": 1230989
         },
         {
             "numeroModulo": [

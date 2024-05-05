@@ -482,45 +482,97 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 personaCambiar=input("¿Que usuario quieres cambiar?:\n")
                 while personaCambiar not in archivo:#mientras que el usuario que ingrese no este en archivo
                     personaCambiar=input("Ingresa un usuario de los que aparecen en pantalla (Tienes que escribirlos como se ven ahi):\n")
-                print("-----",personaCambiar,"-----")
-                for r in range(len(archivo[personaCambiar])):#este for se usa solo para que mire todas las personas que hay en el tipo de usuario quiere el cambiar (ejemplo: Campers)
-                    print("------------------\n")
-                    print("Nombre:",archivo[personaCambiar][r]["nombres"]) #siguiendo con el ejemplo le muestra todos los nombres que hay en Campers ya que recorre cada uno con el bucle for
-                    print("ID:",archivo[personaCambiar][r]["id"])#siguiendo con el ejemplo le muestra todos los id que hay en Campers ya que recorre cada uno con el bucle for
-                    print("------------------\n")
+                if personaCambiar=="Campers" or personaCambiar=="Trainers":
+                    print("-----",personaCambiar,"-----")
+                    for r in range(len(archivo[personaCambiar])):#este for se usa solo para que mire todas las personas que hay en el tipo de usuario quiere el cambiar (ejemplo: Campers)
+                        print("------------------\n")
+                        print("Nombre:",archivo[personaCambiar][r]["nombres"]) #siguiendo con el ejemplo le muestra todos los nombres que hay en Campers ya que recorre cada uno con el bucle for
+                        print("ID:",archivo[personaCambiar][r]["id"])#siguiendo con el ejemplo le muestra todos los id que hay en Campers ya que recorre cada uno con el bucle for
+                        print("------------------\n")
 
-                bol22=True
-                while bol22==True:
-                    try:#se usa un bucle try dentro de un bucle while para que cada vez que mande error se repita el codigo y se pueda cometer ese error muchas veces 
-                        print("Ingresa el id del", personaCambiar, "que quieres cambiar:")#se le pide el id de la persona que quiere cambiar usuario y contraseña  y se guarda en user1
-                        user1=int(input())
-                        bol22=False
-                    except ValueError:
-                        print("Ingresa un ID valido (solo numeros)")
-
-                u=0#esta variable me va servir para saber si hay un usuario con ese id 
-                while u==0:#mientras u siga valiendo 0 se va a repetir el bucle 
-                    for t in range(len(archivo[personaCambiar])):#con el for se recorren todos loa puestos de las personas que hay en el tipo de usuario que quiere cambiar 
-                        if user1==archivo[personaCambiar][t]["id"]:#mira si el id de algun usuario es igual al ingresado 
-                            u=1#si hay un usuario igual al imgresado u va a valer 1 y se terminara el bucle de while 
-                    
-                    if u==0:#en caso de que no haya ninguan persona con ese id u seguira valiendo 0 por lo tanto se pide que vuelva a escribir el id 
-                        
-                        try:
-                            user1=int(input("ID no encontrado por favor ingresa uno valido\n"))
+                    bol22=True
+                    while bol22==True:
+                        try:#se usa un bucle try dentro de un bucle while para que cada vez que mande error se repita el codigo y se pueda cometer ese error muchas veces 
+                            print("Ingresa el id del", personaCambiar, "que quieres cambiar:")#se le pide el id de la persona que quiere cambiar usuario y contraseña  y se guarda en user1
+                            user1=int(input())
+                            bol22=False
                         except ValueError:
                             print("Ingresa un ID valido (solo numeros)")
 
-                
+                    u=0#esta variable me va servir para saber si hay un usuario con ese id 
+                    while u==0:#mientras u siga valiendo 0 se va a repetir el bucle 
+                        for t in range(len(archivo[personaCambiar])):#con el for se recorren todos loa puestos de las personas que hay en el tipo de usuario que quiere cambiar 
+                            if user1==archivo[personaCambiar][t]["id"]:#mira si el id de algun usuario es igual al ingresado 
+                                u=1#si hay un usuario igual al imgresado u va a valer 1 y se terminara el bucle de while 
+                        
+                        if u==0:#en caso de que no haya ninguan persona con ese id u seguira valiendo 0 por lo tanto se pide que vuelva a escribir el id 
+                            
+                            try:
+                                user1=int(input("ID no encontrado por favor ingresa uno valido\n"))
+                            except ValueError:
+                                print("Ingresa un ID valido (solo numeros)")
 
-                for w in range(len(archivo[personaCambiar])):#se usa un for para que mire las personas que hay en el tipo de usuario que quiere cambiar
-                    if user1== archivo[personaCambiar][w]["id"]:
+                    
 
-                        newUser20=input("Cual es el nuevo usuario\n")#se pregunta cual va a ser 
-                        archivo[personaCambiar][w]["user"]["login"]=newUser20
+                    for w in range(len(archivo[personaCambiar])):#se usa un for para que mire las personas que hay en el tipo de usuario que quiere cambiar
+                        if user1== archivo[personaCambiar][w]["id"]:
 
-                        newPassword20=input("Cual es la nueva contraseña\n")
-                        archivo[personaCambiar][w]["user"]["contraseña"]=newPassword20
+                            newUser20=input("Cual es el nuevo usuario\n")#se pregunta cual va a ser el nuevo usuario
+                            bol50=True
+                            while bol50==True:
+                                cont7=0
+
+                                for e in range(len(archivo["Campers"])):
+                                    if newUser20==archivo["Campers"][e]["user"]["login"]:
+                                        cont7=cont7+1
+                                
+                                for r in range(len(archivo["Trainers"])):
+                                    if newUser20==archivo["Trainers"][r]["user"]["login"]:
+                                        cont7=cont7+1
+                                
+                                if newUser20==archivo["Coordinador"][0]["user"]["login"]:
+                                    cont7=cont7+1
+                                
+                                if cont7==0:
+                                    bol50=False
+                                else:
+                                    newUser20=input("Ese usuario ya existe por favor ingresa uno nuevo\n")
+                            
+                            system("clear")
+
+                            archivo[personaCambiar][w]["user"]["login"]=newUser20
+
+                            newPassword20=input("Cual es la nueva contraseña\n")
+                            archivo[personaCambiar][w]["user"]["contraseña"]=newPassword20
+                else:
+                    newUser20=input("Cual es el nuevo usuario\n")#se pregunta cual va a ser el nuevo usuario
+                    bol50=True
+                    while bol50==True:
+                        cont7=0
+
+                        for e in range(len(archivo["Campers"])):
+                            if newUser20==archivo["Campers"][e]["user"]["login"]:
+                                cont7=cont7+1
+                        
+                        for r in range(len(archivo["Trainers"])):
+                            if newUser20==archivo["Trainers"][r]["user"]["login"]:
+                                cont7=cont7+1
+                        
+                        if newUser20==archivo["Coordinador"][0]["user"]["login"]:
+                            cont7=cont7+1
+                        
+                        if cont7==0:
+                            bol50=False
+                        else:
+                            newUser20=input("Ese usuario ya existe por favor ingresa uno nuevo\n")
+                    
+                    system("clear")
+
+                    archivo["Coordinador"][0]["user"]["login"]=newUser20
+
+                    newPassword20=input("Cual es la nueva contraseña\n")
+                    archivo["Coordinador"][0]["user"]["contraseña"]=newPassword20
+
                     
                 system("clear")
                 print("Usuario y contraseña cambiado con exito")
@@ -848,6 +900,9 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 for o in range(len(archivo["Trainers"])):#este es un bucle for que mira todos los trainers
                                     if grupoCambiar in archivo["Trainers"][o]["grupo"]:#se mira que trainer tiene el grupo que se escogio
                                         archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=archivo["Trainers"][o]["nombres"]#despues de ver que trainer tiene ese grupo soplo se le agrega el nombre de ese trainer al trainer del estudiante
+                                    
+                                    else:
+                                        archivo[personaCambiarInfo][posicionCamperCambiar]["trainer"]=""
 
                             else:
                                 print("Este camper se encuentra en estado",archivo[personaCambiarInfo][posicionCamperCambiar]["estado"], "por lo tanto no tiene grupo")
@@ -1399,7 +1454,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     bol42=True
                     while bol42==True:
                         try:
-                            moduloAgregarNota=int(input("Ingrese el modulo al que le quiere agregar la nota del filtro (Ingrese el numero)\n"))#se pide el modulo en el cual quiere agregar nota de filtro y si dice una nota diferente a las que hay en pantalla le pide que ingrese una valida
+                            moduloAgregarNota=int(input("Ingrese el modulo al que le quiere agregar la nota de modulo (Ingrese el numero)\n"))#se pide el modulo en el cual quiere agregar nota de filtro y si dice una nota diferente a las que hay en pantalla le pide que ingrese una valida
                             while moduloAgregarNota<1 or moduloAgregarNota>5:
                                 moduloAgregarNota=int(input("Ingrese un modulo de los que aparecen en pantalla\n"))
                             bol42=False
@@ -1436,7 +1491,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             except ValueError:
                                 print("Ingresa una nota valida (Numero)")
                         
-                        
+                        system("clear")
                         notaFiltroM1=(notaPracticaM1+notaTeoricaM1)/2
 
                         bol47=True
@@ -1446,7 +1501,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                 notaTrabajosM1=int(input("Ingrese la nota del promedio en los trabajos y quizes en clase\n"))
                                 while notaTrabajosM1<0 or notaTrabajosM1>100:
                                     notaTrabajosM1=int(input("Ingrese una nota valida (Entre 0 y 100)\n"))
-                                bol44=False
+                                bol47=False
                             except ValueError:
                                 print("Ingresa una nota valida (Numero)")
 
@@ -1565,8 +1620,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         
                         system("clear")
                         print("-----Modulos-----")
-                        for m in range(len(archivo["Campers"][0]["numeroModulo"])):#como todos los campers tiene la informacion de los modulos simplemente se escoge un estudiante y se usa el for para que muestre los modulos 
-                            print(m+1,archivo["Campers"][0]["numeroModulo"][m])
+                        for m in range(len(archivo["Coordinador"][1]["numeroModulo"])):#como todos los campers tiene la informacion de los modulos simplemente se escoge un estudiante y se usa el for para que muestre los modulos 
+                            print(m+1,archivo["Coordinador"][1]["numeroModulo"][m])
 
                         bol46=True
                         while bol46==True:
@@ -1773,7 +1828,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
             
             elif opcMenuCoordinador==7:#opcion de trainer para crear rutas 
                 system("clear")
-                if len(archivo["Coordinador"][1]["tiposDeRutas"])<12:
+                if len(archivo["Coordinador"][1]["tiposDeRutas"])<6:
                     nuevaRuta=input("Ingrese el nombre de la nueva ruta\n")
 
                     while nuevaRuta in archivo["Coordinador"][1]["rutas"]:
@@ -1918,11 +1973,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     cont7=0
 
                     for e in range(len(archivo["Campers"])):
-                        if userLogin==archivo["Campers"][v]["user"]["login"]:
+                        if userLogin==archivo["Campers"][e]["user"]["login"]:
                             cont7=cont7+1
                     
                     for r in range(len(archivo["Trainers"])):
-                        if userLogin==archivo["Trainers"][q]["user"]["login"]:
+                        if userLogin==archivo["Trainers"][r]["user"]["login"]:
                             cont7=cont7+1
                     
                     if userLogin==archivo["Coordinador"][0]["user"]["login"]:
