@@ -99,7 +99,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
     for i in range(len(archivo["Campers"])):#se usa un bucle for para recorra cada una  de las pociciones de los campers
 
         if user==archivo["Campers"][i]["user"]["login"]:#se miran todas las pociciones de los campers y si el usuario (login) alguno de ellos coinciden con el ingresado x pasa a valer 1 y se rompe el bucle de while 
-        
+            system("clear")
             x+=1
             passwordCamper=input("Ingresa su contraseña:\n")#despues de saber cual es el camper con ese usuario se le pide la contraseña 
             system("clear")
@@ -184,7 +184,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         #Si la opcion elegida es cinco se hara:
                         elif newOpc1==5:
                             #Se le muestra el modulo que se encurntra siguiendo la ruta archivo["Campers"][i]["moduloActual"], y despues se le mostrara el nombre del modulo  archivo["Campers"][i]["numeroModulo"][archivo["Campers"][i]["moduloActual"]-1], como los modulos se enumeran de 0 a 4, le restamos 1 para que enumere desde uno hasta cinco 
-                            print("El modulo que te encuentras actualmente es:",archivo["Campers"][i]["moduloActual"],archivo["Campers"][i]["numeroModulo"][archivo["Campers"][i]["moduloActual"]-1],"\n")#SSe mostrara el modulo que se encuentra actualmente el camper
+                            print("El modulo que te encuentras actualmente es:",archivo["Campers"][i]["moduloActual"],archivo["Coordinador"][1]["numeroModulo"][archivo["Campers"][i]["moduloActual"]-1],"\n")#SSe mostrara el modulo que se encuentra actualmente el camper
 
                             confirmacion=input("Si quieres ver otro reporte escribe: si, de lo contrario preciona enter\n")
                             system("clear")#este es el booleano de la linea 117, dodne se le preguntara al camper si desea ver otra opcion del menu del reporte si la respuesta es si, se le repetira el proceso, y si da enter le mostrara el menu principal del camper 
@@ -208,10 +208,32 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 elif opcMenuCamper==2:#Si la opcion elegida del menu del camper es dos se hara lo siguiente
 
                     newUser1=input("¿Cual es el nuevo usuario?\n")#Se le preguntara al camper cual va a ser el nuevo usuario
+                    bol19=True
+                    while bol19==True:
+                        cont8=0
+
+                        for e in range(len(archivo["Campers"])):
+                            if newUser1==archivo["Campers"][e]["user"]["login"]:
+                                cont8=cont8+1
+                        
+                        for r in range(len(archivo["Trainers"])):
+                            if newUser1==archivo["Trainers"][r]["user"]["login"]:
+                                cont8=cont8+1
+                        
+                        if newUser1==archivo["Coordinador"][0]["user"]["login"]:
+                            cont8=cont8+1
+                        
+                        if cont8==0:
+                            bol19=False
+                        else:
+                            newUser1=input("Ese usuario ya existe por favor ingresa uno nuevo\n")
+                    
+                    system("clear")
                     archivo["Campers"][i]["user"]["login"]=newUser1#ingresara las posiciones del camper donde esta el user y mira el login(usuario) del camper y lo cambia por el nuevo.
                     system("clear")
 
                     newPass1=input("¿Ingrese la nueva contraseña?\n")#Se le preguntara al camper cual va a ser el nuevo usuario
+                    
                     archivo["Campers"][i]["user"]["contraseña"]=newPass1#ingresara las posiciones del camper donde esta el user y mira la contraseña del camper y lo cambia por el nuevo que ingreso.
                     system("clear")
 
@@ -306,6 +328,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
     for q in range(len(archivo["Trainers"])):#se usa un bucle for para recorra cada una  de las pociciones de los trainers
 
         if user == archivo["Trainers"][q]["user"]["login"]:#se miran todas las pociciones de los trainers y si el usuario (login) alguno de ellos coinciden con el ingresado x pasa a valer 1 y se rompe el bucle de while
+            system("clear")
 
             x+=1
             passwordTrainer=input("Ingresa la contraseña\n")#despues de saber cual es el Trainer con ese usuario se le pide la contraseña 
@@ -333,6 +356,26 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 if opcMenuTrainer == 1:
 
                     newUser2=input("¿Cual es el nuevo usuario?:\n")#El trainer ingresara el nuevo usuario 
+                    bol20=True
+                    while bol20==True:
+                        cont10=0
+
+                        for e in range(len(archivo["Campers"])):
+                            if newUser2==archivo["Campers"][e]["user"]["login"]:
+                                cont10=cont10+1
+                        
+                        for r in range(len(archivo["Trainers"])):
+                            if newUser2==archivo["Trainers"][r]["user"]["login"]:
+                                cont10=cont10+1
+                        
+                        if newUser2==archivo["Coordinador"][0]["user"]["login"]:
+                            cont10=cont10+1
+                        
+                        if cont10==0:
+                            bol20=False
+                        else:
+                            newUser2=input("Ese usuario ya existe por favor ingresa uno nuevo\n")
+                    
                     system("clear")
                     archivo["Trainers"][q]["user"]["login"]=newUser2 #en el archivo se posicionara donde estan los trainer e ingresara a user login(usuario) y se guardara el nuevo usuario que ingreso el trainer
                     newPass2=input("¿Cual es la nueva contraseña?:\n")#El trainer ingresara la nueva contraseña
@@ -490,27 +533,27 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         print("ID:",archivo[personaCambiar][r]["id"])#siguiendo con el ejemplo le muestra todos los id que hay en Campers ya que recorre cada uno con el bucle for
                         print("------------------\n")
 
-                    bol22=True
-                    while bol22==True:
-                        try:#se usa un bucle try dentro de un bucle while para que cada vez que mande error se repita el codigo y se pueda cometer ese error muchas veces 
-                            print("Ingresa el id del", personaCambiar, "que quieres cambiar:")#se le pide el id de la persona que quiere cambiar usuario y contraseña  y se guarda en user1
-                            user1=int(input())
-                            bol22=False
+                bol22=True
+                while bol22==True:
+                    try:#se usa un bucle try dentro de un bucle while para que cada vez que mande error se repita el codigo y se pueda cometer ese error muchas veces 
+                        print("Ingresa el id del", personaCambiar, "que quieres cambiar:")#se le pide el id de la persona que quiere cambiar usuario y contraseña  y se guarda en user1
+                        user1=int(input())
+                        bol22=False
+                    except ValueError:
+                        print("Ingresa un ID valido (solo numeros)")
+
+                u=0#esta variable me va servir para saber si hay un usuario con ese id 
+                while u==0:#mientras u siga valiendo 0 se va a repetir el bucle 
+                    for t in range(len(archivo[personaCambiar])):#con el for se recorren todos loa puestos de las personas que hay en el tipo de usuario que quiere cambiar 
+                        if user1==archivo[personaCambiar][t]["id"]:#mira si el id de algun usuario es igual al ingresado 
+                            u=1#si hay un usuario igual al imgresado u va a valer 1 y se terminara el bucle de while 
+                    
+                    if u==0:#en caso de que no haya ninguan persona con ese id u seguira valiendo 0 por lo tanto se pide que vuelva a escribir el id 
+                        
+                        try:
+                            user1=int(input("ID no encontrado por favor ingresa uno valido\n"))
                         except ValueError:
                             print("Ingresa un ID valido (solo numeros)")
-
-                    u=0#esta variable me va servir para saber si hay un usuario con ese id 
-                    while u==0:#mientras u siga valiendo 0 se va a repetir el bucle 
-                        for t in range(len(archivo[personaCambiar])):#con el for se recorren todos loa puestos de las personas que hay en el tipo de usuario que quiere cambiar 
-                            if user1==archivo[personaCambiar][t]["id"]:#mira si el id de algun usuario es igual al ingresado 
-                                u=1#si hay un usuario igual al imgresado u va a valer 1 y se terminara el bucle de while 
-                        
-                        if u==0:#en caso de que no haya ninguan persona con ese id u seguira valiendo 0 por lo tanto se pide que vuelva a escribir el id 
-                            
-                            try:
-                                user1=int(input("ID no encontrado por favor ingresa uno valido\n"))
-                            except ValueError:
-                                print("Ingresa un ID valido (solo numeros)")
 
                     
 
@@ -575,7 +618,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                     
                 system("clear")
-                print("Usuario y contraseña cambiado con exito")
+                print("Usuario y contraseña cambiado con exito\n")
                 
                 menuCoordinador()
                 try:
@@ -1826,7 +1869,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
             
-            elif opcMenuCoordinador==7:#opcion de trainer para crear rutas 
+            elif opcMenuCoordinador==7:#opcion de trainer para crear rutas
                 system("clear")
                 if len(archivo["Coordinador"][1]["tiposDeRutas"])<6:
                     nuevaRuta=input("Ingrese el nombre de la nueva ruta\n")

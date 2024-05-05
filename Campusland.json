@@ -3,16 +3,16 @@
         {
             "id": 5708,
             "user": {
-                "login": "luorheber",
+                "login": "Luis_01",
                 "contrase\u00f1a": "luorheber03"
             },
             "numeroIdentificacion": 10939352265,
             "nombres": "Luis Jose",
             "apellidos": "Bemon Henao",
-            "direccion": "Pachelli",
+            "direccion": "Diocesano",
             "acudiente": "Franklin Henao",
-            "telefonoCelular": 3221478900,
-            "telefonoFijo": 324568,
+            "telefonoCelular": 322890392,
+            "telefonoFijo": 3452331,
             "tiposDeEstados": [
                 "En proceso",
                 "Inscrito",
@@ -139,8 +139,8 @@
         {
             "id": 75458546,
             "user": {
-                "login": "pedrito",
-                "contrase\u00f1a": "pedrosqui"
+                "login": "Pedro_10",
+                "contrase\u00f1a": "Pedrito"
             },
             "numeroIdentificacion": 88563265,
             "nombres": "Pedro jose",
@@ -156,14 +156,14 @@
         {
             "id": 1523,
             "user": {
-                "login": "michelin03",
-                "contrase\u00f1a": "michael1504"
+                "login": "Michael_03",
+                "contrase\u00f1a": "Michael_010"
             },
             "numeroIdentificacion": 88563265,
             "nombres": "Michael Andres",
             "apellidos": "Garzon Ramirez",
-            "direccion": "Bucaramanga",
-            "telefonoCelular": 3285313513,
+            "direccion": "Bogota",
+            "telefonoCelular": 342100456,
             "telefonoFijo": 58416543521,
             "ruta": "Java",
             "grupo": [
