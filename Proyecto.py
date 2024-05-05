@@ -533,60 +533,60 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         print("ID:",archivo[personaCambiar][r]["id"])#siguiendo con el ejemplo le muestra todos los id que hay en Campers ya que recorre cada uno con el bucle for
                         print("------------------\n")
 
-                bol22=True
-                while bol22==True:
-                    try:#se usa un bucle try dentro de un bucle while para que cada vez que mande error se repita el codigo y se pueda cometer ese error muchas veces 
-                        print("Ingresa el id del", personaCambiar, "que quieres cambiar:")#se le pide el id de la persona que quiere cambiar usuario y contraseña  y se guarda en user1
-                        user1=int(input())
-                        bol22=False
-                    except ValueError:
-                        print("Ingresa un ID valido (solo numeros)")
-
-                u=0#esta variable me va servir para saber si hay un usuario con ese id 
-                while u==0:#mientras u siga valiendo 0 se va a repetir el bucle 
-                    for t in range(len(archivo[personaCambiar])):#con el for se recorren todos loa puestos de las personas que hay en el tipo de usuario que quiere cambiar 
-                        if user1==archivo[personaCambiar][t]["id"]:#mira si el id de algun usuario es igual al ingresado 
-                            u=1#si hay un usuario igual al imgresado u va a valer 1 y se terminara el bucle de while 
-                    
-                    if u==0:#en caso de que no haya ninguan persona con ese id u seguira valiendo 0 por lo tanto se pide que vuelva a escribir el id 
-                        
-                        try:
-                            user1=int(input("ID no encontrado por favor ingresa uno valido\n"))
+                    bol22=True
+                    while bol22==True:
+                        try:#se usa un bucle try dentro de un bucle while para que cada vez que mande error se repita el codigo y se pueda cometer ese error muchas veces 
+                            print("Ingresa el id del", personaCambiar, "que quieres cambiar:")#se le pide el id de la persona que quiere cambiar usuario y contraseña  y se guarda en user1
+                            user1=int(input())
+                            bol22=False
                         except ValueError:
                             print("Ingresa un ID valido (solo numeros)")
 
-                    
-
-                    for w in range(len(archivo[personaCambiar])):#se usa un for para que mire las personas que hay en el tipo de usuario que quiere cambiar
-                        if user1== archivo[personaCambiar][w]["id"]:
-
-                            newUser20=input("Cual es el nuevo usuario\n")#se pregunta cual va a ser el nuevo usuario
-                            bol50=True
-                            while bol50==True:
-                                cont7=0
-
-                                for e in range(len(archivo["Campers"])):
-                                    if newUser20==archivo["Campers"][e]["user"]["login"]:
-                                        cont7=cont7+1
-                                
-                                for r in range(len(archivo["Trainers"])):
-                                    if newUser20==archivo["Trainers"][r]["user"]["login"]:
-                                        cont7=cont7+1
-                                
-                                if newUser20==archivo["Coordinador"][0]["user"]["login"]:
-                                    cont7=cont7+1
-                                
-                                if cont7==0:
-                                    bol50=False
-                                else:
-                                    newUser20=input("Ese usuario ya existe por favor ingresa uno nuevo\n")
+                    u=0#esta variable me va servir para saber si hay un usuario con ese id 
+                    while u==0:#mientras u siga valiendo 0 se va a repetir el bucle 
+                        for t in range(len(archivo[personaCambiar])):#con el for se recorren todos loa puestos de las personas que hay en el tipo de usuario que quiere cambiar 
+                            if user1==archivo[personaCambiar][t]["id"]:#mira si el id de algun usuario es igual al ingresado 
+                                u=1#si hay un usuario igual al imgresado u va a valer 1 y se terminara el bucle de while 
+                        
+                        if u==0:#en caso de que no haya ninguan persona con ese id u seguira valiendo 0 por lo tanto se pide que vuelva a escribir el id 
                             
-                            system("clear")
+                            try:
+                                user1=int(input("ID no encontrado por favor ingresa uno valido\n"))
+                            except ValueError:
+                                print("Ingresa un ID valido (solo numeros)")
 
-                            archivo[personaCambiar][w]["user"]["login"]=newUser20
+                        
 
-                            newPassword20=input("Cual es la nueva contraseña\n")
-                            archivo[personaCambiar][w]["user"]["contraseña"]=newPassword20
+                        for w in range(len(archivo[personaCambiar])):#se usa un for para que mire las personas que hay en el tipo de usuario que quiere cambiar
+                            if user1== archivo[personaCambiar][w]["id"]:
+
+                                newUser20=input("Cual es el nuevo usuario\n")#se pregunta cual va a ser el nuevo usuario
+                                bol50=True
+                                while bol50==True:
+                                    cont7=0
+
+                                    for e in range(len(archivo["Campers"])):
+                                        if newUser20==archivo["Campers"][e]["user"]["login"]:
+                                            cont7=cont7+1
+                                    
+                                    for r in range(len(archivo["Trainers"])):
+                                        if newUser20==archivo["Trainers"][r]["user"]["login"]:
+                                            cont7=cont7+1
+                                    
+                                    if newUser20==archivo["Coordinador"][0]["user"]["login"]:
+                                        cont7=cont7+1
+                                    
+                                    if cont7==0:
+                                        bol50=False
+                                    else:
+                                        newUser20=input("Ese usuario ya existe por favor ingresa uno nuevo\n")
+                                
+                                system("clear")
+
+                                archivo[personaCambiar][w]["user"]["login"]=newUser20
+
+                                newPassword20=input("Cual es la nueva contraseña\n")
+                                archivo[personaCambiar][w]["user"]["contraseña"]=newPassword20
                 else:
                     newUser20=input("Cual es el nuevo usuario\n")#se pregunta cual va a ser el nuevo usuario
                     bol50=True
@@ -1297,7 +1297,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                     bol25=True
                                     while bol25==True:
                                         try:
-                                            idCambioTrainer=int(input("Ese id ya existe por favor ingresauno nuevo\n"))
+                                            idCambioTrainer=int(input("Ese id ya existe por favor ingresa uno nuevo\n"))
                                             bol25=False
                                         except ValueError:
                                             print("Ingresa un ID valido (Solo numeros)")
@@ -1413,118 +1413,126 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 system("clear")
                 
                 notaAprobacion=[]
-                print("-----Campers-----")#se muestran los campers con sus id y guarda los id en la lista nota de aprobación. 
+                print("-----Campers con estado inscrito-----")#se muestran los campers con sus id y guarda los id en la lista nota de aprobación. 
+                cont0=0
                 for f in range(len(archivo["Campers"])):
-                    print("----------------------------")
-                    print("Nombre",archivo["Campers"][f]["nombres"])
-                    print("ID",archivo["Campers"][f]["id"])
-                    print("----------------------------")
-                    if archivo["Campers"][f]["id"] not in notaAprobacion:
-                        notaAprobacion.append(archivo["Campers"][f]["id"])
+                    if archivo["Campers"][f]["estado"]=="Inscrito":
+                        print("----------------------------")
+                        print("Nombre",archivo["Campers"][f]["nombres"])
+                        print("ID",archivo["Campers"][f]["id"])
+                        print("----------------------------")
+                        if archivo["Campers"][f]["id"] not in notaAprobacion:
+                            notaAprobacion.append(archivo["Campers"][f]["id"])
+                        cont0+=1
+                    
+                if cont0>1:
 
-                bol16=True
-                while bol16==True:
-                    try:
-                        idNotaFiltro=int(input("Ingresa el ID del camper al que le deseas agregar nota de aprobación\n"))#se pide el id del camper al que se le quiere agregar la nota y si el camper no esta en la lista notaAprobacion le pida que ingrese uno valido
-                        while idNotaFiltro not in notaAprobacion:
-                            idNotaFiltro=int(input("ID no encontrado por favor ingresa uno valido\n"))
-                        bol16=False
-                    except ValueError:
-                        print("Ingresa un ID valido (Solo numeros)")
-                
-                for j in range(len(archivo["Campers"])):#este bucle for se usa para saber la pocicion del camper que tiene el id ingresado
-                    if idNotaFiltro==archivo["Campers"][j]["id"]:
-                        notaAprobacion=j
-                system("clear")
-
-                bol17=True
-                while bol17==True:
+                    bol16=True
+                    while bol16==True:
                         try:
-                            notaTeorica=int(input("Ingrese la nota teorica:\n"))
-                            bol17=False
-
+                            idNotaFiltro=int(input("Ingresa el ID del camper al que le deseas agregar nota de aprobación\n"))#se pide el id del camper al que se le quiere agregar la nota y si el camper no esta en la lista notaAprobacion le pida que ingrese uno valido
+                            while idNotaFiltro not in notaAprobacion:
+                                idNotaFiltro=int(input("ID no encontrado por favor ingresa uno valido\n"))
+                            bol16=False
                         except ValueError:
-                            print("Ingrese una nota valida (entre 0 a 100)")
+                            print("Ingresa un ID valido (Solo numeros)")
                     
-                bol18=True
-                while bol18==True:
-                    try:
-                            notaPractica=int(input("Ingrese la nota practica:\n"))
-                            bol18=False
-                    except ValueError:
-                            print("Ingrese una nota valida (entre 0 a 100)")
-
-                promedio = (notaTeorica+notaPractica)/2
-                print("Promedio de nota:",promedio )
-
-                #Cambiar el estado del camper segun el promedio 
-
-                if promedio>=60:
-                    archivo["Campers"][notaAprobacion]["estado"]="Aprobado"
-                    print("El camper ha sido aprobado\n")
-
-                    print("Como el estado del estudiante ahora es Aprobado tienes que llenar la siguiente informacion:")
-
-                    agregarFechaInicio=input("Ingrese una fecha de inicio (DD-MM-AAAA)\n")#se pide y se agrega la fecha de inicio
-                    archivo["Campers"][notaAprobacion]["fechaInicio"]=agregarFechaInicio
-
-                    system("clear")
-                    agregarFechaCierre=input("Ingrese una fecha de cierre (DD-MM-AAAA)\n")#se pide y se agrega la fecha de cierre
-                    archivo["Campers"][notaAprobacion]["fechaCierre"]=agregarFechaCierre
-
-                    system("clear")
-                    archivo["Campers"][notaAprobacion]["moduloActual"]=1#se pone que el modulo actual es igual a 1 ya que como apenas esta empezando empieza en el modulo 1
-
+                    for j in range(len(archivo["Campers"])):#este bucle for se usa para saber la pocicion del camper que tiene el id ingresado
+                        if idNotaFiltro==archivo["Campers"][j]["id"]:
+                            notaAprobacion=j
                     system("clear")
 
-                    grupos=[]
-                    for q in range(len(archivo["Coordinador"][1]["rutas"])):#con este bucle for se muestran todas las rutas que hay 
-                        print("-----------------------------------")
-                        print("Ruta:",archivo["Coordinador"][1]["rutas"][q])
-                        for t in range(len(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"])):#despues de que el bucle anterior haya mosstrado la primera tuta este bucle muestra los salones que hay en esa ruta 
-                            print("-----Grupos-----")
-                            print(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t])
-                            if archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t] not in grupos:#este if mira si el grupo esta en la lista grupos si no esta lo añade ahi 
-                                grupos.append(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t])
+                    bol17=True
+                    while bol17==True:
+                            try:
+                                notaTeorica=int(input("Ingrese la nota teorica:\n"))
+                                bol17=False
+
+                            except ValueError:
+                                print("Ingrese una nota valida (entre 0 a 100)")
                         
-                    
-                    grupoCambiar=input("Ingrese un grupo (Escogelo dependiendo de la ruta que Quieras)\n")
-                    
-                    while grupoCambiar not in grupos:#mienta que el grupo ingresado no este en la lista gupos le va apedir que ingrese otro grupo
-                        grupoCambiar=input("Grupo no encontrado ingresa un grupo de los que hay en pantalla \n")
+                    bol18=True
+                    while bol18==True:
+                        try:
+                                notaPractica=int(input("Ingrese la nota practica:\n"))
+                                bol18=False
+                        except ValueError:
+                                print("Ingrese una nota valida (entre 0 a 100)")
 
-                    estudiantesG=0#este es un contador para mirar cuantos estudiantes tienen el mismo grupo
-                    for y in range(len(archivo["Campers"])):
-                        if grupoCambiar==archivo["Campers"][y]["grupo"]:#si el estudiante tiene el mismo grupo al ingresado suma uno al contador
-                            estudiantesG=estudiantesG+1
+                    promedio = (notaTeorica+notaPractica)/2
+                    print("Promedio de nota:",promedio )
 
-                    while estudiantesG==33:
-                        grupoCambiar=input("Grupo con limites de estudiantes por favor ingresa otro\n")
+                    #Cambiar el estado del camper segun el promedio 
 
+                    if promedio>=60:
+                        archivo["Campers"][notaAprobacion]["estado"]="Aprobado"
+                        print("El camper ha sido aprobado\n")
+
+                        print("Como el estado del estudiante ahora es Aprobado tienes que llenar la siguiente informacion:")
+
+                        agregarFechaInicio=input("Ingrese una fecha de inicio (DD-MM-AAAA)\n")#se pide y se agrega la fecha de inicio
+                        archivo["Campers"][notaAprobacion]["fechaInicio"]=agregarFechaInicio
+
+                        system("clear")
+                        agregarFechaCierre=input("Ingrese una fecha de cierre (DD-MM-AAAA)\n")#se pide y se agrega la fecha de cierre
+                        archivo["Campers"][notaAprobacion]["fechaCierre"]=agregarFechaCierre
+
+                        system("clear")
+                        archivo["Campers"][notaAprobacion]["moduloActual"]=1#se pone que el modulo actual es igual a 1 ya que como apenas esta empezando empieza en el modulo 1
+
+                        system("clear")
+
+                        grupos=[]
+                        for q in range(len(archivo["Coordinador"][1]["rutas"])):#con este bucle for se muestran todas las rutas que hay 
+                            print("-----------------------------------")
+                            print("Ruta:",archivo["Coordinador"][1]["rutas"][q])
+                            for t in range(len(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"])):#despues de que el bucle anterior haya mosstrado la primera tuta este bucle muestra los salones que hay en esa ruta 
+                                print("-----Grupos-----")
+                                print(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t])
+                                if archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t] not in grupos:#este if mira si el grupo esta en la lista grupos si no esta lo añade ahi 
+                                    grupos.append(archivo["Coordinador"][1]["tiposDeRutas"][q]["grupos"][t])
+                            
+                        
+                        grupoCambiar=input("Ingrese un grupo (Escogelo dependiendo de la ruta que Quieras)\n")
+                        
                         while grupoCambiar not in grupos:#mienta que el grupo ingresado no este en la lista gupos le va apedir que ingrese otro grupo
-                            grupoCambiar=input("Ingresa un grupo de los que hay en pantalla \n")
+                            grupoCambiar=input("Grupo no encontrado ingresa un grupo de los que hay en pantalla \n")
 
-                        estudiantesG=0
-                        for y in range(len(archivo["Campers"])):#este es un contador para mirar cuantos estudiantes tienen el mismo grupo
+                        estudiantesG=0#este es un contador para mirar cuantos estudiantes tienen el mismo grupo
+                        for y in range(len(archivo["Campers"])):
                             if grupoCambiar==archivo["Campers"][y]["grupo"]:#si el estudiante tiene el mismo grupo al ingresado suma uno al contador
                                 estudiantesG=estudiantesG+1
 
+                        while estudiantesG==33:
+                            grupoCambiar=input("Grupo con limites de estudiantes por favor ingresa otro\n")
 
-                    archivo["Campers"][notaAprobacion]["grupo"]=grupoCambiar #despues de saber cual es el grupo simplemente lo agrega al grupo del estudiante
+                            while grupoCambiar not in grupos:#mienta que el grupo ingresado no este en la lista gupos le va apedir que ingrese otro grupo
+                                grupoCambiar=input("Ingresa un grupo de los que hay en pantalla \n")
 
-                    for u in range(len(archivo["Coordinador"][1]["rutas"])):#este es un for para mirar todas las rutas 
-                        if grupoCambiar in archivo["Coordinador"][1]["tiposDeRutas"][u]["grupos"]:#si una ruta tiene el grupo ingresado le va a poner esa ruta al camper 
-                            archivo["Campers"][notaAprobacion]["ruta"]=archivo["Coordinador"][1]["rutas"][u]
+                            estudiantesG=0
+                            for y in range(len(archivo["Campers"])):#este es un contador para mirar cuantos estudiantes tienen el mismo grupo
+                                if grupoCambiar==archivo["Campers"][y]["grupo"]:#si el estudiante tiene el mismo grupo al ingresado suma uno al contador
+                                    estudiantesG=estudiantesG+1
 
-                    for o in range(len(archivo["Trainers"])):#este es un bucle for que mira todos los trainers
-                        if grupoCambiar in archivo["Trainers"][o]["grupo"]:#se mira que trainer tiene el grupo que se escogio
-                            archivo["Campers"][notaAprobacion]["trainer"]=archivo["Trainers"][o]["nombres"]#despues de ver que trainer tiene ese grupo soplo se le agrega el nombre de ese trainer al trainer del estudiante 
-                    system("clear")
+
+                        archivo["Campers"][notaAprobacion]["grupo"]=grupoCambiar #despues de saber cual es el grupo simplemente lo agrega al grupo del estudiante
+
+                        for u in range(len(archivo["Coordinador"][1]["rutas"])):#este es un for para mirar todas las rutas 
+                            if grupoCambiar in archivo["Coordinador"][1]["tiposDeRutas"][u]["grupos"]:#si una ruta tiene el grupo ingresado le va a poner esa ruta al camper 
+                                archivo["Campers"][notaAprobacion]["ruta"]=archivo["Coordinador"][1]["rutas"][u]
+
+                        for o in range(len(archivo["Trainers"])):#este es un bucle for que mira todos los trainers
+                            if grupoCambiar in archivo["Trainers"][o]["grupo"]:#se mira que trainer tiene el grupo que se escogio
+                                archivo["Campers"][notaAprobacion]["trainer"]=archivo["Trainers"][o]["nombres"]#despues de ver que trainer tiene ese grupo soplo se le agrega el nombre de ese trainer al trainer del estudiante 
+                        system("clear")
+                    else:
+                        archivo["Campers"][notaAprobacion]["estado"]="Expulsado"
+                        print("El camper no ha alcanzado el promedio minimo para poder ser aprobado\n")
+                        system("clear")
+
+
                 else:
-                    archivo["Campers"][notaAprobacion]["estado"]="Expulsado"
-                    print("El camper no ha alcanzado el promedio minimo para poder ser aprobado\n")
-                    system("clear")
-
+                    print("No hay estdudiantes en estado inscrito")
                 
                     
             

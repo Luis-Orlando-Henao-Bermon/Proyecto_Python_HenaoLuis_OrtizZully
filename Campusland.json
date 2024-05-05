@@ -67,11 +67,11 @@
                 "Expulsado",
                 "Retirado"
             ],
-            "estado": "Inscrito",
-            "fechaInicio": "",
-            "fechaCierre": "",
-            "grupo": "",
-            "ruta": "",
+            "estado": "Aprobado",
+            "fechaInicio": "15-02-2024",
+            "fechaCierre": "15-02-2025",
+            "grupo": "M1",
+            "ruta": "JavaScript",
             "moduloActual": 1,
             "trainer": "",
             "riesgo": [
