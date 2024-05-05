@@ -22,6 +22,7 @@ def menuCamperOpc1():
           3). Ruta del camper.
           4). Trainer del camper
           5). Modulo en el que se encuetra el camper.
+          6). Salir
     --------------------------------------------------
 """)
 
@@ -131,7 +132,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         while bol13 == True:
                             try:#si el usuario ingresa una letra en las opciones se le indidara que debe ser numero y se le repetira el proceso hasta que lo ingrese bien, y si ingresa un numero que no esta en el menu se le dira que solo se le permitira las opciones que aparece en la pantalla
                                 newOpc1=int(input("Ingrese una opcion del menu anterior:\n"))#El camper ingresara la opcion que desea observar 
-                                while newOpc1<1 or newOpc1>5:
+                                while newOpc1<1 or newOpc1>6:
                                     newOpc1=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))
                                 bol13=False
                             except ValueError:
@@ -187,6 +188,9 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                             confirmacion=input("Si quieres ver otro reporte escribe: si, de lo contrario preciona enter\n")
                             system("clear")#este es el booleano de la linea 117, dodne se le preguntara al camper si desea ver otra opcion del menu del reporte si la respuesta es si, se le repetira el proceso, y si da enter le mostrara el menu principal del camper 
+                        
+                        elif newOpc1==6:
+                            confirmacion=""
 
 
                     menuCamper()#aca se llama al menu de las opciones de camper 
@@ -233,7 +237,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         while bol14==True:
                             try:
                                 numOpc3=int(input("Ingrese una de las opciones del menu anterior\n"))#El ingresara la opcione que desee realizar del menu anterior 
-                                while numOpc3<1 or numOpc3>3:
+                                while numOpc3<1 or numOpc3>4:
 
                                     numOpc3=int(input("Ingrese una opcion de la que aparece en la pantalla.\n"))
 
@@ -744,7 +748,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                                     if grupoCambiar==archivo["Campers"][y]["grupo"]:#si el estudiante tiene el mismo grupo al ingresado suma uno al contador
                                         estudiantesG=estudiantesG+1
 
-                                while estudiantesG==1:
+                                while estudiantesG==33:
                                     grupoCambiar=input("Grupo con limites de estudiantes por favor ingresa otro\n")
 
                                     while grupoCambiar not in grupos:#mientras que el grupo ingresado no este en la lista gupos le va apedir que ingrese otro grupo
@@ -1316,7 +1320,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         if grupoCambiar==archivo["Campers"][y]["grupo"]:#si el estudiante tiene el mismo grupo al ingresado suma uno al contador
                             estudiantesG=estudiantesG+1
 
-                    while estudiantesG==1:
+                    while estudiantesG==33:
                         grupoCambiar=input("Grupo con limites de estudiantes por favor ingresa otro\n")
 
                         while grupoCambiar not in grupos:#mienta que el grupo ingresado no este en la lista gupos le va apedir que ingrese otro grupo
@@ -1333,6 +1337,10 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     for u in range(len(archivo["Coordinador"][1]["rutas"])):#este es un for para mirar todas las rutas 
                         if grupoCambiar in archivo["Coordinador"][1]["tiposDeRutas"][u]["grupos"]:#si una ruta tiene el grupo ingresado le va a poner esa ruta al camper 
                             archivo["Campers"][notaAprobacion]["ruta"]=archivo["Coordinador"][1]["rutas"][u]
+
+                    for o in range(len(archivo["Trainers"])):#este es un bucle for que mira todos los trainers
+                        if grupoCambiar in archivo["Trainers"][o]["grupo"]:#se mira que trainer tiene el grupo que se escogio
+                            archivo["Campers"][notaAprobacion]["trainer"]=archivo["Trainers"][o]["nombres"]#despues de ver que trainer tiene ese grupo soplo se le agrega el nombre de ese trainer al trainer del estudiante 
                     system("clear")
                 else:
                     archivo["Campers"][notaAprobacion]["estado"]="Expulsado"
@@ -1480,10 +1488,35 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
             elif opcMenuCoordinador==5:
                 #consultar cuales campers se encuentran en riesgo alto
-                if archivo["Campers"][i]["riesgo"]=="Alto":
-                    print("Estudiantes con riesgo alto:", archivo["Campers"][i]["nombres"])
 
-                input("")
+                print("-----Modulos-----")
+                for j in range(len(archivo["Coordinador"][1]["numeroModulo"])):
+                    print(j+1, archivo["Coordinador"][1]["numeroModulo"][j])
+
+
+                bol56=True
+                while bol56==True:
+                    try:
+                        riesgoModulo=int(input("Ingrese el numero del modulo de el que quiere ver los campers en riego alto\n"))
+                        while  riesgoModulo<1 or riesgoModulo>5:
+                            riesgoModuloint=int(input("Ingrese un modulo de los que aparecen en pantalla\n"))
+                        bol56=False
+                    except ValueError:
+                        print("Ingrese un modulo valido (Ingrese el numero del modulo)")
+
+
+                system("clear")
+                print("-----Campers en riesgo alto en este modulo-----")
+                cont9=0
+                for i in range(len(archivo["Campers"])):
+                    if archivo["Campers"][i]["riesgo"][riesgoModulo-1]=="Alto":
+                        print("------------------------------")
+                        print("Nombre:",archivo["Campers"][i]["nombres"])
+                        print("ID:",archivo["Campers"][i]["id"])
+                        cont9+=1
+                
+                if cont9==0:
+                    print("Ningun camper tiene riesgo alto en este modulo")
 
 
                 menuCoordinador()
@@ -1598,7 +1631,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         system("clear")
                         print("-----Modulos-----")
                         for m in range(len(archivo["Coordinador"][1]["numeroModulo"])):#se usa el for para que muestre los modulos 
-                            print(m+1,archivo["Coordinador"][0]["numeroModulo"][m])
+                            print(m+1,archivo["Coordinador"][1]["numeroModulo"][m])
 
                         bol46=True
                         while bol46==True:
