@@ -329,7 +329,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                 elif opcMenuCamper==4:#Si la opcion del menu del camper es cuatro se finalizara la plataforma
                     print("")
                     actividadSecion=input("¿que actividades realisaste en esta secion?")        
-                    registro.append({"idCamper": archivo["Campers"][i]["id"],"fecha_entrada":"","actividades_realizadas":actividadSecion,"estado de sesion":"finalizada" })
+                    registro.append({"idCamper": archivo["Campers"][i]["id"],"fecha_entrada":fechaRegistro,"actividades_realizadas":actividadSecion,"estado de sesion":"finalizada" })
                     campers=False
 
     for q in range(len(archivo["Trainers"])):#se usa un bucle for para recorra cada una  de las pociciones de los trainers
@@ -2193,7 +2193,9 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
             
             elif opcCambioCamper==9:
-
+                print(" ----------- REGISTROS ------------")
+                for i in registro:
+                    print("ID del camper:",i["idCamper"], "\nFecha de inicio:", i["fecha_entrada"], "\nActividades realizadas:", i["actividades_realizadas"], "\nEstado de sesión:", i["estado de sesion"])
 
             elif opcMenuCoordinador==10:
 
