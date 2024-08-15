@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from os import system #esto lo voy a usar para limpiar pantalla
 
 system("clear") #esto es para que se limpie todo lo que hay en la terminal
@@ -42,7 +43,7 @@ def menuTrainer():
           1). Cambiar usuario y contraseña
           2). Ruta de entrenamiento.
           3). Cambiar información.
-          4). Salir.
+          5). Salir.
           
     ---------------------------------------------------
     ///////////////////////////////////////////////////
@@ -68,7 +69,8 @@ def menuCoordinador():
           6). Reporte.
           7). Crear nuevas rutas.
           8). Crear nuevos campers.
-          9). Salir.
+          9). Registro de entrada
+          10). Salir.
     -----------------------------------------------------------------------
     ///////////////////////////////////////////////////////////////////////
 """)
@@ -89,6 +91,8 @@ def menuCoordinadorOpc6():
 
 with open("./Campusland.json", encoding="utf-8") as file:#con esto se abre el archivo de campusland.json que es donde esta toda la informacion
     archivo=json.load(file)
+with open("./registro.json", encoding="utf-8") as file:#con esto se abre el archivo de campusland.json que es donde esta toda la informacion
+    registro=json.load(file)
 
 
 user=input("Ingrese su usuario:\n")#se pide que ingrese el usuario
@@ -119,6 +123,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     print("Ingresa una opcion valida (Numero)\n")
             system("clear")
             #Crear otro booleano para que se repita las opciones del menu del camper
+            #Regristro del tiempo del camper
+            fechaRegistro=str(datetime.now())
             campers=True
             while campers==True:
                 #Si la opcion elegida del menu del camper es uno se hara lo siguiente
@@ -322,8 +328,9 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 
                 elif opcMenuCamper==4:#Si la opcion del menu del camper es cuatro se finalizara la plataforma
                     print("")
+                    actividadSecion=input("¿que actividades realisaste en esta secion?")        
+                    registro.append({"idCamper": archivo["Campers"][i]["id"],"fecha_entrada":fechaRegistro,"actividades_realizadas":actividadSecion,"estado de sesion":"finalizada" })
                     campers=False
-                    
 
     for q in range(len(archivo["Trainers"])):#se usa un bucle for para recorra cada una  de las pociciones de los trainers 
 
@@ -2185,7 +2192,12 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     while opcMenuCoordinador<1 or opcMenuCoordinador>9:
                             opcMenuCoordinador=int(input("Ingresa una opcion de las que aparecen en pantalla\n"))#se usa un bucle while para que cada vez que ingresen un numero mayor a 7 o menor a 1(que son las opciones validas) le diga que por favor ingrese una opcion de las que aparecen en pantalla
             
-            elif opcMenuCoordinador==9:
+            elif opcCambioCamper==9:
+                print(" ----------- REGISTROS ------------")
+                for i in registro:
+                    print("ID del camper:",i["idCamper"], "\nFecha de inicio:", i["fecha_entrada"], "\nActividades realizadas:", i["actividades_realizadas"], "\nEstado de sesión:", i["estado de sesion"])
+
+            elif opcMenuCoordinador==10:
 
                 system("clear")
                 print ("Gracias por usar el programa")
@@ -2200,4 +2212,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
 json_archivo=json.dumps(archivo)
 with open("./Campusland.json","w") as files:
     files.write(json_archivo)
+json_registro=json.dumps(registro)
+with open("./Campusland.json","w") as files:
+    files.write(json_registro)
 #Desarrollado por Luis Henao c.c. 1093904929 y Zully Ortiz c.c.1092528097
