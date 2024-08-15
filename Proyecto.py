@@ -328,7 +328,7 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
     for q in range(len(archivo["Trainers"])):#se usa un bucle for para recorra cada una  de las pociciones de los trainers 
 
         if user == archivo["Trainers"][q]["user"]["login"]:#se miran todas las pociciones de los trainers y si el usuario (login) alguno de ellos coinciden con el ingresado x pasa a valer 1 y se rompe el bucle de while
-            system("clear")
+            system("clear") 
 
             x+=1
             passwordTrainer=input("Ingresa la contraseña\n")#despues de saber cual es el Trainer con ese usuario se le pide la contraseña 
