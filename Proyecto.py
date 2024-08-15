@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from os import system #esto lo voy a usar para limpiar pantalla
 
 system("clear") #esto es para que se limpie todo lo que hay en la terminal
@@ -122,6 +123,8 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                     print("Ingresa una opcion valida (Numero)\n")
             system("clear")
             #Crear otro booleano para que se repita las opciones del menu del camper
+            #Regristro del tiempo del camper
+            fechaRegistro=str(datetime.now())
             campers=True
             while campers==True:
                 #Si la opcion elegida del menu del camper es uno se hara lo siguiente
@@ -322,12 +325,11 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         except ValueError:
                             print("Ingresa una opcion valida (Numero)\n")
                     system("clear")
-                    *asda
 
                 elif opcMenuCamper==4:#Si la opcion del menu del camper es cuatro se finalizara la plataforma
                     print("")
                     campers=False
-            input("¿que actividades realisaste en este inicio de secion?")        
+            input("¿que actividades realisaste en este inicio de secion?")   
 
     for q in range(len(archivo["Trainers"])):#se usa un bucle for para recorra cada una  de las pociciones de los trainers
 
