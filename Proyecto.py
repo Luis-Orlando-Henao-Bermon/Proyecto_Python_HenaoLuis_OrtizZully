@@ -322,12 +322,12 @@ while x==0:#si no hay nadie con el usuario ingresado x seguira siendo 0 por lo t
                         except ValueError:
                             print("Ingresa una opcion valida (Numero)\n")
                     system("clear")
-                    *asda
 
                 elif opcMenuCamper==4:#Si la opcion del menu del camper es cuatro se finalizara la plataforma
                     print("")
+                    actividadSecion=input("¿que actividades realisaste en esta secion?")        
+                    registro.append({"idCamper": archivo["Campers"][i]["id"],"fecha_entrada":"","actividades_realizadas":actividadSecion,"estado de sesion":"finalizada" })
                     campers=False
-            input("¿que actividades realisaste en este inicio de secion?")        
 
     for q in range(len(archivo["Trainers"])):#se usa un bucle for para recorra cada una  de las pociciones de los trainers
 
